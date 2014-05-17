@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'compass'
-gem 'compass-photoshop-drop-shadow'
+gem 'compass', '~> 0.12.6'
+gem 'sass'
 gem 'susy'
