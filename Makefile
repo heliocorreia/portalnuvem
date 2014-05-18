@@ -17,12 +17,12 @@ setup:
 	@npm install generator-wp-theme
 
 start:
-	@$(call php,start)
+	@$(call wordpress,start)
 	@$(call compass,start)
 
 stop:
 	@$(call compass,stop)
-	@$(call php,stop)
+	@$(call wordpress,stop)
 
 define background
 	$(shell nohup $1 > /dev/null 2>&1 &)
@@ -41,10 +41,10 @@ define compass
 	)
 endef
 
-define php
+define wordpress
 	@echo $(MSG_STARTSTOP)
 	$(if $(filter $1,start),
-		@$(call background,php -S localhost:8000)
+		@$(call background,php -S localhost:8000 -t wordpress/)
 	,
 		@$(call kill_it,php -S localhost:8000)
 	)
