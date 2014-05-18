@@ -11,4 +11,18 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<div id="doc">
+	<header id="hd">
+        <h1>
+            <a href="<?php bloginfo('url'); ?>">Nuvem</a>
+        </h1>
+		<div class="container">
+			<nav id="nav-main">
+				<?php wp_nav_menu(array(
+					'theme_location' => 'main',
+					'container' => 'div',
+					'menu_class' => 'nav-menu',
+					'depth' => 1,
+				)); ?>
+			</nav>
+		</div>
+	</header>
