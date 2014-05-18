@@ -1,0 +1,23 @@
+.menu-social-container {
+    .slug-mail,
+    .slug-twitter,
+    .slug-facebook {
+
+        a {
+            @extend %compass-hide-text;
+            @extend %compass-inline-block;
+        }
+    }
+
+    .slug-mail a {
+        @include icons-sprite(mail-27x24);
+    }
+
+    .slug-twitter a {
+        @include icons-sprite(twitter-27x24);
+    }
+
+    .slug-facebook a {
+        @include icons-sprite(facebook-27x24);
+    }
+}

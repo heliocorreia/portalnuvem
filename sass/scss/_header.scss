@@ -1,0 +1,53 @@
+#hd {
+    @extend %font-montserrat-normal;
+    background: #000;
+    border-top: 5px solid #FCF912;
+    padding: pxtoem(30px) 0 pxtoem(10px) 0;
+
+    .nav-menu {
+        @extend %compass-clearfix;
+    }
+
+    .menu-item {
+        float: left;
+    }
+
+    a {
+        @extend %compass-inline-block;
+        color: #fff;
+    }
+}
+
+#hd--logo {
+    float: left;
+
+    a {
+        @extend %compass-hide-text;
+        @extend %compass-inline-block;
+        @include icons-sprite(logo-138x26);
+    }
+}
+
+#hd--nav-social {
+    float: right;
+
+    .menu-item + .menu-item {
+        margin-left: pxtoem(50px);
+    }
+}
+
+#hd--nav-main {
+    border-top: 1px solid #FFF;
+    margin-top: pxtoem(38px);
+    float: left;
+    width: 100%;
+
+    .menu-item + .menu-item {
+        margin-left: pxtoem(70px);
+    }
+
+    a {
+        text-transform: uppercase;
+        padding: pxtoem(40px) 0;
+    }
+}

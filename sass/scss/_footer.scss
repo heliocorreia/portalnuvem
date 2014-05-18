@@ -1,0 +1,79 @@
+#ft {
+    @extend %font-montserrat-700;
+
+    padding-bottom: pxtoem(115px);
+    padding-top: pxtoem(133px);
+    text-transform: uppercase;
+
+    .container {
+        position: relative;
+    }
+
+    .nav-menu {
+        @extend %compass-pie-clearfix;
+    }
+
+    .menu-item {
+        float: left;
+    }
+}
+
+#ft--nav-footer,
+#ft-nav-social {
+}
+
+#ft--nav-footer {
+    float: left;
+
+    .menu-item + .menu-item {
+        margin-left: pxtoem(40px);
+    }
+
+    a {
+        color: #D64E9E;
+    }
+}
+
+#ft--nav-social {
+    float: right;
+
+    .menu-item {
+        padding: 10px;
+        position: relative;
+
+        &::before {
+            @extend %compass-inline-block;
+            @extend %compass-border-radius-50;
+            @extend %compass-stretch;
+            background: #D64E9E;
+            content: '';
+            z-index: -1;
+        }
+
+        & + .menu-item {
+            margin-left: pxtoem(20px);
+        }
+    }
+}
+
+#ft--copy {
+    bottom: 0;
+    position: absolute;
+    text-transform: none;
+
+    &::before {
+        @extend %compass-inline-block;
+        @include icons-sprite(logo-black-138x26);
+        content: '';
+        margin-right: pxtoem(28px);
+    }
+}
+
+#ft--made-in {
+    border-top: 2px solid #072934;
+    float: left;
+    width: 100%;
+    padding-top: pxtoem(30px);
+    margin-top: pxtoem(25px);
+    text-align: right;
+}

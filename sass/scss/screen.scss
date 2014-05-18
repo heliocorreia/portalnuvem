@@ -2,7 +2,26 @@
 
 @include global-reset;
 
+@import "header";
+@import "nav-menu";
+@import "footer";
+
+body {
+    color: #072934;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 .container {
     @include container;
-    @include susy-grid-background;
+
+    body.debug & {
+        @include susy-grid-background;
+    }
 }

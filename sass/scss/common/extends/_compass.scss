@@ -1,0 +1,18 @@
+%compass-border-radius-50 {
+    @include border-radius(50%);
+}
+%compass-clearfix {
+    @include clearfix;
+}
+%compass-hide-text {
+    @include hide-text;
+}
+%compass-inline-block {
+    @include inline-block;
+}
+%compass-stretch {
+    @include stretch;
+}
+%compass-pie-clearfix {
+    @include pie-clearfix;
+}
