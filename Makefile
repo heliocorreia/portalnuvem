@@ -9,6 +9,7 @@ all:
 	@echo '    stop'
 
 setup:
+	@(cd wordpress/wp-content/themes/ && ln -s ../../../portalnuvem . && cd -)
 	@bundle
 	@brew install php55
 	@brew install npm

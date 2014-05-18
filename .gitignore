@@ -3,3 +3,4 @@ portalnuvem/media/compiled/
 .DS_Store
 .sass-cache/
 wordpress/wp-content/database/
+wordpress/wp-content/themes/portalnuvem
