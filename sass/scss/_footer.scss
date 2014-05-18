@@ -27,6 +27,7 @@
 
     a {
         color: $color-menu-item-ft;
+        font-size: pxtoem(14px);
     }
 }
 
@@ -53,23 +54,28 @@
 }
 
 #ft--copy {
+    $font-size: 14px;
+
     bottom: 0;
     position: absolute;
     text-transform: none;
+    font-size: pxtoem($font-size);
 
     &::before {
         @extend %compass-inline-block;
         @include icons-sprite(logo-black-138x26);
         content: '';
-        margin-right: pxtoem(28px);
+        margin-right: pxtoem(28px, $font-size);
     }
 }
 
 #ft--made-in {
+    $font-size: 14px;
     border-top: 2px solid $color-border-ft;
     float: left;
-    width: 100%;
-    padding-top: pxtoem(30px);
-    margin-top: pxtoem(25px);
+    font-size: pxtoem($font-size);
+    margin-top: pxtoem(25px, $font-size);
+    padding-top: pxtoem(30px, $font-size);
     text-align: right;
+    width: 100%;
 }
