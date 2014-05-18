@@ -1,7 +1,7 @@
 #hd {
     @extend %font-montserrat-normal;
-    background: #000;
-    border-top: 5px solid #FCF912;
+    background: $color-bg-hd;
+    border-top: 5px solid $color-border-hd;
     padding: pxtoem(30px) 0 pxtoem(10px) 0;
 
     .nav-menu {
@@ -14,7 +14,7 @@
 
     a {
         @extend %compass-inline-block;
-        color: #fff;
+        color: $color-menu-item;
     }
 }
 
@@ -44,6 +44,10 @@
 
     .menu-item + .menu-item {
         margin-left: pxtoem(70px);
+    }
+
+    .current-menu-item a {
+        color: $color-menu-current-item;
     }
 
     a {
