@@ -47,18 +47,18 @@
 </div>
 
 <section class="home-partners">
-    <h1>Conheça os parceiros da nuvem</h1>
-    <ul>
-        <li>Uma Cápsula</li>
-        <li>Casa da Luz</li>
-        <li>D'Outro Jeito</li>
-        <li>Maquina</li>
-        <li>?????</li>
-        <li>Contra</li>
-        <li>Acidum</li>
-        <li>Imaginária</li>
-        <li>?????</li>
-        <li>Schizzi Books</li>
+    <h1 class="home-partners-title">Conheça os parceiros da nuvem</h1>
+    <ul class="home-partners-items">
+        <li class="home-partners-item"><span class="uma-capsula">Uma Cápsula</span></li>
+        <li class="home-partners-item"><span class="casa-da-luz">Casa da Luz</span></li>
+        <li class="home-partners-item"><span class="doutro-jeito">D'Outro Jeito</span></li>
+        <li class="home-partners-item"><span class="maquina">Maquina</span></li>
+        <li class="home-partners-item"><span class="layer-28">?????</span></li>
+        <li class="home-partners-item"><span class="contra">Contra</span></li>
+        <li class="home-partners-item"><span class="acidum">Acidum</span></li>
+        <li class="home-partners-item"><span class="imaginaria">Imaginária</span></li>
+        <li class="home-partners-item"><span class="layer-32">?????</span></li>
+        <li class="home-partners-item"><span class="schizzi-books">Schizzi Books</span></li>
     </ul>
 </section>
 

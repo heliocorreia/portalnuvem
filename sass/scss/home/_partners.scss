@@ -1,0 +1,38 @@
+.home-partners {
+    $items: uma-capsula casa-da-luz doutro-jeito maquina layer-28 contra acidum imaginaria layer-32 schizzi-books;
+
+    @include container;
+
+    @each $item in $items {
+        .#{$item} {
+            @extend %compass-hide-text;
+            @extend %compass-inline-block;
+            @include partners-sprite($item);
+        }
+    }
+}
+
+.home-partners-title {
+    $font-size: 30px;
+    @extend %font-montserrat-700;
+    font-size: pxtoem($font-size);
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: pxtoem(85px, $font-size);
+}
+
+.home-partners-items {
+    @extend %compass-clearfix;
+}
+
+.home-partners-item {
+    @include span-columns(3);
+
+    &:nth-child(4n + 4) {
+        @include omega;
+    }
+
+    &:nth-child(9) {
+        @include pre(3);
+    }
+}
