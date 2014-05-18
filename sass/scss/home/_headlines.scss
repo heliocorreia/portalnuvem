@@ -1,0 +1,51 @@
+.home-headlines {
+}
+
+.home-headlines-items {
+    @extend %compass-clearfix;
+}
+
+.home-headlines-item {
+    background: gray;
+    height: 300px;
+    position: relative;
+
+    &:nth-child(even) {
+        background: silver;
+    }
+
+    @include with-grid-settings($columns: 16, $width:pxtoem(350px), $gutter: 0em, $padding: 0em) {
+        @include span-columns(4);
+
+        &:first-child {
+            @include pre(-2);
+        }
+
+        &:last-child {
+            @include post(-2);
+        }
+    }
+}
+
+.home-headlines-link {
+    $font-size: 24px;
+    @extend %compass-stretch;
+    @extend %font-montserrat-700;
+    color: $color-home-headlines-link;
+    padding: pxtoem(40px, $font-size);
+    text-align: center;
+    text-transform: uppercase;
+    top: auto;
+    z-index: 0;
+
+    &::before {
+        @extend %compass-inline-block;
+        @extend %compass-opacity-50;
+        @extend %compass-stretch;
+        background: $color-home-headlines-bg;
+        content: '';
+        height: 150px;
+        top: auto;
+        z-index: -1;
+    }
+}

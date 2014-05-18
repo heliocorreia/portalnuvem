@@ -10,6 +10,9 @@
 %compass-inline-block {
     @include inline-block;
 }
+%compass-opacity-50 {
+    @include opacity(.5);
+}
 %compass-stretch {
     @include stretch;
 }

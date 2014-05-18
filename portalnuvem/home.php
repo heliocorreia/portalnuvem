@@ -1,5 +1,15 @@
 <?php get_header(); ?>
 
+<div class="home-headlines">
+    <ul class="home-headlines-items">
+        <li class="home-headlines-item"><a class="home-headlines-link" href="#">A melancolia  dos nus de Sté</a></li>
+        <li class="home-headlines-item"><a class="home-headlines-link" href="#">Nude por  Gio Simões</a></li>
+        <li class="home-headlines-item"><a class="home-headlines-link" href="#">Harmonia por Ianah Maia</a></li>
+        <li class="home-headlines-item"><a class="home-headlines-link" href="#">Sonhei Que Te  Amava  por Sté</a></li>
+        <li class="home-headlines-item"><a class="home-headlines-link" href="#">A melancolia  dos nus de Sté</a></li>
+    </ul>
+</div>
+
 <div class="highlight-1">
     <figure>
         <img src="" width="162" height="162" />
