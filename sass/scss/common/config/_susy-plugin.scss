@@ -4,3 +4,12 @@
 // http://susy.oddbird.net/
 
 @import "susy";
+
+// Container Override Settings
+$container-style: magic;
+
+// Grid Settings (base pixel size: 16px)
+$total-columns: 6;
+$column-width: 5.250em; //pxtoem(84px);
+$gutter-width: 2.250em; //pxtoem(36px);
+$grid-padding: 1.250em; //pxtoem(20px);
