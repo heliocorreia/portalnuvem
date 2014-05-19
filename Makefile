@@ -1,6 +1,6 @@
 MSG_STARTSTOP = $1"ing" $0"..."
 
-.PHONY: all setup start stop
+.PHONY: all setup start stop test
 
 all:
 	@echo 'make <target>'
@@ -13,9 +13,9 @@ setup:
 	@bundle
 	@brew install php55
 	@brew install npm
-	@npm install yo
+	@npm install yo --save-dev
 	@npm install grunt --save-dev
-	@npm install generator-wp-theme
+	@npm install generator-wp-theme --save-dev
 
 start:
 	@$(call wordpress,start)
@@ -24,6 +24,9 @@ start:
 stop:
 	@$(call compass,stop)
 	@$(call wordpress,stop)
+
+test:
+	@scss-lint sass/
 
 define background
 	$(shell nohup $1 > /dev/null 2>&1 &)
