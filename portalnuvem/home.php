@@ -22,31 +22,31 @@
 </div>
 
 <section class="home-news">
-    <section>
-        <figure>
-            <img src="" width="348" height="213" />
+    <section class="home-news-item">
+        <figure class="home-news-figure">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/news-01.jpg" width="348" height="213" />
         </figure>
-        <p><small>Recife - PE</small></p>
-        <h1>Jota Zer0ff na Reserva do Paiva</h1>
-        <p>Mais novidades da Nuvem Store! Depois do maor e mais  lançamento de uma série de Posters, a artista</p>
+        <p class="home-news-pretitle"><small>Recife - PE</small></p>
+        <h1 class="home-news-title">Jota Zer0ff na Reserva do Paiva</h1>
+        <p class="home-news-subtitle"><a href="#" class="home-news-link">Mais novidades da Nuvem Store! Depois do maor e mais  lançamento de uma série de Posters, a artista</a></p>
     </section>
-    <section>
-        <figure>
-            <img src="" width="348" height="213" />
+    <section class="home-news-item">
+        <figure class="home-news-figure">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/news-02.jpg" width="348" height="213" />
         </figure>
-        <p><small>Florianópolis - SC</small></p>
-        <h1>Grafite em armazém vira atração em Floripa</h1>
-        <p>Mais novidades da Nuvem Store! Depois do maor e mais  lançamento de uma série de Posters, a artista</p>
+        <p class="home-news-pretitle"><small>Florianópolis - SC</small></p>
+        <h1 class="home-news-title">Grafite em armazém vira atração em Floripa</h1>
+        <p class="home-news-subtitle"><a href="#" class="home-news-link">Mais novidades da Nuvem Store! Depois do maor e mais  lançamento de uma série de Posters, a artista</a></p>
     </section>
-    <section>
-        <figure>
-            <img src="" width="348" height="213" />
+    <section class="home-news-item">
+        <figure class="home-news-figure">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/news-03.jpg" width="348" height="213" />
         </figure>
-        <p><small>Recife - PE</small></p>
-        <h1>Nuvem faz coletiva de Artistas na Florense</h1>
-        <p>Mais novidades da Nuvem Store! Depois do maor e mais  lançamento de uma série de Posters, a artista</p>
+        <p class="home-news-pretitle"><small>Recife - PE</small></p>
+        <h1 class="home-news-title">Nuvem faz coletiva de Artistas na Florense</h1>
+        <p class="home-news-subtitle"><a href="#" class="home-news-link">Mais novidades da Nuvem Store! Depois do maor e mais  lançamento de uma série de Posters, a artista</a></p>
     </section>
-    <p><a href="#">Veja todas as últimas</a></p>
+    <p class="home-news-seemore"><a class="home-news-seemore-link" href="#">Veja todas as últimas</a></p>
 </section>
 
 <div class="highlight-2">
