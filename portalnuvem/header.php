@@ -8,19 +8,8 @@
     <meta name="description" content="<?php bloginfo('description'); ?>" />
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo get_stylesheet_directory_uri(); ?>/media/compiled/css/screen.css" />
     <link rel="profile" href="http://gmpg.org/xfn/11">
-    <script type="text/javascript">
-        (function() {
-            var link_element = document.createElement("link"),
-                s = document.getElementsByTagName("script")[0];
-            if (window.location.protocol !== "http:" && window.location.protocol !== "https:") {
-                link_element.href = "http:";
-            }
-            link_element.href += "//fonts.googleapis.com/css?family=Montserrat:400,700";
-            link_element.rel = "stylesheet";
-            link_element.type = "text/css";
-            s.parentNode.insertBefore(link_element, s);
-        })();
-    </script>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic' rel='stylesheet' type='text/css'>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
