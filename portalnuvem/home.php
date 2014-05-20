@@ -2,11 +2,11 @@
 
 <div class="home-headlines">
     <ul class="home-headlines-items">
-        <li class="home-headlines-item"><a class="home-headlines-link" href="#">A melancolia  dos nus de Sté</a></li>
-        <li class="home-headlines-item"><a class="home-headlines-link" href="#">Nude por  Gio Simões</a></li>
-        <li class="home-headlines-item"><a class="home-headlines-link" href="#">Harmonia por Ianah Maia</a></li>
-        <li class="home-headlines-item"><a class="home-headlines-link" href="#">Sonhei Que Te  Amava  por Sté</a></li>
-        <li class="home-headlines-item"><a class="home-headlines-link" href="#">A melancolia  dos nus de Sté</a></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/01.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">A melancolia  dos nus de Sté</a></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/02.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">Nude por  Gio Simões</a></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/03.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">Harmonia por Ianah Maia</a></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/04.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">Sonhei Que Te  Amava  por Sté</a></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/05.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">A melancolia  dos nus de Sté</a></li>
     </ul>
 </div>
 
