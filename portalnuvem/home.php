@@ -10,12 +10,15 @@
     </ul>
 </div>
 
-<div class="highlight-1">
-    <figure>
-        <img src="" width="162" height="162" />
+<div class="home-highlight-1">
+    <figure class="home-highlight-1-figure-1">
+        <img class="home-highlight-1-img-1" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-01a1.png" width="1440" height="532" />
     </figure>
-    <p><small>Novidades</small></p>
-    <h1>A artista paulistana Sté produziu 03 obras originais e exclusivas para a Nuvem</h1>
+    <p class="home-highlight-1-pretitle"><small>Entrevista</small></p>
+    <h1 class="home-highlight-1-title"><a class="home-highlight-1-link" href="#">O paraiba no fala sobre seu fértil periodo na Itália de Michelangelo</a></h1>
+    <figure class="home-highlight-1-figure-2">
+        <img class="home-highlight-1-img-2" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-01a2.png" width="352" height="443" />
+    </figure>
 </div>
 
 <section class="home-news">

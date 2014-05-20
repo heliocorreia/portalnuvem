@@ -1,0 +1,52 @@
+.home-highlight-1 {
+    @include container;
+}
+
+.home-highlight-1-figure-1 {
+    margin-left: - $grid-padding;
+    margin-right: - $grid-padding;
+}
+
+.home-highlight-1-img-1,
+.home-highlight-1-img-2 {
+    height: auto;
+    max-width: 100%;
+}
+
+.home-highlight-1-img-1 {
+    width: 100%;
+}
+
+.home-highlight-1-pretitle,
+.home-highlight-1-title {
+    @include pre(2);
+    @include span-columns(4);
+    text-align: right;
+}
+
+.home-highlight-1-pretitle {
+    @extend %font-montserrat-700;
+    color: $color-home-hightlight-1-pretitle;
+    text-transform: uppercase;
+    font-size: pxtoem(24px);
+}
+
+.home-highlight-1-title {
+    @extend %font-vollkorn-normal-italic;
+}
+
+.home-highlight-1-link {
+    color: $color-home-hightlight-1-link;
+    font-size: pxtoem(40px);
+}
+
+.home-highlight-1-figure-2 {
+    @include span-columns(4);
+    position: relative;
+}
+
+.home-highlight-1-img-2 {
+    position: absolute;
+    top: pxtoem(-24px);
+    margin-top: - pxtoem(212px);
+}
