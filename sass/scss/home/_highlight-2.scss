@@ -1,0 +1,81 @@
+$highlight-2-top-offset: 40px;
+$highlight-2-bottom-offset: 45px;
+
+.highlight-2 {
+    background: $color-home-hightlight-2-bg;
+    border: solid white;
+    border-width: pxtoem($highlight-2-top-offset) 0 pxtoem($highlight-2-bottom-offset) 0;
+
+    & > .container {
+        padding-bottom: pxtoem(73px);
+        padding-top: pxtoem(142px);
+        position: relative;
+    }
+}
+
+.highlight-2-figure {
+    bottom: pxtoem(- $highlight-2-top-offset);
+    left: 50%;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: pxtoem(- $highlight-2-bottom-offset);
+}
+
+.highlight-2-img {
+    height: 100%;
+    margin: 0 auto;
+    max-height: 100%;
+    width: auto;
+}
+
+.highlight-2-quote,
+.highlight-2-author {
+    @include pre(1);
+    @include span-columns(5);
+    text-align: center;
+}
+
+.highlight-2-quote {
+    $font-size: 34px;
+    @extend %font-vollkorn-normal-italic;
+    color: $color-home-hightlight-2-quote;
+    font-size: pxtoem($font-size);
+    line-height: 1.7;
+    padding-bottom: pxtoem(45px, $font-size);
+}
+
+.highlight-2-author .fn {
+    $font-size: 24px;
+    @extend %font-montserrat-normal;
+    bottom: 0;
+    color: $color-home-hightlight-2-author;
+    display: block;
+    font-size: $font-size;
+    padding-bottom: pxtoem(40px, $font-size);
+    position: relative;
+    text-transform: uppercase;
+
+    &::before {
+        $height: pxtoem(5px, $font-size);
+        $width: pxtoem(40px, $font-size);
+        @extend %compass-inline-block;
+        border-bottom: $height solid #FFFF00;
+        bottom: - $height;
+        content: "";
+        left: 50%;
+        margin-left: $width / -2;
+        position: absolute;
+        width: $width;
+    }
+}
+
+.highlight-2-author-img {
+    $height: 155px;
+    $width: 155px;
+    @extend %compass-border-radius-50;
+    margin-left: pxtoem($width / -2);
+    margin-top: pxtoem($height / -2);
+    position: absolute;
+    top: 0;
+}

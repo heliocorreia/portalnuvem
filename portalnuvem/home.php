@@ -50,12 +50,15 @@
 </section>
 
 <div class="highlight-2">
-    <blockquote>
-        <figure>
-            <img src="" width="162" height="162" />
+    <blockquote class="container">
+        <figure class="highlight-2-figure">
+            <img class="highlight-2-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-02a1.png" width="605" height="695" />
         </figure>
-        <p>Estou interessado em saber o que públicos de outros países acham do que faço. Acabo sendo influenciado pela cidade, me instigo a experimentar novas ideias</p>
-        <footer class="hcard"><span class="fn n">Celso Sales</span></footer>
+        <p class="highlight-2-quote">Estou interessado em saber o que públicos de outros países acham do que faço. Acabo sendo influenciado pela cidade, me instigo a experimentar novas ideias</p>
+        <footer class="highlight-2-author" class="hcard">
+            <img class="highlight-2-author-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-02a2.png" width="155" height="155" />
+            <span class="fn n">Celso Sales</span>
+        </footer>
     </blockquote>
 </div>
 
