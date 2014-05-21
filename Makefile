@@ -20,6 +20,7 @@ setup:
 start:
 	@$(call wordpress,start)
 	@$(call compass,start)
+	@tail -f *.log
 
 stop:
 	@$(call compass,stop)
@@ -29,7 +30,7 @@ test:
 	@scss-lint sass/
 
 define background
-	$(shell nohup $1 > /dev/null 2>&1 &)
+	@nohup $1 > $2 2>&1 &
 endef
 
 define kill_it
@@ -39,7 +40,7 @@ endef
 define compass
 	@echo $(MSG_STARTSTOP)
 	$(if $(filter $1,start),
-		@$(call background,compass watch .)
+		@$(call background,compass watch .,$0.log)
 	,
 		@$(call kill_it,compass)
 	)
@@ -48,7 +49,7 @@ endef
 define wordpress
 	@echo $(MSG_STARTSTOP)
 	$(if $(filter $1,start),
-		@$(call background,php -S localhost:8000 -t wordpress/)
+		@$(call background,php -S localhost:8000 -t wordpress/,$0.log)
 	,
 		@$(call kill_it,php -S localhost:8000)
 	)
