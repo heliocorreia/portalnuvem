@@ -1,0 +1,51 @@
+.single {
+    position: relative;
+}
+
+.single--hd,
+.single--article {
+    @include container;
+}
+
+.single--breadcrumb,
+.single--datetime,
+.single--title,
+.single--content {
+    @include pre(1);
+    @include span-columns(10);
+}
+
+.single--breadcrumb {
+    @extend %font-montserrat-normal;
+}
+
+.single--datetime,
+.single--title {
+    @extend %font-montserrat-700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.single--datetime {
+    font-size: pxtoem(18px);
+}
+
+.single--title {
+    font-size: pxtoem(50px);
+}
+
+.single--article {
+    &::before {
+        @extend %compass-inline-block;
+        @include background-image(linear-gradient(black, white));
+        @include opacity(.1);
+        @include stretch-x;
+        content: "";
+        height: pxtoem(400px);
+        z-index: -1;
+    }
+}
+
+.single--content {
+    padding-top: pxtoem(132px);
+}
