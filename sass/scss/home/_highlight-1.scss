@@ -28,8 +28,9 @@
 .home-highlight-1-pretitle {
     @extend %font-montserrat-700;
     color: $color-home-hightlight-1-pretitle;
-    text-transform: uppercase;
     font-size: pxtoem(24px);
+    margin-bottom: pxtoem(10px);
+    text-transform: uppercase;
 }
 
 .home-highlight-1-title {
@@ -39,6 +40,7 @@
 .home-highlight-1-link {
     color: $color-home-hightlight-1-link;
     font-size: pxtoem(40px);
+    line-height: 1.2;
 }
 
 .home-highlight-1-figure-2 {
