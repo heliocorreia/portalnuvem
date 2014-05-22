@@ -9,7 +9,7 @@
     }
 
     .menu-item {
-        float: left;
+        @extend %compass-inline-block;
     }
 
     a {
@@ -19,7 +19,8 @@
 }
 
 #hd--logo {
-    float: left;
+    @include pre(1);
+    @include span-columns(5);
 
     a {
         @extend %compass-hide-text;
@@ -29,7 +30,9 @@
 }
 
 #hd--nav-social {
-    float: right;
+    @include span-columns(5 omega);
+    @include post(1);
+    text-align: right;
 
     .menu-item + .menu-item {
         margin-left: pxtoem(50px);
@@ -37,10 +40,10 @@
 }
 
 #hd--nav-main {
+    @include pre(1);
+    @include span-columns(10);
     border-top: 1px solid #FFF;
     margin-top: pxtoem(38px);
-    float: left;
-    width: 100%;
 
     .menu-item + .menu-item {
         margin-left: pxtoem(70px);

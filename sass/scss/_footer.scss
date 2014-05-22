@@ -1,6 +1,5 @@
 #ft {
     @extend %font-montserrat-700;
-
     padding-bottom: pxtoem(115px);
     padding-top: pxtoem(133px);
     text-transform: uppercase;
@@ -14,12 +13,13 @@
     }
 
     .menu-item {
-        float: left;
+        @extend %compass-inline-block;
     }
 }
 
 #ft--nav-footer {
-    float: left;
+    @include pre(1);
+    @include span-columns(7);
 
     .menu-item + .menu-item {
         margin-left: pxtoem(40px);
@@ -32,7 +32,9 @@
 }
 
 #ft--nav-social {
-    float: right;
+    @include span-columns(3 omega);
+    @include post(1);
+    text-align: right;
 
     .menu-item {
         padding: 10px;
@@ -55,11 +57,11 @@
 
 #ft--copy {
     $font-size: 14px;
-
+    @include pre(1);
     bottom: 0;
+    font-size: pxtoem($font-size);
     position: absolute;
     text-transform: none;
-    font-size: pxtoem($font-size);
 
     &::before {
         @extend %compass-inline-block;
@@ -71,11 +73,11 @@
 
 #ft--made-in {
     $font-size: 14px;
+    @include pre(1);
+    @include span-columns(10);
     border-top: 2px solid $color-border-ft;
-    float: left;
     font-size: pxtoem($font-size);
     margin-top: pxtoem(25px, $font-size);
     padding-top: pxtoem(30px, $font-size);
     text-align: right;
-    width: 100%;
 }

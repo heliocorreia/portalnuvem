@@ -24,6 +24,9 @@
 
 .home-partners-items {
     @extend %compass-clearfix;
+    @include pre(1);
+    @include span-columns(10 omega);
+    @include post(1);
 }
 
 .home-partners-item {
