@@ -1,6 +1,8 @@
 .home-news {
     @include container;
-    padding: pxtoem(200px);
+    padding: pxtoem(200px) 0 0 0;
+    position: relative;
+    z-index: 1;
 }
 
 .home-news-item {
@@ -14,8 +16,8 @@
         &::before {
             @extend %compass-inline-block;
             content: '';
-            border: pxtoem(7px) solid $color-home-news-bar;
-            width: 100%;
+            border: pxtoem(5px) solid $color-home-news-bar;
+            width: pxtoem(923px);
             position: absolute;
         }
     }
@@ -23,17 +25,18 @@
     &:first-child {
         &::before {
             @include rotate(-25deg);
-            top: pxtoem(-100px);
-            right: 0;
+            right: pxtoem(-170px);
+            top: pxtoem(-170px);
             z-index: 100;
         }
     }
 
     &:last-of-type {
         &::before {
-            @include rotate(55deg);
-            left: -50%;
+            @include rotate(45deg);
             bottom: 0;
+            left: 0;
+            margin-left: pxtoem(-350px);
             z-index: -1;
         }
     }
@@ -73,9 +76,10 @@
 .home-news-seemore {
     @include pre(1);
     @include span-columns(9);
-    text-align: center;
     border-top: 2px solid $color-home-news-separator;
+    margin-top: pxtoem(20px);
     padding-top: pxtoem(45px);
+    text-align: center;
 }
 
 .home-news-seemore-link {
