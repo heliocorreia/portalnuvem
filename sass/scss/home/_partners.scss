@@ -16,9 +16,10 @@
     $font-size: 30px;
     @extend %font-montserrat-700;
     font-size: pxtoem($font-size);
+    padding-bottom: pxtoem(85px, $font-size);
+    padding-top: pxtoem(64px, $font-size);
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: pxtoem(85px, $font-size);
 }
 
 .home-partners-items {
