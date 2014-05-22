@@ -60,7 +60,7 @@ $highlight-2-bottom-offset: 45px;
         $height: pxtoem(5px, $font-size);
         $width: pxtoem(40px, $font-size);
         @extend %compass-inline-block;
-        border-bottom: $height solid #FFFF00;
+        border-bottom: $height solid $color-home-hightlight-2-author;
         bottom: - $height;
         content: "";
         left: 50%;
