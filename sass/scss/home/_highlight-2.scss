@@ -1,4 +1,5 @@
-$highlight-2-top-offset: 40px;
+$highlight-2-author-img-height: 155px;
+$highlight-2-top-offset: $highlight-2-author-img-height / 2;
 $highlight-2-bottom-offset: 45px;
 
 .highlight-2 {
@@ -71,7 +72,7 @@ $highlight-2-bottom-offset: 45px;
 }
 
 .highlight-2-author-img {
-    $height: 155px;
+    $height: $highlight-2-author-img-height;
     $width: 155px;
     @extend %compass-border-radius-50;
     margin-left: pxtoem($width / -2);
