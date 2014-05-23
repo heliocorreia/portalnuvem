@@ -1,6 +1,7 @@
 @import "common";
 
 @include global-reset;
+@include establish-baseline;
 
 @import "header";
 @import "nav-menu";

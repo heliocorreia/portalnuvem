@@ -3,7 +3,7 @@
 }
 
 .single--hd,
-.single--article {
+.single--content {
     @include container;
 }
 
@@ -17,6 +17,9 @@
 
 .single--breadcrumb {
     @extend %font-montserrat-normal;
+    @include leader;
+    @include adjust-font-size-to(18px);
+    @include trailer;
 }
 
 .single--datetime,
@@ -27,14 +30,25 @@
 }
 
 .single--datetime {
-    font-size: pxtoem(18px);
+    @include leader;
+    @include adjust-font-size-to(18px);
+    @include trailer;
+    color: $color-text-alternate;
 }
 
 .single--title {
-    font-size: pxtoem(50px);
+    @include adjust-font-size-to(50px);
+    @include trailer;
 }
 
 .single--article {
+    body.debug {
+        @include debug-vertical-alignment;
+    }
+
+    @extend %compass-clearfix;
+    border-top: 1px solid #B4BEC2;
+
     &::before {
         @extend %compass-inline-block;
         @include background-image(linear-gradient(black, white));
@@ -47,5 +61,34 @@
 }
 
 .single--content {
-    padding-top: pxtoem(132px);
+    $font-size: 28px;
+    $lines: lines-for-font-size($font-size);
+
+    @extend %font-vollkorn-normal;
+    @include adjust-font-size-to($font-size);
+    @include padding-leader(2 * $lines, $font-size);
+
+    & > * {
+        @include margin-trailer($lines, $font-size);
+        @include span-columns(6 omega);
+        @include post(6);
+    }
+
+    blockquote {
+        @include span-columns(8);
+        @include post(4);
+        @include margin-leader($lines, $font-size);
+        @include margin-trailer($lines, $font-size);
+
+        p {
+            @extend %font-vollkorn-normal-italic;
+            @include adjust-font-size-to(38px, $from-size:$font-size);
+            color: $color-text-alternate;
+            margin-left: gutter();
+        }
+    }
+
+    a {
+        color: $color-link;
+    }
 }
