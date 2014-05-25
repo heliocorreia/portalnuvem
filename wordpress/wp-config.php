@@ -69,7 +69,7 @@ $table_prefix  = 'wp_';
  * pt_PT.mo em wp-content/languages e defina WPLANG como 'pt_PT' para activar o
  * suporte para a língua portuguesa.
  */
-define('WPLANG', 'pt_PT');
+define('WPLANG', 'pt_BR');
 
 /**
  * Para developers: WordPress em modo debugging.
