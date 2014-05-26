@@ -92,3 +92,74 @@
         color: $color-link;
     }
 }
+
+.single-aside {
+    position: relative;
+
+    &::before {
+        @include stretch;
+        background: $color-bg-aside;
+        border-bottom: rhythm(4) $color-bg solid;
+        content: "";
+        z-index: -1;
+    }
+}
+
+.single-aside-header,
+.single-aside-content {
+    @include container;
+}
+
+.single-aside-header-title {
+    $font-size: 30px;
+    $lines: 3;
+
+    @extend %font-montserrat-700;
+    @include padding-leader($lines, $font-size);
+    @include padding-trailer($lines, $font-size);
+    font-size: pxtoem($font-size);
+    text-align: center;
+    text-transform: uppercase;
+
+    &::before {
+        background: $color-bg;
+        content: "";
+        height: rhythm($lines + 1 + $lines, $font-size);
+        margin-top: - rhythm($lines, $font-size);
+        left: 0;
+        position: absolute;
+        right: 0;
+        z-index: -1;
+    }
+}
+
+.single-aside-content {
+    @include padding-leader(4);
+    @include pad(1, 1);
+}
+
+.single-aside-item {
+    @include span-columns(4);
+    @include nth-omega(3n);
+}
+
+.single-aside-pretitle,
+.single-aside-title {
+    text-transform: uppercase;
+}
+
+.single-aside-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.single-aside-pretitle {
+    @extend %font-montserrat-700;
+    color: $color-link;
+}
+
+.single-aside-title {
+    @extend %font-montserrat-700;
+    color: $color-text;
+    font-size: pxtoem(22px);
+}

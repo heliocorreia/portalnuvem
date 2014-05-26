@@ -14,6 +14,35 @@
             <?php the_content(); ?>
         </article>
     </div>
+
+    <aside class="single-aside">
+        <header class="single-aside-header">
+            <h1 class="single-aside-header-title">Veja Também</h1>
+        </header>
+        <div class="single-aside-content">
+            <section class="single-aside-item">
+                <figure class="single-aside-figure">
+                    <img class="single-aside-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/single-aside-01.jpg" width="352" height="402" />
+                </figure>
+                <p class="single-aside-pretitle"><small>Arte Hoje</small></p>
+                <h1 class="single-aside-title">Qual é o nosso problema? Márcio Alencar dá a dica</h1>
+            </section>
+            <section class="single-aside-item">
+                <figure class="single-aside-figure">
+                    <img class="single-aside-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/single-aside-02.jpg" width="352" height="402" />
+                </figure>
+                <p class="single-aside-pretitle"><small>Entrevistas</small></p>
+                <h1 class="single-aside-title">Shiko comenta seu período fértil na Itália</h1>
+            </section>
+            <section class="single-aside-item">
+                <figure class="single-aside-figure">
+                    <img class="single-aside-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/single-aside-03.jpg" width="352" height="402" />
+                </figure>
+                <p class="single-aside-pretitle"><small>Loja</small></p>
+                <h1 class="single-aside-title">Chuva - Um singelo poser de João Lin</h1>
+            </section>
+        </div>
+    </aside>
 </section>
 
 <?php get_footer(); ?>
