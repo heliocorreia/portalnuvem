@@ -73,11 +73,16 @@
 
 #ft--made-in {
     $font-size: 14px;
-    @include pre(1);
     @include span-columns(10);
     border-top: 2px solid $color-border-ft;
     font-size: pxtoem($font-size);
     margin-top: pxtoem(25px, $font-size);
     padding-top: pxtoem(30px, $font-size);
     text-align: right;
+
+    // override grid
+    margin-left: columns(1);
+    padding-left: gutter();
+    padding-right: gutter();
+    margin-right: columns(1);
 }
