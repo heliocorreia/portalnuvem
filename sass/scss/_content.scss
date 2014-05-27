@@ -1,0 +1,112 @@
+.content-hd {
+    @include container;
+}
+
+.content-hd--breadcrumb,
+.content-hd--datetime,
+.content-hd--title,
+.content-hd--content {
+    @include pre(1);
+    @include span-columns(10);
+}
+
+.content-hd--breadcrumb {
+    @extend %font-montserrat-normal;
+    @include leader;
+    @include adjust-font-size-to(18px);
+    @include trailer;
+}
+
+.content-hd--datetime,
+.content-hd--title {
+    @extend %font-montserrat-700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.content-hd--datetime {
+    @include leader;
+    @include adjust-font-size-to(18px);
+    @include trailer;
+    color: $color-text-alternate;
+}
+
+.content-hd--title {
+    @include adjust-font-size-to(50px);
+    @include trailer;
+}
+
+.content--bd {
+    $min-height: 400px;
+    @extend %compass-clearfix;
+    @include container;
+    border-top: 1px solid #B4BEC2;
+
+    min-height: pxtoem($min-height);
+
+    &::before {
+        @extend %compass-inline-block;
+        @include background-image(linear-gradient(black, white));
+        @include opacity(.1);
+        @include stretch-x;
+        content: "";
+        height: pxtoem($min-height);
+        z-index: -1;
+    }
+}
+
+.content--entry {
+    @extend %compass-clearfix;
+    @include margin-trailer(2);
+}
+
+.content--figure {
+    @include span-columns(4, 8);
+}
+
+.content--image-link {
+    @extend %compass-inline-block;
+    @extend %compass-clearfix;
+
+    img {
+        border: 0;
+        float: left;
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+.content--pretitle,
+.content--title,
+.content--subtitle {
+    .content--figure ~ & {
+        @include span-columns(4 omega, 8);
+    }
+}
+
+.content--pretitle {
+    @extend %font-montserrat-700;
+    color: $color-home-news-pretitle;
+    text-transform: uppercase;
+}
+
+.content--title {
+    $font-size: 28px;
+    @extend %font-montserrat-700;
+    font-size: pxtoem($font-size);
+    padding: pxtoem(19px, $font-size) 0 pxtoem(24px, $font-size) 0;
+    text-transform: uppercase;
+}
+
+.content--title-link {
+    color: $color-home-news-title;
+}
+
+.content--subtitle {}
+
+.content--subtitle-link {
+    @extend %font-vollkorn-normal;
+    color: $color-home-news-subtitle;
+    line-height: 1.45;
+    font-size: pxtoem(22px);
+}

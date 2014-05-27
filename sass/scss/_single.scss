@@ -3,22 +3,7 @@
 }
 
 .single--bd {
-    @include container;
-}
-
-.single--bd {
-    @extend %compass-clearfix;
-    border-top: 1px solid #B4BEC2;
-
-    &::before {
-        @extend %compass-inline-block;
-        @include background-image(linear-gradient(black, white));
-        @include opacity(.1);
-        @include stretch-x;
-        content: "";
-        height: pxtoem(400px);
-        z-index: -1;
-    }
+    @extend .content--bd;
 }
 
 .single--content {

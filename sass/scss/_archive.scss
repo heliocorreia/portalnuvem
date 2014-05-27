@@ -1,0 +1,11 @@
+.archive {
+}
+
+.archive--bd {
+    @extend .content--bd;
+}
+
+.archive--content {
+    @include pre(1);
+    @include span-columns(7);
+}

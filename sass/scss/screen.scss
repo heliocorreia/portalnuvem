@@ -5,11 +5,12 @@
 
 @import "header";
 @import "nav-menu";
-@import "content-hd";
+@import "content";
 @import "footer";
 
 @import "home";
 @import "single";
+@import "archive";
 
 body {
     color: $color-text;
