@@ -2,43 +2,8 @@
     position: relative;
 }
 
-.single--hd,
 .single--bd {
     @include container;
-}
-
-.single--breadcrumb,
-.single--datetime,
-.single--title,
-.single--content {
-    @include pre(1);
-    @include span-columns(10);
-}
-
-.single--breadcrumb {
-    @extend %font-montserrat-normal;
-    @include leader;
-    @include adjust-font-size-to(18px);
-    @include trailer;
-}
-
-.single--datetime,
-.single--title {
-    @extend %font-montserrat-700;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.single--datetime {
-    @include leader;
-    @include adjust-font-size-to(18px);
-    @include trailer;
-    color: $color-text-alternate;
-}
-
-.single--title {
-    @include adjust-font-size-to(50px);
-    @include trailer;
 }
 
 .single--bd {
