@@ -95,7 +95,7 @@
     &::before {
         @include stretch;
         background: $color-bg-aside;
-        border-bottom: rhythm(4) $color-bg solid;
+        border-bottom: rhythm(6) $color-bg solid;
         content: "";
         z-index: -1;
     }
@@ -130,13 +130,21 @@
 }
 
 .single-aside-bd {
-    @include padding-leader(4);
-    @include pad(1, 1);
+    @include padding-leader(2);
 }
 
 .single-aside-item {
-    @include span-columns(4);
-    @include nth-omega(3n);
+    @include span-columns(3);
+
+    &:first-child {
+        @include pre(1);
+        margin-right: (columns(1) / 2) + (gutter() / 2) + gutter();
+    }
+
+    &:nth-child(3n) {
+        @include omega;
+        @include post(1);
+    }
 }
 
 .single-aside-pretitle,
