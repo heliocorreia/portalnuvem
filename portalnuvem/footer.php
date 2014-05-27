@@ -1,6 +1,6 @@
 <?php wp_footer(); ?>
     </div>
-    <div id="ft">
+    <footer id="ft">
         <div class="container">
             <nav id="ft--nav-footer">
                 <?php wp_nav_menu(array(
@@ -21,6 +21,6 @@
             <p id="ft--copy">Nuvem Produções <?php echo date('Y')?> - Todos os direitos reservados</p>
             <p id="ft--made-in">Feito em Recife - Pernambuco</p>
         </div>
-    </div>
+    </footer>
 </body>
 </html>
