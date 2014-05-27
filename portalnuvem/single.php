@@ -9,17 +9,17 @@
         <h1 class="single--title"><?php the_title(); ?></h1>
     </header>
 
-    <div class="single--article">
+    <div class="single--bd">
         <article class="single--content">
             <?php the_content(); ?>
         </article>
     </div>
 
     <aside class="single-aside">
-        <header class="single-aside-header">
-            <h1 class="single-aside-header-title">Veja Também</h1>
+        <header class="single-aside-hd">
+            <h1 class="single-aside-hd-title">Veja Também</h1>
         </header>
-        <div class="single-aside-content">
+        <div class="single-aside-bd">
             <section class="single-aside-item">
                 <figure class="single-aside-figure">
                     <img class="single-aside-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/single-aside-01.jpg" width="352" height="402" />

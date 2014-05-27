@@ -3,7 +3,7 @@
 }
 
 .single--hd,
-.single--content {
+.single--bd {
     @include container;
 }
 
@@ -41,11 +41,7 @@
     @include trailer;
 }
 
-.single--article {
-    body.debug {
-        @include debug-vertical-alignment;
-    }
-
+.single--bd {
     @extend %compass-clearfix;
     border-top: 1px solid #B4BEC2;
 
@@ -105,12 +101,12 @@
     }
 }
 
-.single-aside-header,
-.single-aside-content {
+.single-aside-hd,
+.single-aside-bd {
     @include container;
 }
 
-.single-aside-header-title {
+.single-aside-hd-title {
     $font-size: 30px;
     $lines: 3;
 
@@ -133,7 +129,7 @@
     }
 }
 
-.single-aside-content {
+.single-aside-bd {
     @include padding-leader(4);
     @include pad(1, 1);
 }
