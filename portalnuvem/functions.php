@@ -5,6 +5,9 @@
 function my_setup() {
     remove_action('wp_head', 'wp_generator');
 
+    add_theme_support('post-thumbnails');
+    add_image_size('348x213', 348, 213, array('center', 'center'));
+
     register_nav_menu('main', 'Main Menu');
     register_nav_menu('footer', 'Footer Menu');
     register_nav_menu('social', 'Social Menu');
