@@ -19,8 +19,10 @@
 }
 
 #hd--logo {
-    @include pre(1);
     @include span-columns(5);
+
+    // override grid
+    margin-left: columns(1);
 
     a {
         @extend %compass-hide-text;
@@ -31,8 +33,10 @@
 
 #hd--nav-social {
     @include span-columns(5 omega);
-    @include post(1);
     text-align: right;
+
+    // override grid
+    margin-right: columns(1);
 
     .menu-item + .menu-item {
         margin-left: pxtoem(50px);
@@ -40,10 +44,14 @@
 }
 
 #hd--nav-main {
-    @include pre(1);
-    @include span-columns(10);
+    @include span-columns(11);
     border-top: 1px solid #FFF;
     margin-top: pxtoem(38px);
+
+    // override grid
+    margin-left: columns(1);
+    margin-right: columns(1);
+    width: space(10) + gutter();
 
     .menu-item + .menu-item {
         margin-left: pxtoem(70px);
