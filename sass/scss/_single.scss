@@ -1,30 +1,33 @@
-.single {
-    position: relative;
-}
-
-.single--bd {
+.single-bd {
     @extend .content--bd;
 }
 
-.single--content {
+.single-bd--container {
+    @extend %susy-container;
+}
+
+.single-bd--content {
     $font-size: 28px;
-    $lines: lines-for-font-size($font-size);
+    $grid-context: 10;
 
     @extend %font-vollkorn-normal;
     @include adjust-font-size-to($font-size);
-    @include padding-leader(2 * $lines, $font-size);
+    @include padding-leader(4, $font-size);
+    @include span-columns(10);
+    @include pre(1);
 
     & > * {
-        @include margin-trailer($lines, $font-size);
-        @include span-columns(6 omega);
-        @include post(6);
+        $context: 10;
+        @include margin-trailer(1, $font-size);
+        @include span-columns(6, $grid-context);
+        @include post(4, $grid-context);
     }
 
     blockquote {
-        @include span-columns(8);
-        @include post(4);
-        @include margin-leader($lines, $font-size);
-        @include margin-trailer($lines, $font-size);
+        @include span-columns(7, $grid-context);
+        @include post(3, $grid-context);
+        @include margin-leader(1, $font-size);
+        @include margin-trailer(1, $font-size);
 
         p {
             @extend %font-vollkorn-normal-italic;
@@ -51,12 +54,11 @@
     }
 }
 
-.single-aside-hd,
-.single-aside-bd {
-    @include container;
+.single-aside--container {
+    @extend %susy-container;
 }
 
-.single-aside-hd-title {
+.single-aside--hd-title {
     $font-size: 30px;
     $lines: 3;
 
@@ -79,11 +81,11 @@
     }
 }
 
-.single-aside-bd {
+.single-aside--bd {
     @include padding-leader(2);
 }
 
-.single-aside-item {
+.single-aside--item {
     @include span-columns(3);
 
     &:first-child {
@@ -97,22 +99,22 @@
     }
 }
 
-.single-aside-pretitle,
-.single-aside-title {
+.single-aside--pretitle,
+.single-aside--title {
     text-transform: uppercase;
 }
 
-.single-aside-img {
+.single-aside--img {
     max-width: 100%;
     height: auto;
 }
 
-.single-aside-pretitle {
+.single-aside--pretitle {
     @extend %font-montserrat-700;
     color: $color-link;
 }
 
-.single-aside-title {
+.single-aside--title {
     @extend %font-montserrat-700;
     color: $color-text;
     font-size: pxtoem(22px);

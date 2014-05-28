@@ -1,8 +1,7 @@
-.content-hd {
-    @include container;
+.content--container {
+    @extend %susy-container;
 }
 
-.content-hd--breadcrumb,
 .content-hd--datetime,
 .content-hd--title,
 .content-hd--content {
@@ -15,6 +14,10 @@
     @include leader;
     @include adjust-font-size-to(18px);
     @include trailer;
+
+    // override grid
+    margin-left: columns(1);
+    width: space(10) + gutter();
 }
 
 .content-hd--datetime,
@@ -39,9 +42,7 @@
 .content--bd {
     $min-height: 400px;
     @extend %compass-clearfix;
-    @include container;
     border-top: 1px solid #B4BEC2;
-
     min-height: pxtoem($min-height);
 
     &::before {

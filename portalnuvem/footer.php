@@ -1,5 +1,5 @@
 <?php wp_footer(); ?>
-    </div>
+    </section>
     <footer id="ft">
         <div class="container">
             <nav id="ft--nav-footer">
