@@ -1,5 +1,25 @@
+.content-hd {
+    border-bottom: 1px solid #B4BEC2;
+    position: relative;
+    z-index: -1;
+}
+
 .content--container {
     @extend %susy-container;
+
+    position: relative;
+    z-index: -1;
+
+    &::before {
+        @extend %compass-inline-block;
+        @include rotate(-25deg);
+        border: pxtoem(4px) solid $color-home-news-bar;
+        top: pxtoem(240px);
+        content: '';
+        position: absolute;
+        right: 0;
+        width: pxtoem(923px);
+    }
 }
 
 .content-hd--datetime,
@@ -37,12 +57,13 @@
 .content-hd--title {
     @include adjust-font-size-to(50px);
     @include trailer;
+    position: relative;
+    z-index: 1;
 }
 
 .content--bd {
     $min-height: 400px;
     @extend %compass-clearfix;
-    border-top: 1px solid #B4BEC2;
     min-height: pxtoem($min-height);
 
     &::before {
@@ -52,7 +73,7 @@
         @include stretch-x;
         content: "";
         height: pxtoem($min-height);
-        z-index: -1;
+        z-index: -10;
     }
 }
 
