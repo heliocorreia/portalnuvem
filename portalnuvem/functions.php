@@ -16,8 +16,8 @@ function my_setup() {
     register_post_type('article',
         array(
             'labels' => array(
-                'name' => __('Article'),
-                'singular_name' => __('Articles')
+                'name' => __('Articles'),
+                'singular_name' => __('Article')
             ),
             'public' => true,
             'has_archive' => true,
