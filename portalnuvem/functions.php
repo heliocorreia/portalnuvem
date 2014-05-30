@@ -11,6 +11,23 @@ function my_setup() {
     register_nav_menu('main', 'Main Menu');
     register_nav_menu('footer', 'Footer Menu');
     register_nav_menu('social', 'Social Menu');
+
+    register_post_type('article',
+        array(
+            'labels' => array(
+                'name' => __('Article'),
+                'singular_name' => __('Articles')
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_position' => 5,
+            'supports' => array(
+                'title',
+                'editor',
+                'excerpt',
+            ),
+        )
+    );
 }
 add_action('after_setup_theme', 'my_setup');
 
