@@ -1,9 +1,9 @@
 .archive-event {
-    @extend .single;
+    @extend .single-post;
 }
 
 .archive-event--container {
-    @extend .single--container;
+    @extend .single-post--container;
     @include padding-leader(4);
 }
 

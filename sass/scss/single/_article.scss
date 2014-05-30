@@ -1,16 +1,11 @@
 .single-article {
-    @extend .single;
+    @extend .single-post;
 }
 
 .single-article--container {
-    @extend .single--container;
+    @extend .single-post--container;
 }
 
 .single-article--content {
-    @extend %single--content;
-
-    & > * {
-        @include span-columns(7, $single-content-grid-context);
-        @include post(4, $single-content-grid-context);
-    }
+    @extend %single-post--content;
 }

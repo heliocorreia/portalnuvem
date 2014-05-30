@@ -8,11 +8,18 @@
     </div>
 </header>
 
-<div class="single">
-    <div class="single--container">
-        <article class="single--content">
+<div class="single-post">
+    <div class="single-post--container">
+        <article class="single-post--content">
             <?php the_content(); ?>
         </article>
+        <aside class="single-post--aside">
+            <?php if (has_post_thumbnail()): ?>
+            <figure class="single-post--post-thumbnail">
+                <?php the_post_thumbnail('477x558') ?>
+            </figure>
+            <?php endif; ?>
+        </aside>
     </div>
 </div>
 

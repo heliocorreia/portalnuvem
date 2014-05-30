@@ -1,0 +1,85 @@
+.single-post {
+    @extend .content--bd;
+}
+
+.single-post--container {
+    @extend %susy-container;
+
+    a {
+        color: $color-link;
+    }
+}
+
+$single-post-content-font-size: 28px;
+$single-post-content-grid-context: 10;
+%single-post--content {
+    @extend %font-vollkorn-normal;
+    @include adjust-font-size-to($single-post-content-font-size);
+    @include padding-leader(4, $single-post-content-font-size);
+    @include span-columns(5, $single-post-content-grid-context);
+    @include pre(1);
+
+    & > * {
+        @include margin-trailer(1, $single-post-content-font-size);
+    }
+}
+
+.single-post--content {
+    @extend %single-post--content;
+
+    & > p {
+        @include post(2, $single-post-content-grid-context);
+    }
+
+    blockquote {
+        @include margin-leader(1, $single-post-content-font-size);
+        @include margin-trailer(1, $single-post-content-font-size);
+
+        p {
+            @extend %font-vollkorn-normal-italic;
+            @include adjust-font-size-to(38px, $from-size:$single-post-content-font-size);
+            color: $color-text-alternate;
+            margin-left: gutter();
+        }
+    }
+}
+
+.single-post--aside {
+    $font-size: 26px;
+    @include adjust-font-size-to($font-size);
+    @include padding-leader(4, $font-size);
+    @include span-columns(4 omega, $single-post-content-grid-context);
+
+    $font-size: 26px;
+    @include adjust-font-size-to($font-size);
+    @include padding-leader(4, $font-size);
+    @include span-columns(4 omega, $single-post-content-grid-context);
+
+    h1 {
+        @extend %font-montserrat-700;
+        @include adjust-font-size-to(22px, $from-size:$font-size);
+        @include margin-trailer(1, $font-size);
+        @include padding-leader(1, $font-size);
+        text-transform: uppercase;
+        position: relative;
+
+        &::before {
+            @extend %compass-inline-block;
+            @include leading-border(6px, $font-size:$font-size);
+            border-color: $color-link;
+            content: "";
+            position: absolute;
+            top: 0;
+            width: pxtoem(35px);
+        }
+    }
+
+    a {
+        @extend %font-vollkorn-normal-italic;
+    }
+}
+
+.single-post--post-thumbnail {
+    @include margin-leader(-4);
+    @include margin-trailer(2);
+}
