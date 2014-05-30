@@ -17,6 +17,6 @@
     </div>
 </section>
 
-<?php get_template_part('partials/single', 'aside'); ?>
+<?php get_template_part('partials/seemore'); ?>
 
 <?php get_footer(); ?>
