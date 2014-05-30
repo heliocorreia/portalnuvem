@@ -1,0 +1,47 @@
+.single-artist {
+    @extend .single;
+}
+
+.single-artist--container {
+    @extend .single--container;
+}
+
+.single-artist--content {
+    @extend %single--content;
+    @include span-columns(5, $single-content-grid-context);
+}
+
+.single-artist--aside {
+    $font-size: 26px;
+    @include adjust-font-size-to($font-size);
+    @include padding-leader(4, $font-size);
+    @include span-columns(4 omega, $single-content-grid-context);
+
+    h1 {
+        @extend %font-montserrat-700;
+        @include adjust-font-size-to(22px, $from-size:$font-size);
+        @include margin-trailer(1, $font-size);
+        @include padding-leader(1, $font-size);
+        text-transform: uppercase;
+        position: relative;
+
+        &::before {
+            @extend %compass-inline-block;
+            @include leading-border(6px, $font-size:$font-size);
+            border-color: $color-link;
+            content: "";
+            position: absolute;
+            top: 0;
+            width: pxtoem(35px);
+        }
+    }
+
+    a {
+        @extend %font-vollkorn-normal-italic;
+    }
+}
+
+.single-artist--post-thumbnail {
+    @include margin-leader(-4);
+    @include margin-trailer(2);
+}

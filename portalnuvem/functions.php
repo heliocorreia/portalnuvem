@@ -8,6 +8,7 @@ function my_setup() {
     add_theme_support('post-thumbnails');
     set_post_thumbnail_size(348, 213, true);
     add_image_size('348x213', 348, 213, array('center', 'center'));
+    add_image_size('477x558', 477, 558, array('center', 'center'));
 
     register_nav_menu('main', 'Main Menu');
     register_nav_menu('footer', 'Footer Menu');
@@ -41,6 +42,22 @@ function my_setup() {
             'supports' => array(
                 'title',
                 'excerpt',
+                'thumbnail',
+            ),
+        )
+    );
+    register_post_type('artist',
+        array(
+            'labels' => array(
+                'name' => __('Artists'),
+                'singular_name' => __('Artist')
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_position' => 5,
+            'supports' => array(
+                'title',
+                'editor',
                 'thumbnail',
             ),
         )
