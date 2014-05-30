@@ -52,7 +52,7 @@
 
 .content--bd {
     $min-height: 400px;
-    @extend %compass-clearfix;
+    @extend %compass-pie-clearfix;
     min-height: pxtoem($min-height);
 
     &::before {
