@@ -66,7 +66,22 @@ function my_setup() {
 add_action('after_setup_theme', 'my_setup');
 
 // actions
-//
+
+function my_post_thumbnail_html($html, $post_id, $post_thumbnail_id, $size, $attr) {
+    $attachment =& get_post($post_thumbnail_id);
+
+    $width = ($size = wp_get_attachment_image_src($attachment->ID, $size))
+        ? $size[1]
+        : 0;
+
+    $html = img_caption_shortcode(array(
+        'caption' => trim("$attachment->post_excerpt $attachment->post_content" ),
+        'width'   => $width,
+    ), $html);
+
+    return $html;
+}
+add_action('post_thumbnail_html', 'my_post_thumbnail_html', 10, 5);
 
 // filters
 

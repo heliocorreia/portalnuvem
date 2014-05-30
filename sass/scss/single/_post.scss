@@ -77,9 +77,18 @@ $single-post-content-grid-context: 10;
     a {
         @extend %font-vollkorn-normal-italic;
     }
+
+    .wp-caption-text {
+        @include adjust-font-size-to(20px, $from-size:$font-size);
+    }
 }
 
 .single-post--post-thumbnail {
     @include margin-leader(-4);
     @include margin-trailer(2);
+
+    .wp-caption-text {
+        @extend %font-montserrat-normal;
+        @include opacity(.6);
+    }
 }
