@@ -3,7 +3,7 @@
 <header class="content-hd">
     <div class="content--container">
         <?php get_template_part('partials/breadcrumb'); ?>
-        <time class="content-hd--datetime"><?php the_time('d M/Y'); ?></time>
+        <time class="content-hd--pretitle"><?php the_time('d M/Y'); ?></time>
         <h1 class="content-hd--title"><?php the_title(); ?></h1>
     </div>
 </header>

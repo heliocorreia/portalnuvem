@@ -22,21 +22,21 @@
     }
 }
 
-.content-hd--datetime,
+.content-hd--pretitle,
 .content-hd--title,
 .content-hd--content {
     @include pre(1);
     @include span-columns(10);
 }
 
-.content-hd--datetime,
+.content-hd--pretitle,
 .content-hd--title {
     @extend %font-montserrat-700;
     text-align: center;
     text-transform: uppercase;
 }
 
-.content-hd--datetime {
+.content-hd--pretitle {
     @include leader;
     @include adjust-font-size-to(18px);
     @include trailer;
