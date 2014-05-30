@@ -4,6 +4,10 @@
 
 .single--container {
     @extend %susy-container;
+
+    a {
+        color: $color-link;
+    }
 }
 
 $single-content-font-size: 28px;
@@ -17,10 +21,6 @@ $single-content-grid-context: 10;
 
     & > * {
         @include margin-trailer(1, $single-content-font-size);
-    }
-
-    a {
-        color: $color-link;
     }
 }
 
@@ -48,4 +48,5 @@ $single-content-grid-context: 10;
 }
 
 @import "single/article";
+@import "single/artist";
 @import "single/event";
