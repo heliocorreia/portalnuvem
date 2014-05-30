@@ -1,0 +1,16 @@
+.single-article {
+    @extend .single;
+}
+
+.single-article--container {
+    @extend .single--container;
+}
+
+.single-article--content {
+    @extend %single--content;
+
+    & > * {
+        @include span-columns(7, $single-content-grid-context);
+        @include post(4, $single-content-grid-context);
+    }
+}

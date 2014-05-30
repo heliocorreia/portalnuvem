@@ -8,9 +8,9 @@
     </div>
 </header>
 
-<div class="single-bd">
-    <div class="single-bd--container">
-        <article class="single-bd--content">
+<div class="single">
+    <div class="single--container">
+        <article class="single--content">
             <?php the_content(); ?>
         </article>
     </div>

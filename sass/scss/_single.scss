@@ -1,37 +1,42 @@
-.single-bd {
+.single {
     @extend .content--bd;
 }
 
-.single-bd--container {
+.single--container {
     @extend %susy-container;
 }
 
-.single-bd--content {
-    $font-size: 28px;
-    $grid-context: 10;
-
+$single-content-font-size: 28px;
+$single-content-grid-context: 10;
+%single--content {
     @extend %font-vollkorn-normal;
-    @include adjust-font-size-to($font-size);
-    @include padding-leader(4, $font-size);
-    @include span-columns(10);
+    @include adjust-font-size-to($single-content-font-size);
+    @include padding-leader(4, $single-content-font-size);
+    @include span-columns($single-content-grid-context);
     @include pre(1);
 
     & > * {
-        $context: 10;
-        @include margin-trailer(1, $font-size);
-        @include span-columns(6, $grid-context);
-        @include post(4, $grid-context);
+        @include margin-trailer(1, $single-content-font-size);
+    }
+}
+
+.single--content {
+    @extend %single--content;
+
+    & > * {
+        @include span-columns(6, $single-content-grid-context);
+        @include post(4, $single-content-grid-context);
     }
 
     blockquote {
-        @include span-columns(7, $grid-context);
-        @include post(3, $grid-context);
-        @include margin-leader(1, $font-size);
-        @include margin-trailer(1, $font-size);
+        @include span-columns(7, $single-content-grid-context);
+        @include post(3, $single-content-grid-context);
+        @include margin-leader(1, $single-content-font-size);
+        @include margin-trailer(1, $single-content-font-size);
 
         p {
             @extend %font-vollkorn-normal-italic;
-            @include adjust-font-size-to(38px, $from-size:$font-size);
+            @include adjust-font-size-to(38px, $from-size:$single-content-font-size);
             color: $color-text-alternate;
             margin-left: gutter();
         }
@@ -42,80 +47,4 @@
     }
 }
 
-.single-aside {
-    position: relative;
-
-    &::before {
-        @include stretch;
-        background: $color-bg-aside;
-        border-bottom: rhythm(6) $color-bg solid;
-        content: "";
-        z-index: -1;
-    }
-}
-
-.single-aside--container {
-    @extend %susy-container;
-}
-
-.single-aside--hd-title {
-    $font-size: 30px;
-    $lines: 3;
-
-    @extend %font-montserrat-700;
-    @include padding-leader($lines, $font-size);
-    @include padding-trailer($lines, $font-size);
-    font-size: pxtoem($font-size);
-    text-align: center;
-    text-transform: uppercase;
-
-    &::before {
-        background: $color-bg;
-        content: "";
-        height: rhythm($lines + 1 + $lines, $font-size);
-        margin-top: - rhythm($lines, $font-size);
-        left: 0;
-        position: absolute;
-        right: 0;
-        z-index: -1;
-    }
-}
-
-.single-aside--bd {
-    @include padding-leader(2);
-}
-
-.single-aside--item {
-    @include span-columns(3);
-
-    &:first-child {
-        @include pre(1);
-        margin-right: (columns(1) / 2) + (gutter() / 2) + gutter();
-    }
-
-    &:nth-child(3n) {
-        @include omega;
-        @include post(1);
-    }
-}
-
-.single-aside--pretitle,
-.single-aside--title {
-    text-transform: uppercase;
-}
-
-.single-aside--img {
-    max-width: 100%;
-    height: auto;
-}
-
-.single-aside--pretitle {
-    @extend %font-montserrat-700;
-    color: $color-link;
-}
-
-.single-aside--title {
-    @extend %font-montserrat-700;
-    color: $color-text;
-    font-size: pxtoem(22px);
-}
+@import "single/article";
