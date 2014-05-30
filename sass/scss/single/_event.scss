@@ -1,0 +1,60 @@
+.archive-event {
+    @extend .single;
+}
+
+.archive-event--container {
+    @extend .single--container;
+    @include padding-leader(4);
+}
+
+$event--entry-context: 7;
+.event--entry {
+    @extend %compass-clearfix;
+    @include margin-trailer(2);
+
+    @include pre(1);
+    @include span-columns($event--entry-context);
+
+    &:nth-of-type(odd) {
+        @include post(4);
+    }
+
+    &:nth-of-type(even) {
+        @include pre(5);
+        @include omega;
+    }
+}
+
+.event--figure {
+    @include span-columns(3, $event--entry-context);
+
+    img {
+        height: auto;
+        max-width: 100%;
+    }
+
+    & ~ .event--title,
+    & ~ .event--posttitle,
+    & ~ .event--subtitle {
+        @include span-columns(4 omega, $event--entry-context);
+    }
+}
+
+.event--title,
+.event--posttitle {
+    @extend %font-montserrat-700;
+}
+
+.event--title {
+    @include adjust-font-size-to(28px);
+    text-transform: uppercase;
+}
+
+.event--posttitle,
+.event--subtitle {
+    @include adjust-font-size-to(22px);
+}
+
+.event--subtitle {
+    @extend %font-vollkorn-normal;
+}

@@ -29,6 +29,22 @@ function my_setup() {
             ),
         )
     );
+    register_post_type('event',
+        array(
+            'labels' => array(
+                'name' => __('Events'),
+                'singular_name' => __('Event')
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_position' => 5,
+            'supports' => array(
+                'title',
+                'excerpt',
+                'thumbnail',
+            ),
+        )
+    );
 }
 add_action('after_setup_theme', 'my_setup');
 

@@ -4,10 +4,7 @@
     <div class="content--container">
         <?php get_template_part('partials/breadcrumb'); ?>
         <h1 class="content-hd--title"><?php
-            if (in_category('eventos')):
-                print('Próximos Eventos');
-
-            elseif (in_category('noticias')):
+            if (in_category('noticias')):
                 print('Últimas');
 
             elseif (in_category('colunas')):
