@@ -1,6 +1,12 @@
 <?php get_header(); ?>
 
-<?php get_template_part('content', 'hd'); ?>
+<header class="content-hd">
+    <div class="content--container">
+        <?php get_template_part('partials/breadcrumb'); ?>
+        <time class="content-hd--datetime"><?php the_time('d M/Y'); ?></time>
+        <h1 class="content-hd--title"><?php the_title(); ?></h1>
+    </div>
+</header>
 
 <div class="archive-bd">
     <div class="archive-bd--container">
