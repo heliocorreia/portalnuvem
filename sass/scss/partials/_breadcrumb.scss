@@ -1,0 +1,10 @@
+.breadcrumb {
+    @extend %font-montserrat-normal;
+    @include leader;
+    @include adjust-font-size-to(18px);
+    @include trailer;
+
+    // override grid
+    margin-left: columns(1);
+    width: space(10) + gutter();
+}

@@ -3,6 +3,8 @@
 @include global-reset;
 @include establish-baseline;
 
+@import "partials";
+
 @import "header";
 @import "nav-menu";
 @import "content";
