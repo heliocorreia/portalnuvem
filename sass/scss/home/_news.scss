@@ -45,11 +45,6 @@
 .home-news-figure {
     @include span-columns(4, 8);
     text-align: right;
-
-    img {
-        height: auto;
-        max-width: 100%;
-    }
 }
 
 .home-news-pretitle,

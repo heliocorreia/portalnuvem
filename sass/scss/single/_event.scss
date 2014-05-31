@@ -28,11 +28,6 @@ $event--entry-context: 7;
 .event--figure {
     @include span-columns(3, $event--entry-context);
 
-    img {
-        height: auto;
-        max-width: 100%;
-    }
-
     & ~ .event--title,
     & ~ .event--posttitle,
     & ~ .event--subtitle {

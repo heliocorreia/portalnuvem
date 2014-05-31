@@ -60,11 +60,6 @@
     text-transform: uppercase;
 }
 
-.single-aside--img {
-    max-width: 100%;
-    height: auto;
-}
-
 .single-aside--pretitle {
     @extend %font-montserrat-700;
     color: $color-link;

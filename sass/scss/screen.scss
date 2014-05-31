@@ -26,6 +26,12 @@ a {
     }
 }
 
+img {
+    border: 0;
+    height: auto;
+    max-width: 100%;
+}
+
 .container {
     @include container;
 
