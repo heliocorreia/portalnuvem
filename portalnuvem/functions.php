@@ -14,6 +14,8 @@ function my_setup() {
     add_image_size('348x213', 348, 213, array('center', 'center'));
     add_image_size('477x558', 477, 558, array('center', 'center'));
 
+    add_image_size('artist-attachment-282x322', 282, 322, array('center', 'center'));
+
     register_nav_menu('main', 'Main Menu');
     register_nav_menu('footer', 'Footer Menu');
     register_nav_menu('social', 'Social Menu');

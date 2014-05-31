@@ -17,3 +17,19 @@
 .single-artist--post-thumbnail {
     @extend .single-post--post-thumbnail;
 }
+
+.single-artist--attachments {
+    @include span-columns(12 omega);
+}
+
+.single-artist--attachment {
+    @include span-columns(3);
+    @include nth-omega(4n);
+    @include margin-trailer;
+    text-align: center;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}

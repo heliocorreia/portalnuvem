@@ -27,6 +27,22 @@
             endif;
             ?>
         </aside>
+
+        <?php
+        $attachments = get_posts(array(
+            'post_type' => 'attachment',
+            'numberposts' => -1,
+            'post_status' => null,
+            'post_parent' => $post->ID
+        ));
+        if ($attachments):
+        ?>
+        <section class="single-artist--attachments">
+            <?php foreach ($attachments as $attachment): ?>
+                <p class="single-artist--attachment"><?php echo wp_get_attachment_image($attachment->ID, 'artist-attachment-282x322'); ?></p>
+            <?php endforeach; ?>
+        </section>
+        <?php endif; ?>
     </div>
 </section>
 
