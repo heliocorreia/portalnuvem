@@ -2,9 +2,7 @@
 
 // theme setup
 
-$post_thumbnails_with_captions = [
-    '477x558'
-];
+$post_thumbnails_with_captions = Array('477x558');
 
 function my_setup() {
     remove_action('wp_head', 'wp_generator');
