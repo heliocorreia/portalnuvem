@@ -50,6 +50,7 @@ function my_setup() {
                 'excerpt',
                 'thumbnail',
             ),
+            'register_meta_box_cb' => 'my_register_event_metabox',
         )
     );
     register_post_type('artist',
@@ -136,7 +137,27 @@ function my_metabox_artist($post) {
     ));
 }
 
-function my_metabox_data_precheck($nonce_action, $nonce_value) {
+function my_register_event_metabox($post) {
+    add_meta_box('my_mb_event', 'Informações Adicionais', 'my_metabox_event', 'event', 'normal', 'default');
+}
+
+function my_metabox_event($post) {
+    wp_nonce_field('my_metabox_event', 'my_metabox_event_nonce');
+
+    $locale = get_post_meta($post->ID, '_event_locale', true);
+    echo '<p><label for="my_event_locale">Localidade:</label> ';
+    echo '<input type="text" id="my_event_locale" name="my_event_locale" value="' . esc_attr($locale) . '" size="25" /></p>';
+
+    $period = get_post_meta($post->ID, '_event_period', true);
+    echo '<p><label for="my_event_period">Data/Período:</label> ';
+    echo '<input type="text" id="my_event_period" name="my_event_period" value="' . esc_attr($period) . '" size="25" /></p>';
+
+    $site = get_post_meta($post->ID, '_event_site', true);
+    echo '<p><label for="my_event_site">Endereço/Site:</label> ';
+    echo 'http://<input type="text" id="my_event_site" name="my_event_site" value="' . esc_attr($site) . '" size="25" /></p>';
+}
+
+function my_metabox_data_precheck() {
     // if this is an autosave, our form has not been submitted, so we don't want to do anything.
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
@@ -153,6 +174,10 @@ function my_metabox_data_precheck($nonce_action, $nonce_value) {
         }
     }
 
+    return true;
+}
+
+function my_metabox_data_nonce($nonce_value, $nonce_action) {
     if (!isset($nonce_value)) {
         return;
     }
@@ -165,19 +190,30 @@ function my_metabox_data_precheck($nonce_action, $nonce_value) {
 }
 
 function my_save_metabox_data($post_id) {
-    if (!my_metabox_data_precheck($_POST['my_metabox_artist_nonce'], 'my_metabox_artist')) {
+    if (!my_metabox_data_precheck()) {
         return;
     }
 
-    // artist locale
-    if (isset($_POST['my_artist_locale'])) {
-        $data = sanitize_text_field($_POST['my_artist_locale']);
-        update_post_meta($post_id, '_artist_locale', $data);
+    // event
+    if (my_metabox_data_nonce($_POST['my_metabox_event_nonce'], 'my_metabox_event')) {
+        foreach(array('locale', 'period', 'site') as $field) {
+            if (isset($_POST['my_event_' . $field])) {
+                $data = sanitize_text_field($_POST['my_event_' . $field]);
+                update_post_meta($post_id, '_event_' . $field, $data);
+            }
+        }
     }
 
-    // artist aside
-    if (isset($_POST['my_artist_aside'])) {
-        update_post_meta($post_id, '_artist_aside', $_POST['my_artist_aside']);
+    // artist
+    if (my_metabox_data_nonce($_POST['my_metabox_artist_nonce'], 'my_metabox_artist')) {
+        if (isset($_POST['my_artist_locale'])) {
+            $data = sanitize_text_field($_POST['my_artist_locale']);
+            update_post_meta($post_id, '_artist_locale', $data);
+        }
+
+        if (isset($_POST['my_artist_aside'])) {
+            update_post_meta($post_id, '_artist_aside', $_POST['my_artist_aside']);
+        }
     }
 }
 add_action('save_post', 'my_save_metabox_data');
