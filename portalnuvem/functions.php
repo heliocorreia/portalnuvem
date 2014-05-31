@@ -2,6 +2,10 @@
 
 // theme setup
 
+$post_thumbnails_with_captions = [
+    '477x558'
+];
+
 function my_setup() {
     remove_action('wp_head', 'wp_generator');
 
@@ -68,6 +72,11 @@ add_action('after_setup_theme', 'my_setup');
 // actions
 
 function my_post_thumbnail_html($html, $post_id, $post_thumbnail_id, $size, $attr) {
+    global $post_thumbnails_with_captions;
+    if (!in_array($size, $post_thumbnails_with_captions)) {
+        return $html;
+    }
+
     $attachment =& get_post($post_thumbnail_id);
 
     $width = ($size = wp_get_attachment_image_src($attachment->ID, $size))
