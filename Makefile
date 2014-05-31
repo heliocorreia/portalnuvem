@@ -1,6 +1,6 @@
 MSG_STARTSTOP = $1"ing" $0"..."
 
-.PHONY: all setup start stop test
+.PHONY: all setup start stop test zip
 
 all:
 	@echo 'make <target>'
@@ -28,6 +28,9 @@ stop:
 
 test:
 	@scss-lint sass/
+
+zip:
+	@(rm theme-portalnuvem.zip ; zip -X --recurse-paths --test theme-portalnuvem.zip portalnuvem/ --exclude @.zip-exclude)
 
 define background
 	@nohup $1 > $2 2>&1 &
