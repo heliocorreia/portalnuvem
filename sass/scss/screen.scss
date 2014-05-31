@@ -32,6 +32,10 @@ img {
     max-width: 100%;
 }
 
+.wp-caption {
+    width: auto !important;
+}
+
 .container {
     @include container;
 
