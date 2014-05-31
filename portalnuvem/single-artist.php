@@ -1,4 +1,8 @@
-<?php get_header(); the_post(); ?>
+<?php
+get_header();
+the_post();
+$post_thumbnail_id = get_post_thumbnail_id();
+?>
 
 <header class="content-hd">
     <div class="content--container">
@@ -38,7 +42,7 @@
         if ($attachments):
         ?>
         <section class="single-artist--attachments">
-            <?php foreach ($attachments as $attachment): ?>
+            <?php foreach ($attachments as $attachment): if ($attachment->ID == $post_thumbnail_id) continue; ?>
                 <p class="single-artist--attachment"><?php echo wp_get_attachment_image($attachment->ID, 'artist-attachment-282x322'); ?></p>
             <?php endforeach; ?>
         </section>
