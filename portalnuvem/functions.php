@@ -64,6 +64,7 @@ function my_setup() {
                 'editor',
                 'thumbnail',
             ),
+            'register_meta_box_cb' => 'my_register_artist_metabox',
         )
     );
 }
@@ -113,3 +114,68 @@ add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects');
 
 // shortcodes
 //
+
+// meta boxes
+
+function my_register_artist_metabox($post) {
+    add_meta_box('my_mb_artist', 'Informações Adicionais', 'my_metabox_artist', 'artist', 'normal', 'high');
+}
+
+function my_metabox_artist($post) {
+    wp_nonce_field('my_metabox_artist', 'my_metabox_artist_nonce');
+
+    $locale = get_post_meta($post->ID, '_artist_locale', true);
+    echo '<p><label for="my_artist_locale">Localidade:</label> ';
+    echo '<input type="text" id="my_artist_locale" name="my_artist_locale" value="' . esc_attr($locale) . '" size="25" /></p>';
+
+    $aside = get_post_meta($post->ID, '_artist_aside', true);
+    wp_editor($aside, 'my_artist_aside', array(
+        'media_buttons' => false,
+    ));
+}
+
+function my_metabox_data_precheck($nonce_action, $nonce_value) {
+    // if this is an autosave, our form has not been submitted, so we don't want to do anything.
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+
+    // check the user's permissions.
+    if (isset($_POST['post_type']) && 'page' == $_POST['post_type']) {
+        if (!current_user_can('edit_page', $post_id)) {
+            return;
+        }
+    } else {
+        if (!current_user_can('edit_post', $post_id)) {
+            return;
+        }
+    }
+
+    if (!isset($nonce_value)) {
+        return;
+    }
+
+    if (!wp_verify_nonce($nonce_value, $nonce_action)) {
+        return;
+    }
+
+    return true;
+}
+
+function my_save_metabox_data($post_id) {
+    if (!my_metabox_data_precheck($_POST['my_metabox_artist_nonce'], 'my_metabox_artist')) {
+        return;
+    }
+
+    // artist locale
+    if (isset($_POST['my_artist_locale'])) {
+        $data = sanitize_text_field($_POST['my_artist_locale']);
+        update_post_meta($post_id, '_artist_locale', $data);
+    }
+
+    // artist aside
+    if (isset($_POST['my_artist_aside'])) {
+        update_post_meta($post_id, '_artist_aside', $_POST['my_artist_aside']);
+    }
+}
+add_action('save_post', 'my_save_metabox_data');

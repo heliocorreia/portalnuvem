@@ -3,7 +3,9 @@
 <header class="content-hd">
     <div class="content--container">
         <?php get_template_part('partials/breadcrumb'); ?>
-        <p class="content-hd--pretitle"><small>Pernambuco - PE</small></hp>
+        <?php if ($value = get_post_meta($post->ID, '_artist_locale', true)): ?>
+        <p class="content-hd--pretitle"><small><?php echo $value; ?></small></hp>
+        <?php endif; ?>
         <h1 class="content-hd--title"><?php the_title(); ?></h1>
     </div>
 </header>
@@ -19,11 +21,11 @@
                 <?php the_post_thumbnail('477x558') ?>
             </figure>
             <?php endif ?>
-            <h1>Veja também</h1>
-            <ul>
-                <li><a href="#">Site pessoal do artista</a></li>
-                <li><a href="#">Obras originais à venda na Nuvem Store</a></li>
-            </ul>
+            <?php
+            if ($value = get_post_meta($post->ID, '_artist_aside', true)):
+                echo $value;
+            endif;
+            ?>
         </aside>
     </div>
 </section>
