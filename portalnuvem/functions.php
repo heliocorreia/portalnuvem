@@ -9,7 +9,9 @@ $post_thumbnails_with_captions = [
 function my_setup() {
     remove_action('wp_head', 'wp_generator');
 
+    add_theme_support('html5');
     add_theme_support('post-thumbnails');
+
     set_post_thumbnail_size(348, 213, true);
     add_image_size('348x213', 348, 213, array('center', 'center'));
     add_image_size('477x558', 477, 558, array('center', 'center'));
