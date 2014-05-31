@@ -1,3 +1,12 @@
+.archive-artist {
+    @extend .single-post;
+}
+
+.archive-artist--container {
+    @extend .single-post--container;
+    @include padding-leader(4);
+}
+
 .single-artist {
     @extend .single-post;
 }
