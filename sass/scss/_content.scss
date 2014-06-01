@@ -1,14 +1,11 @@
 .content-hd {
     border-bottom: 1px solid #B4BEC2;
-    position: relative;
-    z-index: -1;
 }
 
 .content--container {
     @extend %susy-container;
 
     position: relative;
-    z-index: -1;
 
     &::before {
         @extend %compass-inline-block;
