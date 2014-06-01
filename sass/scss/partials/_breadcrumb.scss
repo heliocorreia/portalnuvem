@@ -7,4 +7,10 @@
     // override grid
     margin-left: columns(1);
     width: space(10) + gutter();
+
+    text-transform: uppercase;
+
+    a {
+        color: $color-text;
+    }
 }
