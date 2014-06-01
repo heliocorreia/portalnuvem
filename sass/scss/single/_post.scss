@@ -4,6 +4,8 @@
 
 .single-post--container {
     @extend %susy-container;
+    position: relative;
+    z-index: 1;
 
     a {
         color: $color-link;
