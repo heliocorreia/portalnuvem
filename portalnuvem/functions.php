@@ -120,6 +120,19 @@ add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects');
 
 // meta boxes
 
+function my_register_post_metabox($post) {
+    add_meta_box('my_mb_post', 'Informações Adicionais', 'my_metabox_post', 'post', 'normal', 'high');
+}
+add_action('add_meta_boxes', 'my_register_post_metabox');
+
+function my_metabox_post($post) {
+    wp_nonce_field('my_metabox_post', 'my_metabox_post_nonce');
+
+    $locale = get_post_meta($post->ID, '_post_locale', true);
+    echo '<p><label for="my_post_locale">Localidade:</label> ';
+    echo '<input type="text" id="my_post_locale" name="my_post_locale" value="' . esc_attr($locale) . '" size="25" /></p>';
+}
+
 function my_register_artist_metabox($post) {
     add_meta_box('my_mb_artist', 'Informações Adicionais', 'my_metabox_artist', 'artist', 'normal', 'high');
 }
@@ -192,6 +205,16 @@ function my_metabox_data_nonce($nonce_value, $nonce_action) {
 function my_save_metabox_data($post_id) {
     if (!my_metabox_data_precheck()) {
         return;
+    }
+
+    // post
+    if (my_metabox_data_nonce($_POST['my_metabox_post_nonce'], 'my_metabox_post')) {
+        foreach(array('locale') as $field) {
+            if (isset($_POST['my_post_' . $field])) {
+                $data = sanitize_text_field($_POST['my_post_' . $field]);
+                update_post_meta($post_id, '_post_' . $field, $data);
+            }
+        }
     }
 
     // event
