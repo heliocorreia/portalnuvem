@@ -112,6 +112,20 @@ function my_edit_user_profile($user) { ?>
     </tr>
     <?php endforeach ?>
     </table>
+    <h3><?php _e('Fotografia (largura x altura)'); ?></h3>
+    <table class="form-table">
+    <tr>
+        <th>
+            <label for="photo284x284">284x284</label>
+        </th>
+        <td>
+            <?php $photo = ''; if ($photo = get_the_author_meta('photo284x284', $user->ID)): ?>
+            <p><img src="<?php echo esc_attr($photo); ?>" width="284" height="284" /></p>
+            <?php endif; ?>
+            <input type="text" name="photo284x284" id="photo284x284" value="<?php echo esc_attr($photo); ?>" class="regular-text" /><br />
+        </td>
+    </tr>
+    </table>
 <?php }
 add_action('show_user_profile', 'my_edit_user_profile');
 add_action('edit_user_profile', 'my_edit_user_profile');
@@ -120,8 +134,8 @@ function my_user_profile_update($user_id) {
     if (!current_user_can('edit_user', $user_id ))
         return false;
 
-    foreach(array('facebook', 'twitter', 'instagram') as $social) {
-        update_usermeta($user_id, $social, $_POST[$social]);
+    foreach(array('facebook', 'twitter', 'instagram', 'photo284x284') as $field) {
+        update_usermeta($user_id, $field, $_POST[$field]);
     }
 }
 add_action('personal_options_update', 'my_user_profile_update');
