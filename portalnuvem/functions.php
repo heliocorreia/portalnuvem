@@ -98,6 +98,35 @@ function my_post_thumbnail_html($html, $post_id, $post_thumbnail_id, $size, $att
 }
 add_action('post_thumbnail_html', 'my_post_thumbnail_html', 10, 5);
 
+function my_edit_user_profile($user) { ?>
+    <h3><?php _e('Redes Sociais'); ?></h3>
+    <table class="form-table">
+    <?php foreach(array('facebook', 'twitter', 'instagram') as $social): ?>
+    <tr>
+        <th>
+            <label for="<?php echo $social ?>"><?php echo ucfirst($social) ?></label>
+        </th>
+        <td>
+            <input type="text" name="<?php echo $social ?>" id="<?php echo $social ?>" value="<?php echo esc_attr(get_the_author_meta($social, $user->ID)); ?>" class="regular-text" /><br />
+        </td>
+    </tr>
+    <?php endforeach ?>
+    </table>
+<?php }
+add_action('show_user_profile', 'my_edit_user_profile');
+add_action('edit_user_profile', 'my_edit_user_profile');
+
+function my_user_profile_update($user_id) {
+    if (!current_user_can('edit_user', $user_id ))
+        return false;
+
+    foreach(array('facebook', 'twitter', 'instagram') as $social) {
+        update_usermeta($user_id, $social, $_POST[$social]);
+    }
+}
+add_action('personal_options_update', 'my_user_profile_update');
+add_action('edit_user_profile_update', 'my_user_profile_update');
+
 // filters
 
 function my_wp_nav_menu_objects($items) {
