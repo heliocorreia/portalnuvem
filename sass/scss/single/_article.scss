@@ -39,3 +39,37 @@
 .single-article--aside {
     @extend .single-post--aside;
 }
+
+.single-article--aside-photo284x284 {
+    @include margin-leader(-4);
+}
+
+.single-article--aside-description {
+    $font-size: $single-post--aside-font-size;
+    @include margin-leader(2, $font-size);
+    @include padding-leader(1, $font-size);
+    position: relative;
+
+    &::before {
+        @extend %compass-inline-block;
+        @include leading-border(6px, $font-size:$font-size);
+        border-color: $color-link;
+        content: "";
+        position: absolute;
+        top: 0;
+        width: pxtoem(35px);
+    }
+}
+
+.single-article--aside-links {
+    $font-size: $single-post--aside-font-size;
+    @include margin-trailer(3, $font-size);
+}
+
+.single-article--aside-site {}
+
+.single-article--aside-facebook {}
+
+.single-article--aside-twitter {}
+
+.single-article--aside-instagram {}
