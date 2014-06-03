@@ -11,8 +11,10 @@ function my_setup() {
     add_theme_support('post-thumbnails');
 
     set_post_thumbnail_size(348, 213, true);
+
     add_image_size('348x213', 348, 213, array('center', 'center'));
     add_image_size('477x558', 477, 558, array('center', 'center'));
+    add_image_size('800x0', 800, 0, array('center', 'center'));
 
     add_image_size('artist-attachment-282x322', 282, 322, array('center', 'center'));
 
@@ -114,6 +116,13 @@ function my_wp_nav_menu_objects($items) {
 	return $items;
 }
 add_filter('wp_nav_menu_objects', 'my_wp_nav_menu_objects');
+
+function my_image_size_names_choose($sizes) {
+    return array_merge($sizes, array(
+        '800x0' => __("Artigo")
+    ));
+}
+add_filter('image_size_names_choose', 'my_image_size_names_choose');
 
 // shortcodes
 //

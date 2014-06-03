@@ -7,5 +7,35 @@
 }
 
 .single-article--content {
+    $font-size: $single-post-content-font-size;
     @extend %single-post--content;
+
+    .wp-caption-text {
+        @include adjust-font-size-to(20px, $from-size:$font-size);
+    }
+
+    .single-article--datetime {
+        @include adjust-font-size-to(18px, $from-size:$font-size);
+    }
+
+    .single-article--title {
+        @extend %font-montserrat-700;
+        @include adjust-font-size-to(30px, $from-size:$font-size);
+        @include margin-trailer(2, $font-size);
+    }
+}
+
+.single-article--datetime {
+    @extend %font-montserrat-700;
+    color: $color-home-news-pretitle;
+    text-transform: uppercase;
+}
+
+.single-article--title {
+    @extend %font-montserrat-700;
+    text-transform: uppercase;
+}
+
+.single-article--aside {
+    @extend .single-post--aside;
 }

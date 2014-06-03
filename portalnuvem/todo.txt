@@ -1,0 +1,164 @@
+1440px
+
+Foco:
+listagem artista c/ form de cadastro
+conteúdo artista
+coluna dos artistas
+
+
+=====================================================================
+
+
+
+Home http://portalnuvem.art.br/wp/
+
+*    - envelope vai para página de contato
+*    - facebook: https://www.facebook.com/nuvemproducoes?fref=ts
+*    - twitter: https://twitter.com/nuvempro
+*    - mouse hover dos itens do menu
+*        - tirar underline
+*        - colocar cor
+
+*    Carrosel
+        http://www.brooklynbridgepark.org/park/pier-2
+*        - área THE VIEW
+*        - roubar setinhas
+*        - as fotos das pontas ficam embranquiçadas
+        - são chamadas para matérias:
+            - texto é o título
+            - a foto é a mesma da feature image
+
+    Shiko / Entrevista
+        - duas imagens
+            - background
+            - foto do entrevistado
+
+    News
+        - news e eventos
+        - marcar os itens que aparecem na capa (sticky)
+        - título/foto com link
+        - hover do título: ???
+
+    Artista em Destaque
+        - meta box para home
+            - sticky
+            - foto do artista
+            - imagem de capa
+            - quote
+
+    Parceiros
+        - itens com link para o site deles
+        - URLs ???
+
+    Rodapé
+        - links: tirar underline
+        - acrescentar lgoos do rodapé (https://www.dropbox.com/s/rfm7yaebxp6rh3o/Footer.psd)
+            - links a receber URLs
+
+=====================================================================
+
+LISTAGEM ARTISTAS
+
+    - form de cadastro (abrir/fechar)
+    - cadastro de vídeo
+
+=====================================================================
+
+PAGINA DO ARTISTA
+
+    - box para QUERO ME CADASTRAR
+
+=====================================================================
+
+MENU: Nuvem
+
+    - Quem Somos
+    - Link para loja: http://nuvemstore.iluria.com/
+
+=====================================================================
+
+BREADCRUMB
+
+    - ocultar o atual
+    - primeiro item: Home
+
+=====================================================================
+
+LISTAGEM EVENTOS
+
+    - VEJA TAMBÉM
+        - listar três últimos: matéria e artista
+        - apenas as que tiverem feature image
+
+=====================================================================
+
+ÚLTIMAS
+
+    - botoes Anterior/Próxima como "Veja todas as últimas" da home
+
+=====================================================================
+
+Conteúdo Notícia
+
+    - Imagem do texto pode ir até o final do lado direito da feature image
+    - botoes Twitter/Facebook
+
+=====================================================================
+
+Listagem Colunistas
+
+    - foto
+    - nome do colunista
+    - título da última coluna
+    - resumo da última coluna
+
+    - dados do colunistas
+*        - foto
+*        - bio
+
+        - site
+        - twitter
+        - facebook
+        - instagram
+
+Article/Coluna
+
+=====================================================================
+
+QUEM SOMOS
+
+=====================================================================
+
+CONTATO
+
+    - mapa com javascript, dinâmico
+
+=====================================================================
+
+BUSCA
+
+=====================================================================
+
+
+
+
+
+
+
+
+
+
+Arte Final
+
+    Barrinhas: paralax no scroll up/down
+
+
+
+
+
+
+
+
+
+
+
