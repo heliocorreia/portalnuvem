@@ -54,3 +54,20 @@
     @include margin-trailer;
     text-align: center;
 }
+
+.single-artist--subscribe {
+    @include margin-leader(2);
+    @include margin-trailer(2);
+    background: lighten($color-border-form, 10%);
+
+    .subscribe {
+        @include container;
+    }
+
+    .subscribe-form {
+        @include pre(1);
+        @include span-columns(10);
+        @include post(1);
+    }
+
+}

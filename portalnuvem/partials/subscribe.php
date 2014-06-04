@@ -1,4 +1,5 @@
-<form class="subscribe">
+<div class="subscribe">
+<form class="subscribe-form">
     <h1>Nuvem</h1>
     <p>Você é um artista e quer vender na nuvem produções? Cadastre seus dados e deixe o resto com a gente.</p>
     <fieldset>
@@ -63,3 +64,4 @@
     <p>Ao clicar em Cadastrar, você concorda com os <a href="#">termos de uso</a> da Nuvem Produções.</p>
     <p><input class="input-submit" type="submit" value="Cadastrar" /></p>
 </form>
+</div>

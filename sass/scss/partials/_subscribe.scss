@@ -1,8 +1,8 @@
-.subscribe {
+.subscribe-form {
     $font-size: 20px;
     @extend %compass-pie-clearfix;
     @extend %font-montserrat-normal;
-    @include padding-leader(2);
+    @include padding-leader(3);
     @include padding-trailer(2);
 
     h1 {
@@ -11,15 +11,17 @@
         @include margin-trailer;
     }
 
+    a {
+        color: $color-link;
+    }
+
     p {
         @include adjust-font-size-to($font-size);
-        @include margin-trailer(2);
+        @include margin-trailer;
         @include span-columns(6);
     }
 
     & > p {
-        @include span-columns(5);
-
         &:last-of-type {
             @include omega;
         }

@@ -50,4 +50,8 @@ $post_thumbnail_id = get_post_thumbnail_id();
     </div>
 </section>
 
+<section class="single-artist--subscribe">
+    <?php get_template_part('partials/subscribe'); ?>
+</section>
+
 <?php get_footer(); ?>
