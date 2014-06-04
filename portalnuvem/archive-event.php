@@ -11,7 +11,7 @@
     <div class="content-bd--container">
         <?php
         query_posts(array(
-            'posts_per_page' => 100,
+            'posts_per_page' => -1,
             'post_type' => 'event'
         ));
         if (have_posts()): ?>
