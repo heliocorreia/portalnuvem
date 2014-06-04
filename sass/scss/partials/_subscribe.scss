@@ -1,0 +1,83 @@
+.subscribe {
+    $font-size: 20px;
+    @extend %compass-pie-clearfix;
+    @extend %font-montserrat-normal;
+    @include padding-leader(2);
+    @include padding-trailer(2);
+
+    h1 {
+        @include hide-text;
+        @include icons-sprite(logo-274x52);
+        @include margin-trailer;
+    }
+
+    p {
+        @include adjust-font-size-to($font-size);
+        @include margin-trailer(2);
+        @include span-columns(6);
+    }
+
+    & > p {
+        @include span-columns(5);
+
+        &:last-of-type {
+            @include omega;
+        }
+    }
+
+    fieldset {
+        @extend %compass-clearfix;
+        clear: both;
+
+        & > p {
+            @include nth-omega(2n);
+
+            &:last-of-type {
+                @include span-columns(12);
+            }
+        }
+    }
+
+    input,
+    label,
+    select,
+    textarea {
+        $local-font-size: 25px;
+        @include adjust-font-size-to($local-font-size, $from-size:$font-size);
+        padding: rhythm(1, $local-font-size) / 2;
+    }
+
+    label {
+        cursor: pointer;
+        display: block;
+        padding-left: 0;
+    }
+
+    input,
+    select,
+    textarea {
+        @extend %compass-border-radius;
+        @extend %compass-border-sizing-border-box;
+        @extend %font-montserrat-normal;
+        border: 1px solid $color-border-form;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+    }
+
+    textarea {
+        height: rhythm(6);
+    }
+
+    .input-submit {
+        @include padding-leader;
+        @include padding-trailer;
+        background: $color-text-alternate;
+        color: $color-bg;
+        cursor: pointer;
+        text-transform: uppercase;
+        border-width: 0 0 10px 0;
+    }
+}
