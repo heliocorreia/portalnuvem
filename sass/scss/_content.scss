@@ -2,7 +2,7 @@
     border-bottom: 1px solid #B4BEC2;
 }
 
-.content--container {
+.content-hd--container {
     @extend %susy-container;
 
     position: relative;
@@ -47,8 +47,7 @@
     z-index: 1;
 }
 
-.content-bd,
-.content--bd {
+.content-bd {
     $min-height: 400px;
     @extend %compass-pie-clearfix;
     min-height: pxtoem($min-height);
@@ -72,7 +71,8 @@
 }
 
 .content--entry {
-    @extend %compass-clearfix;
+    @include pre(1);
+    @include span-columns(7);
     @include margin-trailer(2);
 }
 

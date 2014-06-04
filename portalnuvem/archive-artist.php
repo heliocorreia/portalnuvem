@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <header class="content-hd">
-    <div class="content--container">
+    <div class="content-hd--container">
         <?php get_template_part('partials/breadcrumb'); ?>
         <h1 class="content-hd--title">Artistas</h1>
     </div>

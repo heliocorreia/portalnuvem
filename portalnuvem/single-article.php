@@ -1,7 +1,7 @@
 <?php get_header(); the_post(); ?>
 
 <header class="content-hd">
-    <div class="content--container">
+    <div class="content-hd--container">
         <?php get_template_part('partials/breadcrumb'); ?>
         <h1 class="content-hd--title"><?php the_author(); ?></h1>
     </div>

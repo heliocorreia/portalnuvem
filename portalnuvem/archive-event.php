@@ -1,14 +1,14 @@
 <?php get_header(); ?>
 
 <header class="content-hd">
-    <div class="content--container">
+    <div class="content-hd--container">
         <?php get_template_part('partials/breadcrumb'); ?>
         <h1 class="content-hd--title">Próximos Eventos</h1>
     </div>
 </header>
 
-<div class="archive-event">
-    <div class="archive-event--container">
+<div class="content-bd">
+    <div class="content-bd--container">
         <?php
         query_posts(array(
             'posts_per_page' => 100,
