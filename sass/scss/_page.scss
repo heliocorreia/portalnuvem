@@ -4,9 +4,6 @@
     @include post(4);
     @include margin-trailer(4);
 
-    position: relative;
-    z-index: 10;
-
     &:nth-child(even) {
         @include pre(4);
         @include post(1);

@@ -7,8 +7,8 @@
     </div>
 </header>
 
-<div class="archive-artist">
-    <div class="archive-artist--container">
+<div class="content-bd">
+    <div class="content-bd--container">
         <?php
         query_posts(array(
             'posts_per_page' => 100,
