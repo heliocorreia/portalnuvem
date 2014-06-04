@@ -35,6 +35,7 @@ function my_setup() {
                 'title',
                 'editor',
                 'excerpt',
+                'author',
             ),
         )
     );
