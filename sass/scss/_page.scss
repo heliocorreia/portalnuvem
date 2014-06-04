@@ -1,0 +1,54 @@
+.page-authors--entry {
+    @include pre(1);
+    @include span-columns(7);
+    @include post(4);
+    @include margin-trailer(4);
+
+    position: relative;
+    z-index: 10;
+
+    &:nth-child(even) {
+        @include pre(4);
+        @include post(1);
+    }
+}
+
+.page-authors--figure {
+    $width: columns(3, 7) + gutter();
+    float: left;
+    width: $width;
+
+    & ~ .page-authors--name,
+    & ~ .page-authors--title,
+    & ~ .page-authors--subtitle {
+        margin-left: $width + gutter();
+    }
+}
+
+.page-authors--name,
+.page-authors--title {
+    text-transform: uppercase;
+}
+
+.page-authors--name {
+    @extend %font-montserrat-700;
+    @include adjust-font-size-to(28px);
+}
+
+.page-authors--title {
+    @extend %font-montserrat-normal;
+    @include adjust-font-size-to(22px);
+}
+
+.page-authors--title-link {
+    color: $color-text-alternate;
+}
+
+.page-authors--subtitle {
+    @extend %font-vollkorn-normal;
+    @include adjust-font-size-to(22px);
+}
+
+.page-authors--subtitle-link {
+    color: $color-text;
+}
