@@ -2,22 +2,22 @@
 
 <div class="home-headlines">
     <ul class="home-headlines-items">
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/01.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">A melancolia  dos nus de Sté</a></li>
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/02.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">Nude por  Gio Simões</a></li>
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/03.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">Harmonia por Ianah Maia</a></li>
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/04.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">Sonhei Que Te  Amava  por Sté</a></li>
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/05.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">A melancolia  dos nus de Sté</a></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/01.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">Cidade II por Celso Sales</a></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/02.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">Sereia Rainha por Nando Zevê</a></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/03.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">O Terceiro Olho por Gio Simões</a></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/04.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">Sonhei que te amava por Sté</a></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/05.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">Sushi por Julieet Farias</a></li>
     </ul>
 </div>
 
 <div class="home-highlight-1">
     <figure class="home-highlight-1-figure-1">
-        <img class="home-highlight-1-img-1" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-01a1.png" width="1440" height="532" />
+        <img class="home-highlight-1-img-1" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-01c1.png" width="1440" height="532" />
     </figure>
     <p class="home-highlight-1-pretitle"><small>Entrevista</small></p>
-    <h1 class="home-highlight-1-title"><a class="home-highlight-1-link" href="#">O paraiba no fala sobre seu fértil periodo na Itália de Michelangelo</a></h1>
+    <h1 class="home-highlight-1-title"><a class="home-highlight-1-link" href="https://www.youtube.com/watch?v=5zk6jP7f43E&feature=youtu.be">O pernambucano David Munster comenta seu trabalho em um vídeo exclusivo para a Nuvem</a></h1>
     <figure class="home-highlight-1-figure-2">
-        <img class="home-highlight-1-img-2" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-01a2.png" width="352" height="443" />
+        <img class="home-highlight-1-img-2" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-01c2.png" width="352" height="443" />
     </figure>
 </div>
 
@@ -54,7 +54,7 @@
         <figure class="highlight-2-figure">
             <img class="highlight-2-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-02a1.png" width="605" height="695" />
         </figure>
-        <p class="highlight-2-quote">Repudio esse sistema capitalista que aliena e desumaniza as pessoas tirando o real valor da vida transformando-a num produto, seja o capitalismo ou qualquer outro sistema.</p>
+        <p class="highlight-2-quote"><a class="highlight-2-quote-link" href="http://portalnuvem.art.br/wp/?artist=jotazeroff">Repudio esse sistema capitalista que aliena e desumaniza as pessoas tirando o real valor da vida transformando-a num produto, seja o capitalismo ou qualquer outro sistema.</a></p>
         <footer class="highlight-2-author" class="hcard">
             <img class="highlight-2-author-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-02a2.png" width="155" height="155" />
             <span class="fn n">Jota Zeroff</span>

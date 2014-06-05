@@ -40,10 +40,13 @@ $highlight-2-bottom-offset: 45px;
 .highlight-2-quote {
     $font-size: 29px;
     @extend %font-vollkorn-normal-italic;
-    color: $color-home-hightlight-2-quote;
     font-size: pxtoem($font-size);
     line-height: 1.7;
     padding-bottom: pxtoem(45px, $font-size);
+}
+
+.highlight-2-quote-link {
+    color: $color-home-hightlight-2-quote;
 }
 
 .highlight-2-author .fn {
