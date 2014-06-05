@@ -1,5 +1,27 @@
-<div class="subscribe">
-<form class="subscribe-form">
+<?php
+
+if (isset($_POST['subscribe'])) {
+    $fields = array('firstname', 'lastname', 'city', 'state', 'mail', 'site', 'release');
+    foreach($fields as $field) {
+        $_POST[$field] = stripslashes(trim($_POST[$field]));
+    }
+
+    if (!isset($hasError)) {
+        $emailTo = get_option('admin_email');
+        $subject = "[CADASTRO] $firstname $lastname";
+        $body = join("\n", array(
+            "Nome: $_POST[firstname] $_POST[lastname]",
+            "Origem: $_POST[city] $_POST[state]",
+            "Contato: $_POST[mail] $_POST[site]",
+            "Release: $_POST[release]"
+        ));
+        $headers = 'From: '.$firstname.' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $_POST['mail'];
+        $emailSent = (bool)wp_mail($emailTo, $subject, $body, $headers);
+    }
+}
+
+?><div class="subscribe">
+<form class="subscribe-form" action="<?php the_permalink(); ?>" method="post">
     <h1>Nuvem</h1>
     <p>Você é um artista e quer vender na nuvem produções? Cadastre seus dados e deixe o resto com a gente.</p>
     <fieldset>
@@ -62,6 +84,6 @@
         </p>
     </fieldset>
     <p>Ao clicar em Cadastrar, você concorda com os <a href="#">termos de uso</a> da Nuvem Produções.</p>
-    <p><input class="input-submit" type="submit" value="Cadastrar" /></p>
+    <p><input name="subscribe" class="input-submit" type="submit" value="Cadastrar" /></p>
 </form>
 </div>
