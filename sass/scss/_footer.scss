@@ -22,7 +22,7 @@
     @include span-columns(7);
 
     .menu-item + .menu-item {
-        margin-left: pxtoem(40px);
+        margin-left: pxtoem(24px);
     }
 
     a {
