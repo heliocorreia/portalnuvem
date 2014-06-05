@@ -2,11 +2,11 @@
 
 <div class="home-headlines">
     <ul class="home-headlines-items">
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/01.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">Cidade II por Celso Sales</a></li>
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/02.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">Sereia Rainha por Nando Zevê</a></li>
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/03.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">O Terceiro Olho por Gio Simões</a></li>
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/04.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">Sonhei que te amava por Sté</a></li>
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/05.jpg" width="350" height="600" /> <a class="home-headlines-link" href="#">Sushi por Julieet Farias</a></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/01.jpg" width="350" height="600" /> <span class="home-headlines-link">Cidade II por Celso Sales</span></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/02.jpg" width="350" height="600" /> <span class="home-headlines-link">Sereia Rainha por Nando Zevê</span></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/03.jpg" width="350" height="600" /> <span class="home-headlines-link">O Terceiro Olho por Gio Simões</span></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/04.jpg" width="350" height="600" /> <span class="home-headlines-link">Sonhei que te amava por Sté</span></li>
+        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/05.jpg" width="350" height="600" /> <span class="home-headlines-link">Sushi por Julieet Farias</span></li>
     </ul>
 </div>
 
