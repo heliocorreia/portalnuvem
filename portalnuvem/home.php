@@ -24,29 +24,29 @@
 <section class="home-news">
     <section class="home-news-item">
         <figure class="home-news-figure">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/news-01.jpg" width="348" height="213" />
+            <img src="http://portalnuvem.art.br/wp/wp-content/uploads/2014/06/derlon-vilaocupada-348x213.png" width="348" height="213" />
         </figure>
         <p class="home-news-pretitle"><small>Recife - PE</small></p>
-        <h1 class="home-news-title">Jota Zer0ff na Reserva do Paiva</h1>
-        <p class="home-news-subtitle"><a href="#" class="home-news-link">Mais novidades da Nuvem Store! Depois do maor e mais  lançamento de uma série de Posters, a artista</a></p>
+        <h1 class="home-news-title">Derlon no exterior</h1>
+        <p class="home-news-subtitle"><a href="http://portalnuvem.art.br/wp/?p=147" class="home-news-link">Nosso parceiro de Nuvem, Derlon, foi convidado para mais um trabalho no exterior. Dessa vez, o artista viaja para França.</a></p>
     </section>
     <section class="home-news-item">
         <figure class="home-news-figure">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/news-02.jpg" width="348" height="213" />
+            <img src="http://portalnuvem.art.br/wp/wp-content/uploads/2014/06/acidum-project-348x213.png" width="348" height="213" />
         </figure>
-        <p class="home-news-pretitle"><small>Florianópolis - SC</small></p>
-        <h1 class="home-news-title">Grafite em armazém vira atração em Floripa</h1>
-        <p class="home-news-subtitle"><a href="#" class="home-news-link">Mais novidades da Nuvem Store! Depois do maor e mais  lançamento de uma série de Posters, a artista</a></p>
+        <p class="home-news-pretitle"><small>Rio de Janeiro - RJ</small></p>
+        <h1 class="home-news-title">Acidum Project</h1>
+        <p class="home-news-subtitle"><a href="http://portalnuvem.art.br/wp/?p=143" class="home-news-link">O Acidum Project de Robézio Marqs e Tereza Dequinta fez as malas e já está no Rio de Janeiro.</a></p>
     </section>
     <section class="home-news-item">
         <figure class="home-news-figure">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/news-03.jpg" width="348" height="213" />
+            <img src="http://portalnuvem.art.br/wp/wp-content/uploads/2014/06/edital-itau-348x213.png" width="348" height="213" />
         </figure>
-        <p class="home-news-pretitle"><small>Recife - PE</small></p>
-        <h1 class="home-news-title">Nuvem faz coletiva de Artistas na Florense</h1>
-        <p class="home-news-subtitle"><a href="#" class="home-news-link">Mais novidades da Nuvem Store! Depois do maor e mais  lançamento de uma série de Posters, a artista</a></p>
+        <p class="home-news-pretitle"><small>Edital</small></p>
+        <h1 class="home-news-title">Itaú Cultural 2014</h1>
+        <p class="home-news-subtitle"><a href="http://portalnuvem.art.br/wp/?p=134" class="home-news-link">Entre os dias 2 de junho e 18 de julho, o Itaú Cultural recebe projetos de design gráfico que tenham a cidade como tema, suporte ou discurso.</a></p>
     </section>
-    <p class="home-news-seemore"><a class="home-news-seemore-link" href="#">Veja todas as últimas</a></p>
+    <p class="home-news-seemore"><a class="home-news-seemore-link" href="<?php echo './?cat=1' ?>">Veja todas as últimas</a></p>
 </section>
 
 <div class="highlight-2">
