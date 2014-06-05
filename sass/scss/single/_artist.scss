@@ -45,7 +45,9 @@
 }
 
 .single-artist--attachments {
+    @include margin-leader(4);
     @include span-columns(12 omega);
+    @include margin-trailer(4);
 }
 
 .single-artist--attachment {

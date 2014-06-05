@@ -21,6 +21,8 @@ $single-post-content-grid-context: 10;
     @include span-columns(5, $single-post-content-grid-context);
     @include pre(1);
 
+    line-height: 1.5;
+
     & > * {
         @include margin-trailer(1, $single-post-content-font-size);
     }

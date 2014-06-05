@@ -38,7 +38,7 @@ $highlight-2-bottom-offset: 45px;
 }
 
 .highlight-2-quote {
-    $font-size: 34px;
+    $font-size: 29px;
     @extend %font-vollkorn-normal-italic;
     color: $color-home-hightlight-2-quote;
     font-size: pxtoem($font-size);
@@ -47,7 +47,7 @@ $highlight-2-bottom-offset: 45px;
 }
 
 .highlight-2-author .fn {
-    $font-size: 24px;
+    $font-size: 20px;
     @extend %font-montserrat-normal;
     bottom: 0;
     color: $color-home-hightlight-2-author;

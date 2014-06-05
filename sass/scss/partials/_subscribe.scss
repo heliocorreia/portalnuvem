@@ -44,7 +44,7 @@
     label,
     select,
     textarea {
-        $local-font-size: 25px;
+        $local-font-size: 20px;
         @include adjust-font-size-to($local-font-size, $from-size:$font-size);
         padding: rhythm(1, $local-font-size) / 2;
     }

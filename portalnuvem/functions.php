@@ -2,7 +2,7 @@
 
 // theme setup
 
-$post_thumbnails_with_captions = Array('477x558');
+$post_thumbnails_with_captions = Array('477x558', '400x468');
 
 function my_setup() {
     remove_action('wp_head', 'wp_generator');
@@ -13,6 +13,7 @@ function my_setup() {
     set_post_thumbnail_size(348, 213, true);
 
     add_image_size('348x213', 348, 213, array('center', 'center'));
+    add_image_size('400x468', 400, 468, array('center', 'center'));
     add_image_size('477x558', 477, 558, array('center', 'center'));
     add_image_size('800x0', 800, 0, array('center', 'center'));
 

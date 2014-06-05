@@ -54,10 +54,10 @@
         <figure class="highlight-2-figure">
             <img class="highlight-2-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-02a1.png" width="605" height="695" />
         </figure>
-        <p class="highlight-2-quote">Estou interessado em saber o que públicos de outros países acham do que faço. Acabo sendo influenciado pela cidade, me instigo a experimentar novas ideias</p>
+        <p class="highlight-2-quote">Repudio esse sistema capitalista que aliena e desumaniza as pessoas tirando o real valor da vida transformando-a num produto, seja o capitalismo ou qualquer outro sistema.</p>
         <footer class="highlight-2-author" class="hcard">
             <img class="highlight-2-author-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-02a2.png" width="155" height="155" />
-            <span class="fn n">Celso Sales</span>
+            <span class="fn n">Jota Zeroff</span>
         </footer>
     </blockquote>
 </div>

@@ -107,7 +107,8 @@
     $font-size: 28px;
     @extend %font-montserrat-700;
     font-size: pxtoem($font-size);
-    padding: pxtoem(19px, $font-size) 0 pxtoem(24px, $font-size) 0;
+    line-height: 1.2em;
+    padding: pxtoem(7px, $font-size) 0 pxtoem(8px, $font-size) 0;
     text-transform: uppercase;
 }
 
@@ -120,6 +121,6 @@
 .content--subtitle-link {
     @extend %font-vollkorn-normal;
     color: $color-home-news-subtitle;
+    font-size: pxtoem(20px);
     line-height: 1.45;
-    font-size: pxtoem(22px);
 }

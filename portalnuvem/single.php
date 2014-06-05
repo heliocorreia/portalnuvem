@@ -16,7 +16,7 @@
         <aside class="single-post--aside">
             <?php if (has_post_thumbnail()): ?>
             <figure class="single-post--post-thumbnail">
-                <?php the_post_thumbnail('477x558') ?>
+                <?php the_post_thumbnail('400x468') ?>
             </figure>
             <?php endif; ?>
         </aside>
