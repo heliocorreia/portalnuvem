@@ -64,7 +64,8 @@
     @extend %font-montserrat-700;
     color: $color-home-news-title;
     font-size: pxtoem($font-size);
-    padding: pxtoem(19px, $font-size) 0 pxtoem(24px, $font-size) 0;
+    line-height: 1.2em;
+    padding: pxtoem(7px, $font-size) 0 pxtoem(8px, $font-size) 0;
     text-transform: uppercase;
 }
 
@@ -75,7 +76,7 @@
     @extend %font-vollkorn-normal;
     color: $color-home-news-subtitle;
     line-height: 1.45;
-    font-size: pxtoem(22px);
+    font-size: pxtoem(20px);
 }
 
 .home-news-seemore {
