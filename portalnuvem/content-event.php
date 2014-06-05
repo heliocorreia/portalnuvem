@@ -22,6 +22,6 @@
     <p class="event--subtitle"><?php echo get_the_excerpt(); ?></p>
 
     <?php if ($value = get_post_meta($post->ID, '_event_site', true)): ?>
-    <p class="event--site"><a href="http://<?php echo $value; ?>"><?php echo $value; ?></a></p>
+    <p class="event--site"><a class="event--site-link" href="http://<?php echo $value; ?>"><?php echo $value; ?></a></p>
     <?php endif; ?>
 </section>

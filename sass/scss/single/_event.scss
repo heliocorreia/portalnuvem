@@ -38,8 +38,7 @@ $event--entry-context: 7;
     @extend %font-montserrat-700;
 }
 
-.event--subtitle,
-.event--site {
+.event--subtitle {
     @extend %font-vollkorn-normal;
 }
 
@@ -53,6 +52,11 @@ $event--entry-context: 7;
     text-transform: uppercase;
 }
 
+.event--site {
+    @extend %font-vollkorn-normal-italic;
+}
+
+.event--site-link,
 .event--locale {
     color: $color-link;
 }
