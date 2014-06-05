@@ -1,6 +1,6 @@
 #ft {
     @extend %font-montserrat-700;
-    padding-bottom: pxtoem(115px);
+    border-bottom: 5px solid $color-border-hd;
     padding-top: pxtoem(133px);
     text-transform: uppercase;
 
@@ -85,4 +85,62 @@
     padding-left: gutter();
     padding-right: gutter();
     margin-right: columns(1);
+}
+
+#ft--xtra {
+    $padding-lines: 6;
+    @include margin-leader(2);
+    background: $color-bg-ft;
+    color: $color-bg;
+
+    .sponsorship {
+        @include pre(1);
+        @include span-columns(10 omega);
+        @include post(1);
+        @include padding-leader($padding-lines);
+        @include padding-trailer($padding-lines);
+        position: relative;
+    }
+
+    .incentive,
+    .realization {
+        position: absolute;
+        top: rhythm($padding-lines - 2);
+    }
+
+    .incentive {
+        left: 0;
+    }
+
+    .realization {
+        right: 0;
+        width: icons-sprite-width(nuvem-gm);
+    }
+
+    .entity {
+        float: left;
+        margin-right: columns(1, 10) + gutter(10);
+
+        &:first-of-type {
+            clear: left;
+        };
+
+        &:last-of-type {
+            clear: right;
+            float: right;
+            margin-right: 0;
+        };
+    }
+
+    .entity-entry {
+        @extend %compass-hide-text;
+        @extend %compass-inline-block;
+    }
+
+    $items: funcultura fundarpe secretaria-pe nuvem-gm;
+    @each $item in $items {
+        .#{$item} .entity-entry {
+            @include icons-sprite($item);
+        }
+    }
 }
