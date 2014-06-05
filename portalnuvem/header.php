@@ -10,6 +10,7 @@
     <link rel="profile" href="http://gmpg.org/xfn/11">
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="<?php echo get_stylesheet_directory_uri(); ?>/media/favicon.png" />
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
