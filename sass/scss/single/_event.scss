@@ -40,10 +40,12 @@ $event--entry-context: 7;
 
 .event--subtitle {
     @extend %font-vollkorn-normal;
+    line-height: 1.45;
 }
 
 .event--title {
     @include adjust-font-size-to(28px);
+    line-height: 1.2;
     text-transform: uppercase;
 }
 

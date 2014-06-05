@@ -50,7 +50,7 @@ $single-post-content-grid-context: 10;
 
 $single-post--aside-font-size: 26px;
 .single-post--aside {
-    $font-size: 26px;
+    $font-size: 22px;
     @include adjust-font-size-to($font-size);
     @include padding-leader(4, $font-size);
     @include span-columns(4 omega, $single-post-content-grid-context);

@@ -23,7 +23,7 @@ get_header(); ?>
         ?>
         <section class="page-authors--entry">
             <figure class="page-authors--figure">
-                <img src="<?php echo $photo; ?>" width="284" height="284" />
+                <a class="page-authors--figure-link" href="<?php the_permalink(); ?>"><img src="<?php echo $photo; ?>" width="284" height="284" /></a>
             </figure>
             <h1 class="page-authors--name"><?php echo $author->display_name; ?></h1>
             <?php

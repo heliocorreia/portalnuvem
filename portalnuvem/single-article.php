@@ -40,13 +40,6 @@
                 <?php if ($instagram): ?><li class="single-article--aside-instagram"><a href="#">Instagram</a></li><?php endif ?>
             </ul>
             <?php endif; ?>
-
-            <h1>Textos Anteriores</h1>
-            <ul>
-                <li><a href="#">Adasd asdas das ds</a></li>
-                <li><a href="#">Adasd asdas das ds</a></li>
-            </ul>
-            <p><a href="#">Veja mais</a></p>
         </aside>
     </div>
 </section>

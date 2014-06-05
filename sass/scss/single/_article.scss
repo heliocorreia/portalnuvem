@@ -37,11 +37,12 @@
 }
 
 .single-article--aside {
+    @extend %font-vollkorn-normal-italic;
     @extend .single-post--aside;
 }
 
 .single-article--aside-photo284x284 {
-    @include margin-leader(-4);
+    @include margin-leader(-5);
 }
 
 .single-article--aside-description {
