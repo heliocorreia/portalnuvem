@@ -79,7 +79,7 @@ $single-post--aside-font-size: 26px;
     }
 
     .wp-caption-text {
-        @include adjust-font-size-to(20px, $from-size:$font-size);
+        @include adjust-font-size-to(16px, $from-size:$font-size);
     }
 }
 
