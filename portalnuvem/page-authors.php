@@ -22,20 +22,18 @@ get_header(); ?>
         endif;
         ?>
         <section class="page-authors--entry">
-            <figure class="page-authors--figure">
-                <a class="page-authors--figure-link" href="<?php the_permalink(); ?>"><img src="<?php echo $photo; ?>" width="284" height="284" /></a>
-            </figure>
-            <h1 class="page-authors--name"><?php echo $author->display_name; ?></h1>
-            <?php
-            $author_posts = new WP_Query(array(
+            <?php $author_posts = new WP_Query(array(
                 'author'         => $author->ID,
                 'orderby'        => 'date',
                 'order'          => 'DESC',
                 'post_type'      => 'article',
                 'posts_per_page' => 1
-            ));
-
-            while($author_posts->have_posts()): $author_posts->the_post(); ?>
+            )); ?>
+            <?php while($author_posts->have_posts()): $author_posts->the_post(); ?>
+                <figure class="page-authors--figure">
+                    <a class="page-authors--figure-link" href="<?php the_permalink(); ?>"><img src="<?php echo $photo; ?>" width="284" height="284" /></a>
+                </figure>
+                <h1 class="page-authors--name"><?php echo $author->display_name; ?></h1>
                 <h2 class="page-authors--title"><a class="page-authors--title-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                 <p class="page-authors--subtitle"><a class="page-authors--subtitle-link" href="<?php the_permalink(); ?>"><?php echo get_the_excerpt(); ?></a></h2>
             <?php endwhile; ?>
