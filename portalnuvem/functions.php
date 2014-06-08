@@ -1,6 +1,6 @@
 <?php
 
-define('NUVEM_HOME_HEADLINES_SLUG', 'destaques-na-home');
+define('NUVEM_HOME_HEADLINES_SLUG', 'home-headlines');
 define('NUVEM_HOME_HEADLINES_LIMIT', 5);
 
 // theme setup
