@@ -15,7 +15,7 @@ generated_images_dir = "portalnuvem/media/compiled/images"
 
 # You can select your preferred output style here (can be overridden via the
 # command line): output_style = :expanded or :nested or :compact or :compressed
-output_style = :expanded
+output_style = :compressed
 
 # Indicates whether line comments should be added to compiled css that says
 # where the selectors were defined. Defaults to false in production mode, true
