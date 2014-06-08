@@ -32,6 +32,13 @@
 
     .bx-wrapper {
         margin: 0 columns(-2) !important;
+
+        .bx-prev {
+            left: columns(2);
+        }
+        .bx-next {
+            right: columns(2);
+        }
     }
 }
 

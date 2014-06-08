@@ -14,7 +14,7 @@ $(document).ready(function(){
         randomStart: true,
         slideMargin: 0,
         pager: false,
-        controls: false,
+        controls: true,
         auto: true,
         responsive: true,
         onSliderLoad: function() {
