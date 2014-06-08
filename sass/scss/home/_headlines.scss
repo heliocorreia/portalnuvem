@@ -8,6 +8,12 @@
 
 .home-headlines-item {
     position: relative;
+
+    img {
+        float: left;
+        height: auto;
+        width: 100%;
+    }
 }
 
 @include with-grid-settings($columns: 16, $width:pxtoem(350px), $gutter: 0em, $padding: 0em) {
@@ -27,12 +33,6 @@
     .bx-wrapper {
         margin: 0 columns(-2) !important;
     }
-}
-
-.home-headlines-img {
-    float: left;
-    height: auto;
-    width: 100%;
 }
 
 .home-headlines-link {

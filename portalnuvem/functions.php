@@ -1,5 +1,8 @@
 <?php
 
+define('NUVEM_HOME_HEADLINES_SLUG', 'destaques-na-home');
+define('NUVEM_HOME_HEADLINES_LIMIT', 5);
+
 // theme setup
 
 $post_thumbnails_with_captions = Array('477x558', '400x468');
@@ -17,6 +20,7 @@ function my_setup() {
     add_image_size('477x558', 477, 558, array('center', 'center'));
     add_image_size('800x0', 800, 0, array('center', 'center'));
 
+    add_image_size('home-headlines-350x600', 350, 600, array('center', 'center'));
     add_image_size('artist-attachment-282x322', 282, 322, array('center', 'center'));
 
     register_nav_menu('main', 'Main Menu');

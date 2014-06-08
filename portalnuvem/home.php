@@ -26,11 +26,23 @@ $(document).ready(function(){
 
 <div class="home-headlines">
     <ul class="home-headlines-items">
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/01.jpg" width="350" height="600" /> <span class="home-headlines-link">Cidade II por Celso Sales</span></li>
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/02.jpg" width="350" height="600" /> <span class="home-headlines-link">Sereia Rainha por Nando Zevê</span></li>
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/03.jpg" width="350" height="600" /> <span class="home-headlines-link">O Terceiro Olho por Gio Simões</span></li>
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/04.jpg" width="350" height="600" /> <span class="home-headlines-link">Sonhei que te amava por Sté</span></li>
-        <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/05.jpg" width="350" height="600" /> <span class="home-headlines-link">Sushi por Julieet Farias</span></li>
+        <?php $headlines_posts = new WP_Query(array(
+            'orderby'        => 'date',
+            'order'          => 'DESC',
+            'category_name'  => NUVEM_HOME_HEADLINES_SLUG,
+            'posts_per_page' => NUVEM_HOME_HEADLINES_LIMIT,
+        )); ?>
+        <?php while($headlines_posts->have_posts()):
+            $headlines_posts->the_post();
+            if (!has_post_thumbnail($post->ID)):
+                continue;
+            endif;
+        ?>
+        <li class="home-headlines-item">
+            <?php the_post_thumbnail('home-headlines-350x600') ?>
+            <a href="<?php the_permalink() ?>" class="home-headlines-link"><?php the_title() ?></a>
+        </li>
+        <?php endwhile ?>
     </ul>
 </div>
 
