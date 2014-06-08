@@ -45,12 +45,12 @@
 .home-news-figure {
     @include span-columns(4, 8);
     text-align: right;
-}
 
-.home-news-pretitle,
-.home-news-title,
-.home-news-subtitle {
-    @include span-columns(4 omega, 8);
+    & ~ .home-news-pretitle,
+    & ~ .home-news-title,
+    & ~ .home-news-subtitle {
+        @include span-columns(4 omega, 8);
+    }
 }
 
 .home-news-pretitle {
@@ -62,15 +62,17 @@
 .home-news-title {
     $font-size: 28px;
     @extend %font-montserrat-700;
-    color: $color-home-news-title;
     font-size: pxtoem($font-size);
     line-height: 1.2em;
     padding: pxtoem(7px, $font-size) 0 pxtoem(8px, $font-size) 0;
     text-transform: uppercase;
 }
 
-.home-news-subtitle {
+.home-news-title-link {
+    color: $color-home-news-title;
 }
+
+.home-news-subtitle {}
 
 .home-news-link {
     @extend %font-vollkorn-normal;

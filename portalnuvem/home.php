@@ -26,13 +26,14 @@ $(document).ready(function(){
 
 <div class="home-headlines">
     <ul class="home-headlines-items">
-        <?php $headlines_posts = new WP_Query(array(
+        <?php
+        $headlines_posts = new WP_Query(array(
             'orderby'        => 'date',
             'order'          => 'DESC',
             'category_name'  => NUVEM_HOME_HEADLINES_SLUG,
             'posts_per_page' => NUVEM_HOME_HEADLINES_LIMIT,
-        )); ?>
-        <?php while($headlines_posts->have_posts()):
+        ));
+        while($headlines_posts->have_posts()):
             $headlines_posts->the_post();
             if (!has_post_thumbnail($post->ID)):
                 continue;
@@ -58,31 +59,28 @@ $(document).ready(function(){
 </div>
 
 <section class="home-news">
+    <?php
+    $news_posts = new WP_Query(array(
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+        'category_name'  => NUVEM_HOME_NEWS_SLUG,
+        'posts_per_page' => NUVEM_HOME_NEWS_LIMIT,
+    ));
+    while($news_posts->have_posts()): $news_posts->the_post(); ?>
     <section class="home-news-item">
+        <?php if (has_post_thumbnail()): ?>
         <figure class="home-news-figure">
-            <img src="http://portalnuvem.art.br/wp/wp-content/uploads/2014/06/derlon-vilaocupada-348x213.png" width="348" height="213" />
+            <a href="<?php the_permalink() ?>" class="home-news-image-link"><?php the_post_thumbnail('home-news-348x213') ?></a>
         </figure>
-        <p class="home-news-pretitle"><small>Recife - PE</small></p>
-        <h1 class="home-news-title">Derlon no exterior</h1>
-        <p class="home-news-subtitle"><a href="http://portalnuvem.art.br/wp/?p=147" class="home-news-link">Nosso parceiro de Nuvem, Derlon, foi convidado para mais um trabalho no exterior. Dessa vez, o artista viaja para França.</a></p>
+        <?php endif; ?>
+        <?php if ($value = get_post_meta($post->ID, '_post_locale', true)): ?>
+        <p class="home-news-pretitle"><small><?php echo $value; ?></small></p>
+        <?php endif; ?>
+        <h1 class="home-news-title"><a href="<?php the_permalink() ?>" class="home-news-title-link"><?php the_title() ?></a></h1>
+        <p class="home-news-subtitle"><a href="<?php the_permalink() ?>" class="home-news-link"><?php the_title() ?></a></p>
     </section>
-    <section class="home-news-item">
-        <figure class="home-news-figure">
-            <img src="http://portalnuvem.art.br/wp/wp-content/uploads/2014/06/acidum-project-348x213.png" width="348" height="213" />
-        </figure>
-        <p class="home-news-pretitle"><small>Rio de Janeiro - RJ</small></p>
-        <h1 class="home-news-title">Acidum Project</h1>
-        <p class="home-news-subtitle"><a href="http://portalnuvem.art.br/wp/?p=143" class="home-news-link">O Acidum Project de Robézio Marqs e Tereza Dequinta fez as malas e já está no Rio de Janeiro.</a></p>
-    </section>
-    <section class="home-news-item">
-        <figure class="home-news-figure">
-            <img src="http://portalnuvem.art.br/wp/wp-content/uploads/2014/06/edital-itau-348x213.png" width="348" height="213" />
-        </figure>
-        <p class="home-news-pretitle"><small>Edital</small></p>
-        <h1 class="home-news-title">Itaú Cultural 2014</h1>
-        <p class="home-news-subtitle"><a href="http://portalnuvem.art.br/wp/?p=134" class="home-news-link">Entre os dias 2 de junho e 18 de julho, o Itaú Cultural recebe projetos de design gráfico que tenham a cidade como tema, suporte ou discurso.</a></p>
-    </section>
-    <p class="home-news-seemore"><a class="home-news-seemore-link" href="<?php echo './?cat=1' ?>">Veja todas as últimas</a></p>
+    <?php endwhile ?>
+    <p class="home-news-seemore"><a class="home-news-seemore-link" href="<?php echo './?category_name=' . NUVEM_HOME_NEWS_SEEMORE_SLUG ?>">Veja todas as últimas</a></p>
 </section>
 
 <div class="highlight-2">

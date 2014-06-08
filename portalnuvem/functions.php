@@ -3,6 +3,10 @@
 define('NUVEM_HOME_HEADLINES_SLUG', 'home-headlines');
 define('NUVEM_HOME_HEADLINES_LIMIT', 5);
 
+define('NUVEM_HOME_NEWS_SLUG', 'home-news');
+define('NUVEM_HOME_NEWS_LIMIT', 3);
+define('NUVEM_HOME_NEWS_SEEMORE_SLUG', 'noticias');
+
 // theme setup
 
 $post_thumbnails_with_captions = Array('477x558', '400x468');
@@ -21,6 +25,7 @@ function my_setup() {
     add_image_size('800x0', 800, 0, array('center', 'center'));
 
     add_image_size('home-headlines-350x600', 350, 600, array('center', 'center'));
+    add_image_size('home-news-348x213', 348, 213, array('center', 'center'));
     add_image_size('artist-attachment-282x322', 282, 322, array('center', 'center'));
 
     register_nav_menu('main', 'Main Menu');
