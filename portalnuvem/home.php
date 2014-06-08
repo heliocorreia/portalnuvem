@@ -1,5 +1,28 @@
 <?php get_header(); ?>
 
+<script type='text/javascript' src='//code.jquery.com/jquery-1.11.0.js'></script>
+
+<script src="http://bxslider.com/lib/jquery.bxslider.js"></script>
+<script>
+$(document).ready(function(){
+    var headlines = $('.home-headlines-items').css('visibility', 'hidden');
+    headlines.bxSlider({
+        slideWidth: '99999',
+        minSlides: 5,
+        maxSlides: 5,
+        moveSlides: 1,
+        randomStart: true,
+        slideMargin: 0,
+        pager: false,
+        auto: true,
+        responsive: true,
+        onSliderLoad: function() {
+            headlines.css('visibility', 'visible');
+        }
+    });
+});
+</script>
+
 <div class="home-headlines">
     <ul class="home-headlines-items">
         <li class="home-headlines-item"><img class="home-headlines-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/carrosel/01.jpg" width="350" height="600" /> <span class="home-headlines-link">Cidade II por Celso Sales</span></li>
