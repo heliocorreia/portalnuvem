@@ -1,0 +1,19 @@
+.page-contact--content {
+    @extend %font-montserrat-normal;
+    @include span-columns(10, $single-post-content-grid-context);
+    @include pre(1);
+}
+
+.page-contact--entry {
+    @include span-columns(4, $single-post-content-grid-context);
+}
+
+.page-contact--title {
+    @include adjust-font-size-to(24px, $from-size:$single-post-content-font-size);
+    @include margin-trailer(2);
+    text-transform: uppercase;
+}
+
+.page-contact--address {
+    @include adjust-font-size-to(20px, $from-size:$single-post-content-font-size);
+}

@@ -14,12 +14,16 @@
 
 $single-post-content-font-size: 22px;
 $single-post-content-grid-context: 10;
-%single-post--content {
-    @extend %font-vollkorn-normal;
+%single-post--content-grid {
     @include adjust-font-size-to($single-post-content-font-size);
     @include padding-leader(4, $single-post-content-font-size);
     @include span-columns(5, $single-post-content-grid-context);
     @include pre(1);
+}
+
+%single-post--content {
+    @extend %font-vollkorn-normal;
+    @extend %single-post--content-grid;
 
     line-height: 1.5;
 
