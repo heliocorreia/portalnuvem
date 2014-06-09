@@ -33,6 +33,7 @@ function my_setup() {
     add_image_size('home-headlines-350x600', 350, 600, array('center', 'center'));
     add_image_size('home-news-348x213', 348, 213, array('center', 'center'));
     add_image_size('artist-attachment-282x322', 282, 322, array('center', 'center'));
+    add_image_size('quemsomos-attachment-298x298', 298, 298, array('center', 'center'));
 
     register_nav_menu('main', 'Main Menu');
     register_nav_menu('footer', 'Footer Menu');

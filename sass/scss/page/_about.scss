@@ -1,0 +1,40 @@
+.page-about {
+    @extend .single-post;
+}
+
+.page-about--container {
+    @extend .single-post--container;
+}
+
+.page-about--content {
+    @extend %single-post--content;
+}
+
+.page-about--aside {
+    @extend .single-post--aside;
+}
+
+.page-about--attachment {
+    @include margin-trailer(2);
+    text-align: center;
+}
+
+.page-about--attachment-figure {
+    img {
+        @extend %compass-border-radius-50;
+    }
+}
+
+.page-about--attachment-title {
+    @include adjust-font-size-to(30px, $from-size:$single-post-content-font-size);
+}
+
+.page-about--attachment-excerpt {
+    @extend %font-vollkorn-normal-italic;
+    @include adjust-font-size-to(35px, $from-size:$single-post-content-font-size);
+    color: $color-link;
+}
+
+.page-about--subscribe {
+    @extend .single-artist--subscribe;
+}
