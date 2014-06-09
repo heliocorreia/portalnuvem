@@ -4,10 +4,10 @@
     <div class="content-hd--container">
         <?php get_template_part('partials/breadcrumb'); ?>
         <h1 class="content-hd--title"><?php
-            if (in_category('ultimas')):
+            if (in_category(NUVEM_NEWS_CATEGORY_SLUG)):
                 print('Últimas');
 
-            elseif (in_category('colunas')):
+            elseif (in_category(NUVEM_ARTICLES_CATEGORY_SLUG)):
                 print('Colunas');
 
             endif;
