@@ -232,7 +232,7 @@ function my_metabox_artist_home($post) {
     echo '<input type="text" id="my_artist_home_photo" name="my_artist_home_photo" value="' . esc_attr($photo) . '" size="25" /></p>';
 
     $work = get_post_meta($post->ID, '_artist_home_work', true);
-    echo '<p><label for="my_artist_home_work">work URL:</label> ';
+    echo '<p><label for="my_artist_home_work">Work URL:</label> ';
     echo '<input type="text" id="my_artist_home_work" name="my_artist_home_work" value="' . esc_attr($work) . '" size="25" /></p>';
 
     $quote = get_post_meta($post->ID, '_artist_home_quote', true);
