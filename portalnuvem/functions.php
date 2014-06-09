@@ -7,6 +7,10 @@ define('NUVEM_HOME_NEWS_SLUG', 'home-news');
 define('NUVEM_HOME_NEWS_LIMIT', 3);
 define('NUVEM_HOME_NEWS_SEEMORE_SLUG', 'noticias');
 
+// options
+
+define('NUVEM_OPTION_STICK_HOME_HIGHLIGHT2', 'nuvem_stick_home_highlight2');
+
 // theme setup
 
 $post_thumbnails_with_captions = Array('477x558', '400x468');
@@ -197,11 +201,12 @@ function my_metabox_post($post) {
 }
 
 function my_register_artist_metabox($post) {
-    add_meta_box('my_mb_artist', 'Informações Adicionais', 'my_metabox_artist', 'artist', 'normal', 'high');
+    add_meta_box('my_mb_artist_xtra', 'Informações Adicionais', 'my_metabox_artist_xtra', 'artist', 'normal', 'high');
+    add_meta_box('my_mb_artist_home', 'Home Page', 'my_metabox_artist_home', 'artist', 'normal', 'high');
 }
 
-function my_metabox_artist($post) {
-    wp_nonce_field('my_metabox_artist', 'my_metabox_artist_nonce');
+function my_metabox_artist_xtra($post) {
+    wp_nonce_field('my_metabox_artist_xtra', 'my_metabox_artist_xtra_nonce');
 
     $locale = get_post_meta($post->ID, '_artist_locale', true);
     echo '<p><label for="my_artist_locale">Localidade:</label> ';
@@ -211,6 +216,26 @@ function my_metabox_artist($post) {
     wp_editor($aside, 'my_artist_aside', array(
         'media_buttons' => false,
     ));
+}
+
+function my_metabox_artist_home($post) {
+    wp_nonce_field('my_metabox_artist_home', 'my_metabox_artist_home_nonce');
+
+    $stick = ($post->ID === get_option(NUVEM_OPTION_STICK_HOME_HIGHLIGHT2, false));
+    echo '<p><input type="checkbox" id="my_stick_home_highlight2" name="my_stick_home_highlight2" size="25" ' .($stick?'checked="checked"':''). ' value="' .$post->ID. '" /> ';
+    echo '<label for="my_stick_home_highlight2">Stick</label></p>';
+
+    $photo = get_post_meta($post->ID, '_artist_home_photo', true);
+    echo '<p><label for="my_artist_home_photo">Photo URL:</label> ';
+    echo '<input type="text" id="my_artist_home_photo" name="my_artist_home_photo" value="' . esc_attr($photo) . '" size="25" /></p>';
+
+    $work = get_post_meta($post->ID, '_artist_home_work', true);
+    echo '<p><label for="my_artist_home_work">work URL:</label> ';
+    echo '<input type="text" id="my_artist_home_work" name="my_artist_home_work" value="' . esc_attr($work) . '" size="25" /></p>';
+
+    $quote = get_post_meta($post->ID, '_artist_home_quote', true);
+    echo '<p><label for="my_artist_home_quote">Quote:</label> ';
+    echo '<input type="text" id="my_artist_home_quote" name="my_artist_home_quote" value="' . esc_attr($quote) . '" size="50" /></p>';
 }
 
 function my_register_event_metabox($post) {
@@ -291,14 +316,38 @@ function my_save_metabox_data($post_id) {
     }
 
     // artist
-    if (my_metabox_data_nonce($_POST['my_metabox_artist_nonce'], 'my_metabox_artist')) {
-        if (isset($_POST['my_artist_locale'])) {
-            $data = sanitize_text_field($_POST['my_artist_locale']);
-            update_post_meta($post_id, '_artist_locale', $data);
-        }
+    $nonces = array(
+        'my_metabox_artist_xtra',
+        'my_metabox_artist_home',
+    );
+    foreach($nonces as $value) {
+        if (my_metabox_data_nonce($_POST[$value . '_nonce'], $value)) {
+            // option
+            if (isset($_POST['my_stick_home_highlight2'])
+                && !empty($_POST['my_artist_home_photo'])
+                && !empty($_POST['my_artist_home_work'])
+                && !empty($_POST['my_artist_home_quote'])
+            ) {
+                update_option(NUVEM_OPTION_STICK_HOME_HIGHLIGHT2, intval($_POST['my_stick_home_highlight2']));
+            }
 
-        if (isset($_POST['my_artist_aside'])) {
-            update_post_meta($post_id, '_artist_aside', $_POST['my_artist_aside']);
+            // fields
+            $fields = array(
+                '_artist_locale',
+                '_artist_home_photo',
+                '_artist_home_work',
+                '_artist_home_quote',
+            );
+            foreach($fields as $field) {
+                if (isset($_POST['my' . $field])) {
+                    $data = sanitize_text_field($_POST['my' . $field]);
+                    update_post_meta($post_id, $field, $data);
+                }
+            }
+
+            if (isset($_POST['my_artist_aside'])) {
+                update_post_meta($post_id, '_artist_aside', $_POST['my_artist_aside']);
+            }
         }
     }
 }

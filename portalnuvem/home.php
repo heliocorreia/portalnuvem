@@ -83,18 +83,34 @@ $(document).ready(function(){
     <p class="home-news-seemore"><a class="home-news-seemore-link" href="<?php echo './?category_name=' . NUVEM_HOME_NEWS_SEEMORE_SLUG ?>">Veja todas as últimas</a></p>
 </section>
 
+<?php
+$hightlight2 = new WP_Query(array(
+    'p'              => get_option(NUVEM_OPTION_STICK_HOME_HIGHLIGHT2),
+    'post_type'      => 'artist',
+));
+
+if ($hightlight2->have_posts()):
+    $hightlight2->the_post();
+
+    $photo = get_post_meta($post->ID, '_artist_home_photo', true);
+    $work = get_post_meta($post->ID, '_artist_home_work', true);
+    $quote = get_post_meta($post->ID, '_artist_home_quote', true);
+
+    if (!empty($photo) && !empty($work) && !empty($quote)):
+?>
 <div class="highlight-2">
     <blockquote class="container">
         <figure class="highlight-2-figure">
-            <img class="highlight-2-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-02a1.png" width="605" height="695" />
+            <img class="highlight-2-img" src="<?php echo $photo ?>" width="605" height="695" />
         </figure>
-        <p class="highlight-2-quote"><a class="highlight-2-quote-link" href="http://portalnuvem.art.br/wp/?artist=jotazeroff">Repudio esse sistema capitalista que aliena e desumaniza as pessoas tirando o real valor da vida transformando-a num produto, seja o capitalismo ou qualquer outro sistema.</a></p>
+        <p class="highlight-2-quote"><a class="highlight-2-quote-link" href="<?php the_permalink() ?>"><?php echo $quote ?></a></p>
         <footer class="highlight-2-author" class="hcard">
-            <img class="highlight-2-author-img" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-02a2.png" width="155" height="155" />
-            <span class="fn n">Jota Zeroff</span>
+            <img class="highlight-2-author-img" src="<?php echo $work ?>" width="155" height="155" />
+            <span class="fn n"><?php the_title() ?></span>
         </footer>
     </blockquote>
 </div>
+<?php endif; endif ?>
 
 <section class="home-partners">
     <h1 class="home-partners-title">Conheça os parceiros da nuvem</h1>
