@@ -27,6 +27,7 @@
 
 .page-about--attachment-title {
     @include adjust-font-size-to(30px, $from-size:$single-post-content-font-size);
+    text-transform: uppercase;
 }
 
 .page-about--attachment-excerpt {
