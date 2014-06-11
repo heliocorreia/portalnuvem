@@ -47,9 +47,13 @@ $highlight-2-bottom-offset: 45px;
 
 .highlight-2-quote-link {
     color: $color-home-hightlight-2-quote;
+
+    &:hover {
+        color: $color-home-hightlight-2-quote-hover;
+    }
 }
 
-.highlight-2-author .fn {
+.highlight-2-author-link {
     $font-size: 20px;
     @extend %font-montserrat-normal;
     bottom: 0;
@@ -71,6 +75,14 @@ $highlight-2-bottom-offset: 45px;
         margin-left: $width / -2;
         position: absolute;
         width: $width;
+    }
+
+    &:hover {
+        color: $color-home-hightlight-2-author-hover;
+
+        &::before {
+            border-color: $color-home-hightlight-2-author-hover;
+        }
     }
 }
 

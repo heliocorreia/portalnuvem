@@ -106,7 +106,7 @@ if ($hightlight2->have_posts()):
         <p class="highlight-2-quote"><a class="highlight-2-quote-link" href="<?php the_permalink() ?>"><?php echo $quote ?></a></p>
         <footer class="highlight-2-author" class="hcard">
             <img class="highlight-2-author-img" src="<?php echo $work ?>" width="155" height="155" />
-            <span class="fn n"><?php the_title() ?></span>
+            <a class="highlight-2-author-link fn n" href="<?php the_permalink() ?>"><?php the_title() ?></a>
         </footer>
     </blockquote>
 </div>
