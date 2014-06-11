@@ -17,3 +17,9 @@
 .page-contact--address {
     @include adjust-font-size-to(20px, $from-size:$single-post-content-font-size);
 }
+
+.page-template-page-contact-php {
+    .content-hd--container::before {
+        content: none;
+    }
+}
