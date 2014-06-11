@@ -4,10 +4,6 @@
 
     a {
         @extend %compass-inline-block;
-
-        &:hover {
-            text-decoration: none;
-        }
     }
 }
 
