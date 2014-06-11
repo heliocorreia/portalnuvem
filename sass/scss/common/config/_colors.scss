@@ -4,6 +4,7 @@
 $color-black: #000;
 $color-white: #FFF;
 $color-yellow: #FCF912;
+$color-yellow-lighter: #FDFC8B;
 $color-pink: #D64E9E;
 $color-dark-blue: #072934;
 
@@ -22,6 +23,7 @@ $color-text: $color-dark-blue;
 $color-text-alternate: $color-pink;
 
 $color-menu-current-item: $color-yellow;
+$color-menu-item-hover: $color-yellow-lighter;
 $color-menu-item-ft: $color-pink;
 $color-menu-item: $color-white;
 

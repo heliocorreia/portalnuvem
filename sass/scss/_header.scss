@@ -64,5 +64,10 @@
     a {
         text-transform: uppercase;
         padding: pxtoem(40px) 0;
+
+        &:hover {
+            color: $color-menu-item-hover;
+            text-decoration: none;
+        }
     }
 }
