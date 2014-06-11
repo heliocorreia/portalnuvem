@@ -74,7 +74,7 @@ $(document).ready(function(){
         </figure>
         <?php endif; ?>
         <?php if ($value = get_post_meta($post->ID, '_post_locale', true)): ?>
-        <p class="home-news-pretitle"><small><?php echo $value; ?></small></p>
+        <p class="home-news-pretitle"><a href="<?php the_permalink() ?>" class="home-news-pretitle-link"><?php echo $value; ?></a></p>
         <?php endif; ?>
         <h1 class="home-news-title"><a href="<?php the_permalink() ?>" class="home-news-title-link"><?php the_title() ?></a></h1>
         <p class="home-news-subtitle"><a href="<?php the_permalink() ?>" class="home-news-link"><?php echo get_the_excerpt() ?></a></p>
