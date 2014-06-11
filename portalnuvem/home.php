@@ -77,7 +77,7 @@ $(document).ready(function(){
         <p class="home-news-pretitle"><small><?php echo $value; ?></small></p>
         <?php endif; ?>
         <h1 class="home-news-title"><a href="<?php the_permalink() ?>" class="home-news-title-link"><?php the_title() ?></a></h1>
-        <p class="home-news-subtitle"><a href="<?php the_permalink() ?>" class="home-news-link"><?php the_title() ?></a></p>
+        <p class="home-news-subtitle"><a href="<?php the_permalink() ?>" class="home-news-link"><?php echo get_the_excerpt() ?></a></p>
     </section>
     <?php endwhile ?>
     <p class="home-news-seemore"><a class="home-news-seemore-link" href="<?php echo './?category_name=' . NUVEM_NEWS_CATEGORY_SLUG ?>">Veja todas as últimas</a></p>
