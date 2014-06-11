@@ -1,7 +1,19 @@
 <section class="event--entry">
-    <?php if (has_post_thumbnail()): ?>
+    <?php
+    $event_site = get_post_meta($post->ID, '_event_site', true);
+    if (has_post_thumbnail()): ?>
     <figure class="event--figure">
-        <?php the_post_thumbnail('348x213') ?>
+        <?php
+        if ($event_site):
+            ?><a class="event--img-link" href="http://<?php echo $event_site; ?>"><?php
+        endif;
+
+        the_post_thumbnail('348x213');
+
+        if ($event_site):
+            ?></a><?php
+        endif;
+        ?>
     </figure>
     <?php endif ?>
 
@@ -21,7 +33,7 @@
 
     <p class="event--subtitle"><?php echo get_the_excerpt(); ?></p>
 
-    <?php if ($value = get_post_meta($post->ID, '_event_site', true)): ?>
-    <p class="event--site"><a class="event--site-link" href="http://<?php echo $value; ?>"><?php echo $value; ?></a></p>
+    <?php if ($event_site): ?>
+    <p class="event--site"><a class="event--site-link" href="http://<?php echo $event_site; ?>"><?php echo $event_site; ?></a></p>
     <?php endif; ?>
 </section>

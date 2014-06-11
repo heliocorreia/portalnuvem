@@ -27,6 +27,12 @@ $event--entry-context: 7;
     }
 }
 
+.event--img-link {
+    &:hover {
+        @extend %compass-opacity-80;
+    }
+}
+
 .event--posttitle,
 .event--subtitle,
 .event--site {
@@ -61,4 +67,10 @@ $event--entry-context: 7;
 .event--site-link,
 .event--locale {
     color: $color-link;
+}
+
+.event--site-link {
+    &:hover {
+        color: $color-link-hover;
+    }
 }
