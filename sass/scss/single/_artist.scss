@@ -13,7 +13,11 @@
     }
 }
 
-.artist--entry-figure {}
+.artist--entry-figure-link {
+    &:hover {
+        @extend %compass-opacity-80;
+    }
+}
 
 .artist--entry-title {
     @extend %font-montserrat-700;
@@ -22,6 +26,10 @@
 
 .artist--entry-link {
     color: $color-text;
+
+    &:hover {
+        color: $color-text-hover;
+    }
 }
 
 .single-artist {
