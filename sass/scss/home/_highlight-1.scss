@@ -1,6 +1,14 @@
 .home-highlight-1 {
     @include container;
     padding-bottom: pxtoem(250px);
+
+    a {
+        @extend %compass-inline-block;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
 }
 
 .home-highlight-1-figure-1 {
@@ -37,10 +45,14 @@
     @extend %font-vollkorn-normal-italic;
 }
 
-.home-highlight-1-link {
+.home-highlight-1-title-link {
     color: $color-home-hightlight-1-link;
     font-size: pxtoem(40px);
     line-height: 1.2;
+
+    &:hover {
+        color: $color-home-hightlight-1-link-hover;
+    }
 }
 
 .home-highlight-1-figure-2 {
@@ -48,8 +60,18 @@
     position: relative;
 }
 
-.home-highlight-1-img-2 {
+.home-highlight-1-figure-2-link {
+    background: $color-bg;
+    margin-top: - pxtoem(212px);
     position: absolute;
     top: pxtoem(-24px);
-    margin-top: - pxtoem(212px);
+
+    &:hover {
+        .home-highlight-1-img-2 {
+            @include opacity(.9);
+        }
+    }
+}
+
+.home-highlight-1-img-2 {
 }
