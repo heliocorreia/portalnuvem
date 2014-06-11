@@ -28,6 +28,10 @@
     a {
         color: $color-menu-item-ft;
         font-size: pxtoem(14px);
+
+        &:hover {
+            color: $color-menu-item-ft-hover;
+        }
     }
 }
 
@@ -47,6 +51,10 @@
             background: $color-menu-item-ft;
             content: '';
             z-index: -1;
+        }
+
+        &:hover::before {
+            background: $color-menu-item-ft-hover;
         }
 
         & + .menu-item {
