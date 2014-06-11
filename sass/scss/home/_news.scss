@@ -95,4 +95,8 @@
     color: $color-home-news-seemore;
     font-size: pxtoem(20px);
     text-transform: uppercase;
+
+    &:hover {
+        color: $color-home-news-seemore-hover;
+    }
 }
