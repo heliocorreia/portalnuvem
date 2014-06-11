@@ -119,7 +119,10 @@
 
     .entity {
         float: left;
-        margin-right: columns(1, 10) + gutter(10);
+
+        & + .entity {
+            margin-left: columns(1, 10) + gutter(10);
+        }
 
         &:first-of-type {
             clear: left;
@@ -128,7 +131,7 @@
         &:last-of-type {
             clear: right;
             float: right;
-            margin-right: 0;
+            margin-left: 0;
         };
     }
 
