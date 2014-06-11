@@ -40,8 +40,8 @@ $(document).ready(function(){
             endif;
         ?>
         <li class="home-headlines-item">
-            <?php the_post_thumbnail('home-headlines-350x600') ?>
             <a href="<?php the_permalink() ?>" class="home-headlines-link"><?php the_title() ?></a>
+            <?php the_post_thumbnail('home-headlines-350x600') ?>
         </li>
         <?php endwhile ?>
     </ul>

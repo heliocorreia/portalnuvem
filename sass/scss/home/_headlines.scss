@@ -51,7 +51,7 @@
     text-align: center;
     text-transform: uppercase;
     top: auto;
-    z-index: 0;
+    z-index: 1;
 
     &::before {
         @extend %compass-inline-block;
@@ -62,5 +62,12 @@
         height: 150px;
         top: auto;
         z-index: -1;
+    }
+
+    &:hover {
+        &,
+        & ~ img {
+            @extend %compass-opacity-80;
+        }
     }
 }
