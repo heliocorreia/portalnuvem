@@ -64,7 +64,7 @@
 
     &:hover {
         .home-highlight-1-img-2 {
-            @include opacity(.9);
+            @extend %compass-opacity-80;
         }
     }
 }

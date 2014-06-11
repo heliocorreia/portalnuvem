@@ -19,6 +19,9 @@
 %compass-opacity-50 {
     @include opacity(.5);
 }
+%compass-opacity-80 {
+    @include opacity(.8);
+}
 %compass-stretch {
     @include stretch;
 }

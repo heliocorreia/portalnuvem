@@ -58,7 +58,7 @@
 
     &:hover {
         img {
-            @include opacity(.9);
+            @extend %compass-opacity-80;
         }
     }
 }
