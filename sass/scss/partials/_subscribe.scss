@@ -1,9 +1,10 @@
-.subscribe-form {
+.subscribe--form {
     $font-size: 20px;
     @extend %compass-pie-clearfix;
     @extend %font-montserrat-normal;
     @include padding-leader(3);
     @include padding-trailer(2);
+    position: relative;
 
     h1 {
         @include hide-text;
@@ -16,7 +17,6 @@
     }
 
     p {
-        @include adjust-font-size-to($font-size);
         @include margin-trailer;
         @include span-columns(6);
     }
@@ -27,37 +27,18 @@
         }
     }
 
-    fieldset {
-        @extend %compass-clearfix;
-        clear: both;
-
-        & > p {
-            @include nth-omega(2n);
-
-            &:last-of-type {
-                @include span-columns(12);
-            }
-        }
-    }
-
     input,
     label,
     select,
     textarea {
-        $local-font-size: 20px;
-        @include adjust-font-size-to($local-font-size, $from-size:$font-size);
-        padding: rhythm(1, $local-font-size) / 2;
-    }
-
-    label {
-        cursor: pointer;
-        display: block;
-        padding-left: 0;
+        @include adjust-font-size-to($font-size);
+        padding: rhythm(1, $font-size) / 2;
     }
 
     input,
     select,
-    textarea {
+    textarea,
+    .subscribe--agreement-label {
         @extend %compass-border-radius;
         @extend %compass-border-sizing-border-box;
         @extend %font-montserrat-normal;
@@ -69,11 +50,25 @@
         width: 100%;
     }
 
+    select {
+        font-size: 20px !important;
+        line-height: 20px !important;
+    }
+
     textarea {
         height: rhythm(6);
     }
 
-    .input-submit {
+    .subscribe--fieldset {
+        label {
+            cursor: pointer;
+            display: block;
+            padding-left: 0;
+        }
+    }
+
+    .input--submit,
+    .subscribe--agreement-label {
         @include padding-leader;
         @include padding-trailer;
         background: $color-text-alternate;
@@ -82,4 +77,42 @@
         text-transform: uppercase;
         border-width: 0 0 10px 0;
     }
+}
+
+.subscribe--fieldset {
+    @extend %compass-clearfix;
+    clear: both;
+
+    & > p {
+        @include nth-omega(2n);
+
+        &:last-of-type {
+            @include span-columns(12);
+        }
+    }
+}
+
+.subscribe--agreement-checkbox {
+    display: none;
+
+    &:checked {
+        & ~ .subscribe--fieldset,
+        & ~ .subscribe--fieldset ~ p {
+            display: none;
+        }
+
+        & ~ .subscribe--agreement-label {
+            display: block;
+        }
+    }
+}
+
+.subscribe--agreement-label {
+    @include span-columns(6 omega);
+    bottom: rhythm(2);
+    display: none;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    margin-bottom: 10px;
 }

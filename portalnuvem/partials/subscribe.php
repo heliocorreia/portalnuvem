@@ -21,25 +21,27 @@ if (isset($_POST['subscribe'])) {
 }
 
 ?><div class="subscribe">
-<form class="subscribe-form" action="<?php the_permalink(); ?>" method="post">
-    <h1>Nuvem</h1>
-    <p>Você é um artista e quer vender na nuvem produções? Cadastre seus dados e deixe o resto com a gente.</p>
-    <fieldset>
+<form class="subscribe--form" action="<?php the_permalink(); ?>" method="post">
+    <input id="subscribe--agreement" class="subscribe--agreement-checkbox" type="checkbox" checked="checked" />
+    <label for="subscribe--agreement" class="subscribe--agreement-label">Quero me cadastrar</label>
+    <h1 class="subscribe--title">Nuvem</h1>
+    <p class="subscribe--intro">Você é um artista e quer vender na nuvem produções? Cadastre seus dados e deixe o resto com a gente.</p>
+    <fieldset class="subscribe--fieldset">
         <p>
-            <label for="subs-firstname">Nome</label>
-            <input type="text" class="subscribe--firstname" id="subs-firstname" name="firstname" value="" />
+            <label for="subscribe--firstname">Nome</label>
+            <input type="text" class="subscribe--firstname" id="subscribe--firstname" name="firstname" value="" />
         </p>
         <p>
-            <label for="subs-lastname">Sobrenome</label>
-            <input type="text" class="subscribe--lastname" id="subs-lastname" name="lastname" value="" />
+            <label for="subscribe--lastname">Sobrenome</label>
+            <input type="text" class="subscribe--lastname" id="subscribe--lastname" name="lastname" value="" />
         </p>
         <p>
-            <label for="subs-city">Cidade</label>
-            <input type="text" class="subscribe--city" id="subs-city" name="city" value="" />
+            <label for="subscribe--city">Cidade</label>
+            <input type="text" class="subscribe--city" id="subscribe--city" name="city" value="" />
         </p>
         <p>
-            <label for="subs-state">Estado</label>
-            <select id="subs-state" name="state">
+            <label for="subscribe--state">Estado</label>
+            <select id="subscribe--state" name="state">
                 <option>--</option>
                 <option>AC</option>
                 <option>AL</option>
@@ -71,19 +73,19 @@ if (isset($_POST['subscribe'])) {
             </select>
         </p>
         <p>
-            <label for="subs-mail">E-mail de contato</label>
-            <input type="text" class="subscribe--mail" id="subs-mail" name="mail" value="" />
+            <label for="subscribe--mail">E-mail de contato</label>
+            <input type="text" class="subscribe--mail" id="subscribe--mail" name="mail" value="" />
         </p>
         <p>
-            <label for="subs-site">Website</label>
-            <input type="text" class="subscribe--site" id="subs-site" name="site" value="" />
+            <label for="subscribe--site">Website</label>
+            <input type="text" class="subscribe--site" id="subscribe--site" name="site" value="" />
         </p>
         <p>
-            <label for="subs-release">Release</label>
-            <textarea class="subscribe--release" id="subs-release" name="release"></textarea>
+            <label for="subscribe--release">Release</label>
+            <textarea class="subscribe--release" id="subscribe--release" name="release"></textarea>
         </p>
     </fieldset>
     <p>Ao clicar em Cadastrar, você concorda com os <a href="#">termos de uso</a> da Nuvem Produções.</p>
-    <p><input name="subscribe" class="input-submit" type="submit" value="Cadastrar" /></p>
+    <p><input name="subscribe" class="input--submit" type="submit" value="Cadastrar" /></p>
 </form>
 </div>
