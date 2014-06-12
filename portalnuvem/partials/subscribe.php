@@ -8,14 +8,14 @@ if (isset($_POST['subscribe'])) {
 
     if (!isset($hasError)) {
         $emailTo = get_option('admin_email');
-        $subject = "[CADASTRO] $firstname $lastname";
+        $subject = "[CADASTRO] $_POST[firstname] $_POST[lastname]";
         $body = join("\n", array(
             "Nome: $_POST[firstname] $_POST[lastname]",
             "Origem: $_POST[city] $_POST[state]",
             "Contato: $_POST[mail] $_POST[site]",
             "Release: $_POST[release]"
         ));
-        $headers = 'From: '.$firstname.' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $_POST['mail'];
+        $headers = 'From: '.$_POST['firstname'].' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $_POST['mail'];
         $emailSent = (bool)wp_mail($emailTo, $subject, $body, $headers);
     }
 }
