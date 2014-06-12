@@ -12,7 +12,7 @@ get_header(); ?>
     </div>
 </header>
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3950.470146439231!2d-34.8791637!3d-8.0534308!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab18941f03dff5%3A0xa2f399940f595dc2!2sRua+Capit%C3%A3o+Lima%2C+277+-+Santo+Amaro!5e0!3m2!1sen!2s!4v1402473738113" width="100%" height="310" frameborder="0" style="border:0"></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3950.125389405781!2d-34.8855107!3d-8.088693200000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1f38b498ced3%3A0x35df148b10c8cea3!2sAvenida+Herculano+Bandeira%2C+513+-+Pina!5e0!3m2!1sen!2s!4v1402531881643" width="100%" height="310" frameborder="0" style="border:0"></iframe>
 
 <?php
 /*// http://googlemapbuilder.mynameisdonald.com/
@@ -73,9 +73,9 @@ function init() {
         <section class="page-contact--content">
             <div class="page-contact--entry">
                 <h1 class="page-contact--title">Pessoalmente</h1>
-                <p class="page-contact--address">Rua Capitão Lima . nº 277 . 1º andar . sala 01<br />
-                    Santo Amaro . Recife . PE<br />
-                    CEP 50040-080</p>
+                <p class="page-contact--address">Av. Herculano Bandeira . nº 513<br />
+                    Pina . Recife . PE<br />
+                    CEP 51110-131</p>
             </div>
             <div class="page-contact--entry">
                 <h1 class="page-contact--title">Por telefone ou e-mail</h1>
