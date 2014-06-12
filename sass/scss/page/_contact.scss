@@ -1,25 +1,104 @@
+//.content-bd--container {
+//    @include susy-grid-background;
+//}
+
+$page-contact-grid-context: 10;
 .page-contact--content {
     @extend %font-montserrat-normal;
-    @include span-columns(10, $single-post-content-grid-context);
     @include pre(1);
+    @include span-columns($page-contact-grid-context);
+    @include post(1);
 }
 
 .page-contact--entry {
-    @include span-columns(4, $single-post-content-grid-context);
+    @include span-columns(5, $page-contact-grid-context);
+    @include nth-omega(2n);
+    @include margin-trailer(3);
 }
 
-.page-contact--title {
-    @include adjust-font-size-to(24px, $from-size:$single-post-content-font-size);
-    @include margin-trailer(2);
+.page-contact--title,
+.page-contact--intro {
+    @include adjust-font-size-to(24px);
+    @include margin-trailer(1);
     text-transform: uppercase;
 }
 
 .page-contact--address {
-    @include adjust-font-size-to(20px, $from-size:$single-post-content-font-size);
+    @include adjust-font-size-to(20px);
 }
 
 .page-template-page-contact-php {
     .content-hd--container::before {
         content: none;
     }
+}
+
+// FORM
+
+.page-contact--form {
+    $font-size: 20px;
+
+    p {
+        @include margin-trailer;
+        @include span-columns(5, $page-contact-grid-context);
+    }
+
+    & > p {
+        &:last-of-type {
+            @include span-columns(4 omega, $page-contact-grid-context);
+        }
+    }
+
+    input,
+    label,
+    textarea {
+        @include adjust-font-size-to($font-size);
+        padding: rhythm(1, $font-size) / 2;
+    }
+
+    input,
+    textarea {
+        @extend %compass-border-radius;
+        @extend %compass-border-sizing-border-box;
+        @extend %font-montserrat-normal;
+        border: 1px solid $color-border-form;
+        width: 100%;
+    }
+
+    label {
+        cursor: pointer;
+        display: block;
+        padding-left: 0;
+    }
+
+    .page-contact--submit {
+        @include padding-leader;
+        @include padding-trailer;
+        border-width: 0 0 10px 0;
+    }
+}
+
+.page-contact--fieldset {
+    @extend %compass-clearfix;
+    clear: both;
+
+    p {
+        @include nth-omega(2n);
+
+        &:last-of-type {
+            @include span-columns($page-contact-grid-context omega, $page-contact-grid-context);
+        }
+    }
+
+    & + p {
+        @include span-columns(4, $page-contact-grid-context);
+        @include adjust-font-size-to(20px);
+    }
+}
+
+.page-contact--submit {
+    background: $color-text-alternate;
+    color: $color-bg;
+    cursor: pointer;
+    text-transform: uppercase;
 }
