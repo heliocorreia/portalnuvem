@@ -96,51 +96,43 @@
 }
 
 #ft--xtra {
-    $padding-lines: 6;
+    $label-margin-trailer-lines: 1;
     @include margin-leader(2);
     background: $color-bg-ft;
     color: $color-bg;
 
     .sponsorship {
+        $padding-lines: 3;
         @include pre(1);
         @include span-columns(10 omega);
         @include post(1);
         @include padding-leader($padding-lines);
-        @include padding-trailer($padding-lines);
+        @include padding-trailer($padding-lines + $label-margin-trailer-lines);
         position: relative;
     }
 
-    .incentive,
-    .realization {
-        position: absolute;
-        top: rhythm($padding-lines - 2);
+    .sponsorship-label {
+        @include margin-trailer($label-margin-trailer-lines);
     }
 
-    .incentive {
-        left: 0;
-    }
+    .sponsorship-incentive {
+        @include span-columns(9);
 
-    .realization {
-        right: 0;
-        width: icons-sprite-width(nuvem-gm);
-    }
+        .entity {
+            float: left;
 
-    .entity {
-        float: left;
+            & + .entity {
+                margin-left: gutter(10);
 
-        & + .entity {
-            margin-left: columns(1, 10) + gutter(10);
+                @include at-breakpoint($media-layout-desktop-large) {
+                    margin-left: columns(1, 10) + gutter(10);
+                }
+            }
         }
+    }
 
-        &:first-of-type {
-            clear: left;
-        };
-
-        &:last-of-type {
-            clear: right;
-            float: right;
-            margin-left: 0;
-        };
+    .sponsorship-realization {
+        @include span-columns(3 omega);
     }
 
     .entity-entry {

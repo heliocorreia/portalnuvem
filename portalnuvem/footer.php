@@ -23,14 +23,18 @@
         </div>
         <div id="ft--xtra">
             <div class="container">
-                <dl class="sponsorship">
-                    <dt class="incentive">Incentivo:</dt>
-                    <dd class="entity funcultura"><a class="entity-entry" href="http://www.pe.gov.br/programas/funcultura/">Funcultura</a></dd>
-                    <dd class="entity fundarpe"><a class="entity-entry" href="http://www.pe.gov.br/orgaos/fundarpe-fundacao-do-patrimonio-historico-e-artistico-de-pernambuco/">Fundarpe</a></dd>
-                    <dd class="entity secretaria-pe"><a class="entity-entry" href="http://www.pe.gov.br/">Secretaria de Cultura</a></dd>
-                    <dt class="realization">Realização:</dt>
-                    <dd class="entity nuvem-gm"><span class="entity-entry" >Nuvem <span>Guga Marques</span></span></dd>
-                </dl>
+                <div class="sponsorship">
+                    <dl class="sponsorship-incentive">
+                        <dt class="sponsorship-label">Incentivo:</dt>
+                        <dd class="entity funcultura"><a class="entity-entry" href="http://www.pe.gov.br/programas/funcultura/">Funcultura</a></dd>
+                        <dd class="entity fundarpe"><a class="entity-entry" href="http://www.pe.gov.br/orgaos/fundarpe-fundacao-do-patrimonio-historico-e-artistico-de-pernambuco/">Fundarpe</a></dd>
+                        <dd class="entity secretaria-pe"><a class="entity-entry" href="http://www.pe.gov.br/">Secretaria de Cultura</a></dd>
+                    </dl>
+                    <dl class="sponsorship-realization">
+                        <dt class="sponsorship-label">Realização:</dt>
+                        <dd class="entity nuvem-gm"><span class="entity-entry" >Nuvem <span>Guga Marques</span></span></dd>
+                    </dl>
+                </div>
             </div>
         </div>
     </footer>
