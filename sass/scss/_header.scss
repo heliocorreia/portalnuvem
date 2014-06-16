@@ -54,7 +54,11 @@
     width: space(10) + gutter();
 
     .menu-item + .menu-item {
-        margin-left: pxtoem(70px);
+        margin-left: 2em;
+
+        @include at-breakpoint($media-layout-desktop-small) {
+            margin-left: pxtoem(70px);
+        }
     }
 
     .current-menu-item a {

@@ -16,6 +16,11 @@ $grid-padding: 1.250em; //pxtoem(20px);
 
 
 $media-layout-phone: 0 37.438em;                // 0px ~ 599px
+
 $media-layout-tablet: 37.500em 59.313em;        // 600px ~ 949px
+$media-layout-tablet-beyond: 37.500em;          // 600px+
+
 $media-layout-desktop-small: 59.375em 79.938em; // 950px ~ 1279px
+$media-layout-desktop-small-beyond: 59.375em;   // 950px+
+
 $media-layout-desktop-large: 80em;              // 1280px+
