@@ -54,7 +54,7 @@
     width: space(10) + gutter();
 
     .menu-item + .menu-item {
-        margin-left: 2em;
+        margin-left: pxtoem(40px);
 
         @include at-breakpoint($media-layout-desktop-small) {
             margin-left: pxtoem(70px);
