@@ -4,6 +4,7 @@
     <div class="content-hd--container">
         <?php get_template_part('partials/breadcrumb'); ?>
         <h1 class="content-hd--title">Artistas</h1>
+        <?php get_template_part('partials/subscribe'); ?>
     </div>
 </header>
 
