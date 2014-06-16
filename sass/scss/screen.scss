@@ -18,6 +18,20 @@
 
 body {
     color: $color-text;
+
+    @include at-breakpoint($media-layout-phone) {
+    }
+
+    @include at-breakpoint($media-layout-tablet) {
+    }
+
+    @include at-breakpoint($media-layout-desktop-small) {
+        font-size: pxtoem(13px);
+    }
+
+    @include at-breakpoint($media-layout-desktop-large) {
+        font-size: pxtoem(16px);
+    }
 }
 
 a {
