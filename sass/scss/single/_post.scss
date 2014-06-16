@@ -96,3 +96,9 @@ $single-post--aside-font-size: 26px;
         @include opacity(.6);
     }
 }
+
+.single-post--social {
+    @include pre(1);
+    @include post(1);
+    clear: both;
+}

@@ -20,6 +20,11 @@
             </figure>
             <?php endif; ?>
         </aside>
+
+        <div class="single-post--social">
+            <?php get_template_part('partials/facebook'); ?>
+            <div class="fb-comments" data-href="<?php the_permalink() ?>" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
+        </div>
     </div>
 </div>
 
