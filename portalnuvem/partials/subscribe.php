@@ -25,7 +25,7 @@ if (isset($_POST['subscribe'])) {
     <input id="subscribe--agreement" class="subscribe--agreement-checkbox" type="checkbox" checked="checked" />
     <label for="subscribe--agreement" class="subscribe--agreement-label">Quero me cadastrar</label>
     <h1 class="subscribe--title">Nuvem</h1>
-    <p class="subscribe--intro">Você é um artista e quer vender na nuvem produções? Cadastre seus dados e deixe o resto com a gente.</p>
+    <p class="subscribe--intro">Quer divulgar o seu trabalho no banco de artistas do Portal Nuvem?</p>
     <fieldset class="subscribe--fieldset">
         <p>
             <label for="subscribe--firstname">Nome</label>
