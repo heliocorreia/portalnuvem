@@ -85,7 +85,7 @@ if (isset($_POST['subscribe'])) {
             <textarea class="subscribe--release" id="subscribe--release" name="release"></textarea>
         </p>
     </fieldset>
-    <p>Ao clicar em Cadastrar, você concorda com os <a href="#">termos de uso</a> da Nuvem Produções.</p>
+    <p>Ao clicar em Cadastrar, você concorda com os <a href="<?php bloginfo('url'); ?>/wp-content/uploads/2014/06/TERMOS_DE_USO_CADASTRO_DE_ARTISTAS.pdf">termos de uso</a> da Nuvem Produções.</p>
     <p><input name="subscribe" class="input--submit" type="submit" value="Cadastrar" /></p>
 </form>
 </div>
