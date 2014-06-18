@@ -1,5 +1,6 @@
 .content-hd--container {
     .subscribe {
+        @extend %compass-clearfix;
         @include pre(1);
         @include post(1);
     }
