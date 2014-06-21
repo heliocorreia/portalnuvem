@@ -99,9 +99,9 @@ function init() {
             </div>
             <div class="page-contact--entry">
                 <h1 class="page-contact--title">Por telefone ou e-mail</h1>
-                <p class="page-contact--address">Fone: 81 3052.4530 | 81 3456 7899<br />
-                    nuvem@nuvemproducoes.com.br<br />
-                    nuvempro@gmail.com</p>
+                <p class="page-contact--address">Fone: 81 3052.4530 | 81 8175.7208<br />
+                    nuvempro@gmail.com<br />
+                    portalnuvem@gmail.com</p>
             </div>
 
             <form class="page-contact--form" action="<?php the_permalink(); ?>" method="post">
