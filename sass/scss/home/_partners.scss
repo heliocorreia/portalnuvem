@@ -1,5 +1,5 @@
 .home-partners {
-    $items: uma-capsula casa-da-luz doutro-jeito maquina mi contra acidum imaginaria cargo-collective schizzi-books;
+    $items: uma-capsula mi contra acidum imaginaria;
 
     @include container;
 
@@ -31,16 +31,17 @@
     @include pre(1);
     @include span-columns(10 omega);
     @include post(1);
+    text-align: center;
 }
 
 .home-partners-item {
-    @include span-columns(3);
+    @include span-columns(4);
 
-    &:nth-child(4n + 4) {
+    &:nth-child(3n + 3) {
         @include omega;
     }
 
-    &:nth-child(9) {
-        @include pre(3);
+    &:nth-child(4) {
+        @include pre(2);
     }
 }

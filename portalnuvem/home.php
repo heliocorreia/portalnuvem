@@ -116,15 +116,10 @@ if ($hightlight2->have_posts()):
     <h1 class="home-partners-title">Conheça os parceiros da nuvem</h1>
     <ul class="home-partners-items">
         <li class="home-partners-item"><a href="http://umacapsula.com/" class="uma-capsula">Uma Cápsula</a></li>
-        <li class="home-partners-item"><a href="http://www.casadaluz.net" class="casa-da-luz">Casa da Luz</a></li>
-        <li class="home-partners-item"><a href="http://www.facebook.com/doutrojeito" class="doutro-jeito">D'Outro Jeito</a></li>
-        <li class="home-partners-item"><a href="http://www.maquina.art.br/" class="maquina">Maquina</a></li>
         <li class="home-partners-item"><a href="http://mionline.com.br/" class="mi">Mi</a></li>
         <li class="home-partners-item"><a href="http://contra.cc/" class="contra">Contra</a></li>
         <li class="home-partners-item"><a href="http://www.grupoacidum.art.br" class="acidum">Acidum</a></li>
         <li class="home-partners-item"><a href="http://www.imaginaria.cc" class="imaginaria">Imaginária</a></li>
-        <li class="home-partners-item"><a href="http://cargocollective.com/raulluna" class="cargo-collective">Cargo Collective</a></li>
-        <li class="home-partners-item"><a href="http://www.zupi.com.br" class="schizzi-books">Schizzi Books</a></li>
     </ul>
 </section>
 
