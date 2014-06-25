@@ -29,9 +29,6 @@ stop:
 test:
 	@scss-lint sass/
 
-zip:
-	@(rm theme-portalnuvem.zip ; zip -X --recurse-paths --test theme-portalnuvem.zip portalnuvem/ --exclude @.zip-exclude)
-
 define background
 	@nohup $1 > $2 2>&1 &
 endef
