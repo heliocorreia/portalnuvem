@@ -1,1 +1,1 @@
-<nav class="breadcrumb"><?php if (function_exists('bcn_display')) { bcn_display(false, true, false); } ?></nav>
+<nav class="breadcrumb" xmlns:v="http://rdf.data-vocabulary.org/#"><?php if (function_exists('bcn_display')) { bcn_display(false, true, false); } ?></nav>
