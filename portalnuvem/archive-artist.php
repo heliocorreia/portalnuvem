@@ -1,4 +1,20 @@
-<?php get_header(); ?>
+<?php
+get_header();
+
+if (isset($_GET['filter_by'])) {
+    add_filter('posts_where', '_archive_artist_posts_where', 10, 2 );
+    function _archive_artist_posts_where( $where, &$wp_query ) {
+        global $wpdb;
+        $filter_by = $_GET['filter_by'];
+
+        if (preg_match('/^[a-z]$/', $filter_by) === 1) {
+            $where .= ' AND ' . $wpdb->posts . '.post_title LIKE \'' . esc_sql(like_escape($filter_by)) . '%\'';
+        }
+
+        return $where;
+    }
+}
+?>
 
 <header class="content-hd">
     <div class="content-hd--container">
@@ -13,6 +29,20 @@
 
 <div class="content-bd">
     <div class="content-bd--container">
+        <?php
+        $url_prefix = './?post_type=artist';
+        ?>
+        <nav class="artist--index">
+            <ul>
+                <li class="artist--index-item"><a class="artist--index-link" href="<?php echo $url_prefix ?>">Todos</a></li>
+                <?php
+                global $wpdb;
+                foreach(str_split('abcdefghijklmnopqrstuvwxyz', 1) as $val):
+                ?>
+                <li class="artist--index-item<?php if ($_GET['filter_by'] === $val): ?> artist--index-current<?php endif; ?>"><a class="artist--index-link" href="<?php echo $url_prefix . '&filter_by=' . $val; ?>"><?php echo $val; ?></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </nav>
         <?php
         query_posts(array(
             'posts_per_page' => -1,

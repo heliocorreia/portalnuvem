@@ -7,17 +7,60 @@
     }
 }
 
+.artist--index,
+.artist--index-link {
+    color: $color-link;
+}
+
+.artist--index {
+    @extend %font-montserrat-normal;
+    @include pre(5);
+    @include post(1);
+    @include margin-trailer(8);
+    text-transform: uppercase;
+}
+
+.artist--index-item {
+    $margin: 1.65em;
+    @extend %compass-inline-block;
+    margin-right: $margin;
+    position: relative;
+    float: left;
+
+    &:first-child {
+        margin-right: $margin * 2;
+
+        &::before {
+            content: '—';
+            position: absolute;
+            right: - ($margin + .5em);
+        }
+    }
+
+    &:nth-child(13) {
+        clear: left;
+    }
+}
+
+.artist--index-link {
+    font-size: pxtoem(22px);
+
+    .artist--index-current & {
+        color: $color-text;
+    }
+}
+
 .artist--entry {
     @include span-columns(3);
     @include margin-trailer(2);
 
-    &:nth-child(3n+1) {
+    &:nth-of-type(3n+1) {
         @include pre(1);
         clear: left;
         margin-right: (columns(1) / 2) + (gutter() / 2) + gutter();
     }
 
-    &:nth-child(3n) {
+    &:nth-of-type(3n) {
         @include omega;
         @include post(1);
     }
