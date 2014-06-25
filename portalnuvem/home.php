@@ -52,9 +52,9 @@ $(document).ready(function(){
         <img class="home-highlight-1-img-1" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-01c1.png" width="1440" height="532" />
     </figure>
     <p class="home-highlight-1-pretitle"><small>Entrevista!</small></p>
-    <h1 class="home-highlight-1-title"><a class="home-highlight-1-title-link" href="https://www.youtube.com/watch?v=5zk6jP7f43E&feature=youtu.be">O pernambucano David Munster comenta seu trabalho em um vídeo exclusivo para a Nuvem</a></h1>
+    <h1 class="home-highlight-1-title"><a class="home-highlight-1-title-link" href="<?php bloginfo('url'); ?>/?post_type=artist">O pernambucano David Munster comenta seu trabalho em um vídeo exclusivo para a Nuvem</a></h1>
     <figure class="home-highlight-1-figure-2">
-        <a class="home-highlight-1-figure-2-link" href="https://www.youtube.com/watch?v=5zk6jP7f43E&feature=youtu.be"><img class="home-highlight-1-img-2" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-01c2.png" width="352" height="443" /></a>
+        <a class="home-highlight-1-figure-2-link" href="<?php bloginfo('url'); ?>/?post_type=artist"><img class="home-highlight-1-img-2" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-01c2.png" width="352" height="443" /></a>
     </figure>
 </div>
 
