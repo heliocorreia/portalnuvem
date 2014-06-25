@@ -46,7 +46,9 @@ if (isset($_GET['filter_by'])) {
         <?php
         query_posts(array(
             'posts_per_page' => -1,
-            'post_type' => 'artist'
+            'post_type' => 'artist',
+            'order' => 'ASC',
+            'orderby' => 'title',
         ));
         if (have_posts()): ?>
             <?php while (have_posts()): the_post(); ?>
