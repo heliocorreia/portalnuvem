@@ -21,6 +21,18 @@ function my_register_artist_metabox($post) {
 function my_metabox_artist_xtra($post) {
     wp_nonce_field('my_metabox_artist_xtra', 'my_metabox_artist_xtra_nonce');
 
+    $state = get_post_meta($post->ID, '_artist_state', true); ?>
+    <p>
+        <label for="my_artist_state">Estado:</label>
+        <select id="my_artist_state" name="my_artist_state">
+            <option>--</option>
+            <?php foreach(my_nuvem_states() as $val): ?>
+            <option<?php if (strtoupper($val) == strtoupper($state)): ?> selected="selected"<?php endif ?>><?php echo $val ?></option>
+            <?php endforeach ?>
+        </select>
+    </p>
+    <?php
+
     $locale = get_post_meta($post->ID, '_artist_locale', true);
     echo '<p><label for="my_artist_locale">Localidade:</label> ';
     echo '<input type="text" id="my_artist_locale" name="my_artist_locale" value="' . esc_attr($locale) . '" size="25" /></p>';
@@ -147,10 +159,12 @@ function my_save_metabox_data($post_id) {
             // fields
             $fields = array(
                 '_artist_locale',
+                '_artist_state',
                 '_artist_home_photo',
                 '_artist_home_work',
                 '_artist_home_quote',
             );
+
             foreach($fields as $field) {
                 if (isset($_POST['my' . $field])) {
                     $data = sanitize_text_field($_POST['my' . $field]);
