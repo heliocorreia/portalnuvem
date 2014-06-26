@@ -22,6 +22,7 @@
     @extend %font-montserrat-normal;
     @include pre(1);
     @include span-columns(4);
+    background: $color-bg;
     border: 2px solid #BCBCBC;
     padding: $top $right $bottom $left;
     position: relative;
@@ -58,8 +59,7 @@
 }
 
 .artist--filter-state-list {
-    $color: #EEE;
-    background: $color;
+    background: $color-bg;
     border: 2px solid #BCBCBC;
     display: none;
     padding: 1em;
