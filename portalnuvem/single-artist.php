@@ -8,7 +8,11 @@ $post_thumbnail_id = get_post_thumbnail_id();
     <div class="content-hd--container">
         <?php get_template_part('partials/breadcrumb'); ?>
         <?php if ($value = get_post_meta($post->ID, '_artist_locale', true)): ?>
-        <p class="content-hd--pretitle"><small><?php echo $value; ?></small></hp>
+        <p class="content-hd--pretitle"><small><?php echo $value; ?><?php
+            if ($state = get_post_meta($post->ID, '_artist_state', true)) {
+                echo " - $state";
+            }
+        ?></small></hp>
         <?php endif; ?>
         <h1 class="content-hd--title"><?php the_title(); ?></h1>
     </div>
