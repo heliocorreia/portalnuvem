@@ -32,7 +32,7 @@ body {
     }
 
     @include at-breakpoint($media-layout-desktop-large) {
-        font-size: pxtoem(16px);
+        font-size: pxtoem(14px);
     }
 }
 
