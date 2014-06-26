@@ -1,7 +1,24 @@
 <?php
 get_header();
 
+$query_posts_args = array(
+    'posts_per_page' => -1,
+    'post_type' => 'artist',
+    'order' => 'ASC',
+    'orderby' => 'title',
+);
+
 if (isset($_GET['filter_by'])) {
+    $filter_by = $_GET['filter_by'];
+
+    if (in_array($filter_by, my_nuvem_states())) {
+        $query_posts_args['meta_query'][] = array(
+            'key' => '_artist_state',
+            'value' => $filter_by,
+            'compare' => '=',
+        );
+    }
+
     add_filter('posts_where', '_archive_artist_posts_where', 10, 2 );
     function _archive_artist_posts_where( $where, &$wp_query ) {
         global $wpdb;
@@ -31,25 +48,28 @@ if (isset($_GET['filter_by'])) {
     <div class="content-bd--container">
         <?php
         $url_prefix = './?post_type=artist';
+        $url_filter = $url_prefix . '&filter_by=';
         ?>
-        <nav class="artist--index">
+        <nav class="artist--filter-states">
+            <ul class="artist--filter-state-list">
+                <?php foreach(my_nuvem_states() as $val): ?>
+                <li class="artist--filter-state-item"><a class="artist--filter-state-link" href="<?php echo $url_filter . $val ?>"><?php echo $val ?></a></li>
+                <?php endforeach ?>
+            </ul>
+        </nav>
+        <nav class="artist--filter-letters">
             <ul>
-                <li class="artist--index-item"><a class="artist--index-link" href="<?php echo $url_prefix ?>">Todos</a></li>
+                <li class="artist--filter-letter"><a class="artist--filter-letter-link" href="<?php echo $url_prefix ?>">Todos</a></li>
                 <?php
                 global $wpdb;
                 foreach(str_split('abcdefghijklmnopqrstuvwxyz', 1) as $val):
                 ?>
-                <li class="artist--index-item<?php if ($_GET['filter_by'] === $val): ?> artist--index-current<?php endif; ?>"><a class="artist--index-link" href="<?php echo $url_prefix . '&filter_by=' . $val; ?>"><?php echo $val; ?></a></li>
+                <li class="artist--filter-letter<?php if ($_GET['filter_by'] === $val): ?> artist--filter-current<?php endif; ?>"><a class="artist--filter-letter-link" href="<?php echo $url_filter . $val; ?>"><?php echo $val; ?></a></li>
                 <?php endforeach; ?>
             </ul>
         </nav>
         <?php
-        query_posts(array(
-            'posts_per_page' => -1,
-            'post_type' => 'artist',
-            'order' => 'ASC',
-            'orderby' => 'title',
-        ));
+        query_posts($query_posts_args);
         if (have_posts()): ?>
             <?php while (have_posts()): the_post(); ?>
                 <?php get_template_part('content', 'artist'); ?>

@@ -7,25 +7,103 @@
     }
 }
 
-.artist--index,
-.artist--index-link {
+.artist--filter-states,
+.artist--filter-letters {
+    @include margin-trailer(8);
+}
+
+.artist--filter-states {
+    $bottom: pxtoem(32px);
+    $left: pxtoem(30px);
+    $right: pxtoem(35px);
+    $top: pxtoem(37px);
+    @extend %compass-border-radius;
+    @extend %compass-border-sizing-border-box;
+    @extend %font-montserrat-normal;
+    @include pre(1);
+    @include span-columns(4);
+    border: 2px solid #BCBCBC;
+    padding: $top $right $bottom $left;
+    position: relative;
+    margin-top: - ($top / 2);
+
+    &:hover {
+        cursor: pointer;
+
+        .artist--filter-state-list {
+            display: block;
+        }
+    }
+
+    &::before {
+        border-right: 1px solid $color-text;
+        content: 'Filtrar por lugar';
+        display: block;
+        margin-right: $right * 2;
+    }
+
+    &::after {
+        @extend %compass-inline-block;
+        content: '▾';
+        margin-right: .5em;
+        position: absolute;
+        right: $right;
+        top: $top;
+    }
+
+    .artist--filter-state-list {
+        left: $left;
+        right: $right;
+    }
+}
+
+.artist--filter-state-list {
+    $color: #EEE;
+    background: $color;
+    border: 2px solid #BCBCBC;
+    display: none;
+    padding: 1em;
+    position: absolute;
+}
+
+.artist--filter-state-item,
+.artist--filter-state-link {
+    color: $color-text;
+}
+
+.artist--filter-state-item {
+    @include span-columns(2);
+    @include nth-omega(6n);
+
+    text-align: center;
+}
+
+.artist--filter-state-link {
+    display: block;
+
+    &:hover {
+        color: $color-link;
+    }
+}
+
+.artist--filter-letters,
+.artist--filter-letter-link {
     color: $color-link;
 }
 
-.artist--index {
+.artist--filter-letters {
     @extend %font-montserrat-normal;
-    @include pre(5);
+    @include span-columns(6 omega);
     @include post(1);
-    @include margin-trailer(8);
     text-transform: uppercase;
 }
 
-.artist--index-item {
+.artist--filter-letter {
     $margin: 1.65em;
     @extend %compass-inline-block;
+    float: left;
     margin-right: $margin;
     position: relative;
-    float: left;
 
     &:first-child {
         margin-right: $margin * 2;
@@ -42,10 +120,10 @@
     }
 }
 
-.artist--index-link {
+.artist--filter-letter-link {
     font-size: pxtoem(22px);
 
-    .artist--index-current & {
+    .artist--filter-letter-current & {
         color: $color-text;
     }
 }
