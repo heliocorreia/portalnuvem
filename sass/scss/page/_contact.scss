@@ -74,7 +74,7 @@ $page-contact-grid-context: 10;
     .page-contact--submit {
         @include padding-leader;
         @include padding-trailer;
-        border-width: 0 0 10px 0;
+        border-width: 0;
     }
 }
 
