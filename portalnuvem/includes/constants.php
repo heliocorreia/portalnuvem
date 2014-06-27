@@ -11,6 +11,17 @@ define('NUVEM_HOME_NEWS_LIMIT', 3);
 
 define('NUVEM_FACEBOOK_APPID', '1395518464002169');
 
+// nonce keys
+
+define('NUVEM_NONCE_SUBSCRIBE', 'subscribe_nonce');
+define('NUVEM_ACTION_SUBSCRIBE', 'subscribe_action');
+
 // options
 
 define('NUVEM_OPTION_STICK_HOME_HIGHLIGHT2', 'nuvem_stick_home_highlight2');
+
+// jquery version
+
+define('NUVEM_JQUERY_CDN', '//code.jquery.com/jquery-2.1.1.min.js');
+define('NUVEM_JQUERY_FALLBACK', '/media/jquery-2.1.1.min.js');
+define('NUVEM_JQUERY_HANDLER', 'cnd-jquery');

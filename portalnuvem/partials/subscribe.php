@@ -1,27 +1,9 @@
-<?php
+<div class="subscribe">
+<form class="subscribe--form" action="<?php echo admin_url('admin-ajax.php') ?>" method="post">
+    <input type="hidden" name="nonce" value="<?php echo wp_create_nonce(NUVEM_NONCE_SUBSCRIBE) ?>" />
+    <input type="hidden" name="action" value="<?php echo NUVEM_ACTION_SUBSCRIBE ?>" />
+    <input type="hidden" name="redirect" value="<?php echo implode('/', array_slice(explode('/', get_the_permalink()), 0, 3)) . $_SERVER['REQUEST_URI'] ?>" />
 
-if (isset($_POST['subscribe'])) {
-    $fields = array('firstname', 'lastname', 'city', 'state', 'mail', 'site', 'release');
-    foreach($fields as $field) {
-        $_POST[$field] = stripslashes(trim($_POST[$field]));
-    }
-
-    if (!isset($hasError)) {
-        $emailTo = get_option('admin_email');
-        $subject = "[CADASTRO] $_POST[firstname] $_POST[lastname]";
-        $body = join("\n", array(
-            "Nome: $_POST[firstname] $_POST[lastname]",
-            "Origem: $_POST[city] $_POST[state]",
-            "Contato: $_POST[mail] $_POST[site]",
-            "Release: $_POST[release]"
-        ));
-        $headers = 'From: '.$_POST['firstname'].' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $_POST['mail'];
-        $emailSent = (bool)wp_mail($emailTo, $subject, $body, $headers);
-    }
-}
-
-?><div class="subscribe">
-<form class="subscribe--form" action="<?php the_permalink(); ?>" method="post">
     <input id="subscribe--agreement" class="subscribe--agreement-checkbox" type="checkbox" checked="checked" />
     <label for="subscribe--agreement" class="subscribe--agreement-label">Quero me cadastrar</label>
     <h1 class="subscribe--title">Nuvem</h1>
@@ -65,3 +47,25 @@ if (isset($_POST['subscribe'])) {
     <p><input name="subscribe" class="input--submit" type="submit" value="Cadastrar" /></p>
 </form>
 </div>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    $('.subscribe--form').submit(function(e){
+        e.preventDefault();
+        var $form = $(this);
+        jQuery.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: $form.attr('action'),
+            data: $form.serializeObject(),
+            success: function(data, textStatus, jqXHR) {
+                alert(data.messages.join('\n\n'));
+                if (textStatus == 'success') {
+                    $form.each(function(){
+                        this.reset();
+                    });
+                }
+            }
+        });
+    });
+});
+</script>
