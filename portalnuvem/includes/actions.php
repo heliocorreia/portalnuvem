@@ -235,7 +235,7 @@ function wp_ajax_subscribe_action() {
 
         // confirmation mail
         $emailTo = get_option('admin_email');
-        $subject = "[Cadastro Pendente] $name";
+        $subject = "[Cadastro Pendente] $new_name";
         $body = join("\n", array(
             "Nome: $new_name",
             "Origem: $_POST[city] $_POST[state]",
