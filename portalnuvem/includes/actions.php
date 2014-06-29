@@ -187,6 +187,11 @@ function wp_ajax_subscribe_action() {
         'messages' => array(),
     );
 
+    $attachments = array();
+    foreach($_FILES as $val) {
+        $attachments[] = $val['tmp_name'];
+    }
+
     $fields = array('firstname', 'lastname', 'city', 'state', 'mail', 'site', 'release');
     foreach($fields as $field) {
         $_POST[$field] = stripslashes(trim($_POST[$field]));
@@ -203,7 +208,7 @@ function wp_ajax_subscribe_action() {
             "Release: $_POST[release]"
         ));
         $headers = 'From: '.$_POST['firstname'].' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $_POST['mail'];
-        $emailSent = (bool)wp_mail($emailTo, $subject, $body, $headers);
+        $emailSent = (bool)wp_mail($emailTo, $subject, $body, $headers, $attachments);
 
         // message
         $response['messages'][] = 'Cadastro foi enviado.';

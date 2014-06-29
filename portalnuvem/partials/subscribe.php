@@ -1,5 +1,5 @@
 <div class="subscribe">
-<form class="subscribe--form" action="<?php echo admin_url('admin-ajax.php') ?>" method="post">
+<form class="subscribe--form" action="<?php echo admin_url('admin-ajax.php') ?>" method="post" enctype="multipart/form-data">
     <input type="hidden" name="nonce" value="<?php echo wp_create_nonce(NUVEM_NONCE_SUBSCRIBE) ?>" />
     <input type="hidden" name="action" value="<?php echo NUVEM_ACTION_SUBSCRIBE ?>" />
     <input type="hidden" name="redirect" value="<?php echo implode('/', array_slice(explode('/', get_the_permalink()), 0, 3)) . $_SERVER['REQUEST_URI'] ?>" />
@@ -39,6 +39,10 @@
             <input type="text" class="subscribe--site" id="subscribe--site" name="site" value="" />
         </p>
         <p>
+            <label for="subscribe--image">Imagem</label>
+            <input type="file" class="subscribe--image" id="subscribe--image" name="image" />
+        </p>
+        <p>
             <label for="subscribe--release">Release</label>
             <textarea class="subscribe--release" id="subscribe--release" name="release"></textarea>
         </p>
@@ -50,13 +54,21 @@
 <script type="text/javascript">
 jQuery(document).ready(function($) {
     $('.subscribe--form').submit(function(e){
+        if (!'FormData' in window) {
+            return;
+        }
+
         e.preventDefault();
-        var $form = $(this);
+        var $form = $(this),
+            formData = new FormData($form.get(0));
+
         jQuery.ajax({
             type: 'post',
             dataType: 'json',
             url: $form.attr('action'),
-            data: $form.serializeObject(),
+            data: formData,
+            processData: false,
+            contentType: false,
             success: function(data, textStatus, jqXHR) {
                 alert(data.messages.join('\n\n'));
                 if (textStatus == 'success') {
