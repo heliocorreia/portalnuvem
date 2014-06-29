@@ -187,27 +187,68 @@ function wp_ajax_subscribe_action() {
         'messages' => array(),
     );
 
-    $attachments = array();
-    foreach($_FILES as $val) {
-        $attachments[] = $val['tmp_name'];
-    }
-
     $fields = array('firstname', 'lastname', 'city', 'state', 'mail', 'site', 'release');
     foreach($fields as $field) {
         $_POST[$field] = stripslashes(trim($_POST[$field]));
     }
 
     if (!$response['errors']) {
-        // send mail
+        $new_name = wp_strip_all_tags(trim($_POST['firstname']) . ' ' . trim($_POST['lastname']));
+        $new_release = wp_strip_all_tags($_POST['release']);
+
+        // define default author
+        $new_post_author_id = current(get_users(array(
+            'role' => 'Administrator',
+            'fields' => array('ID'),
+        )))->ID;
+
+        // new post type
+        $new_post_id = wp_insert_post(array(
+            'post_content' => $new_release,
+            'post_title' => $new_name,
+            'post_status' => 'pending',
+            'post_type' => NUMVEM_POST_TYPE_ARTIST,
+            'post_author' => $new_post_author_id,
+        ));
+
+        // update post meta
+        update_post_meta($new_post_id, '_artist_locale', sanitize_text_field($_POST['city']));
+        update_post_meta($new_post_id, '_artist_state', sanitize_text_field($_POST['state']));
+
+        // new post attachment
+        $attachments = array();
+        foreach($_FILES as $file) {
+            $new_file = wp_handle_upload($file, array('test_form' => false));
+            if ($new_file) {
+                $attach_id = wp_insert_attachment(
+                    array(
+                        'post_author' => $new_post_author_id,
+                        'post_content' => '',
+                        'post_mime_type' => $new_file['type'],
+                        'post_title' => $file['name'],
+                    ),
+                    $new_file['file'],
+                    $new_post_id
+                );
+
+                $attach_data = wp_generate_attachment_metadata($attach_id, $new_file['file']);
+                wp_update_attachment_metadata($attach_id, $attach_data);
+                set_post_thumbnail($new_post_id, $attach_id);
+
+                $attachments[] = $new_file['file'];
+            }
+        }
+
+        // confirmation mail
         $emailTo = get_option('admin_email');
-        $subject = "[CADASTRO] $_POST[firstname] $_POST[lastname]";
+        $subject = "[Cadastro Pendente] $name";
         $body = join("\n", array(
-            "Nome: $_POST[firstname] $_POST[lastname]",
+            "Nome: $new_name",
             "Origem: $_POST[city] $_POST[state]",
             "Contato: $_POST[mail] $_POST[site]",
-            "Release: $_POST[release]"
+            "Release: $new_release"
         ));
-        $headers = 'From: '.$_POST['firstname'].' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $_POST['mail'];
+        $headers = 'From: '.$new_name.' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $_POST['mail'];
         $emailSent = (bool)wp_mail($emailTo, $subject, $body, $headers, $attachments);
 
         // message
