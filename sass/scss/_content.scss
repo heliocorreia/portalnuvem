@@ -16,6 +16,10 @@
         right: 0;
         width: pxtoem(923px);
     }
+
+    & ~ &::before {
+        content: none;
+    }
 }
 
 .content-hd--pretitle,
