@@ -37,6 +37,11 @@
         @include span-columns(6);
     }
 
+    label,
+    .input--submit {
+        cursor: pointer;
+    }
+
     & > p {
         &:last-of-type {
             @include omega;
@@ -54,7 +59,7 @@
     input,
     select,
     textarea,
-    .subscribe--agreement-label {
+    .subscribe--agreement-label-y {
         @extend %compass-border-radius;
         @extend %compass-border-sizing-border-box;
         @extend %font-montserrat-normal;
@@ -66,30 +71,23 @@
         width: 100%;
     }
 
-    select {
-        font-size: 20px !important;
-        line-height: 20px !important;
-    }
-
     textarea {
         height: rhythm(6);
     }
 
     .subscribe--fieldset {
         label {
-            cursor: pointer;
             display: block;
             padding-left: 0;
         }
     }
 
     .input--submit,
-    .subscribe--agreement-label {
+    .subscribe--agreement-label-y {
         @include padding-leader;
         @include padding-trailer;
         background: $color-text-alternate;
         color: $color-bg;
-        cursor: pointer;
         text-transform: uppercase;
         border-width: 0;
     }
@@ -108,22 +106,28 @@
     }
 }
 
-.subscribe--agreement-checkbox {
+.subscribe--agreement-radio {
     display: none;
+}
 
+#subscribe--agreement-n {
     &:checked {
         & ~ .subscribe--fieldset,
         & ~ .subscribe--fieldset ~ p {
             display: none;
         }
 
-        & ~ .subscribe--agreement-label {
+        & ~ .subscribe--agreement-label-y {
             display: block;
+        }
+
+        & ~ .subscribe--agreement-label-n {
+            display: none;
         }
     }
 }
 
-.subscribe--agreement-label {
+.subscribe--agreement-label-y {
     @include span-columns(6 omega);
     bottom: rhythm(2);
     display: none;
@@ -131,4 +135,16 @@
     right: 0;
     text-align: center;
     margin-bottom: 10px;
+}
+
+.subscribe--agreement-label-n {
+    @extend %compass-hide-text;
+    @extend %compass-inline-block;
+    @include icons-sprite(close);
+    position: absolute;
+    right: 0;
+
+    .subscribe--form & {
+        padding: 0;
+    }
 }

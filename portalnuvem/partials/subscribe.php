@@ -4,8 +4,11 @@
     <input type="hidden" name="action" value="<?php echo NUVEM_ACTION_SUBSCRIBE ?>" />
     <input type="hidden" name="redirect" value="<?php echo implode('/', array_slice(explode('/', get_the_permalink()), 0, 3)) . $_SERVER['REQUEST_URI'] ?>" />
 
-    <input id="subscribe--agreement" class="subscribe--agreement-checkbox" type="checkbox" checked="checked" />
-    <label for="subscribe--agreement" class="subscribe--agreement-label">Quero me cadastrar</label>
+    <input name="subscribe--agreement[]" id="subscribe--agreement-y" class="subscribe--agreement-radio" type="radio" value="y" />
+    <input name="subscribe--agreement[]" id="subscribe--agreement-n" class="subscribe--agreement-radio" type="radio" value="n" checked="checked" />
+    <label for="subscribe--agreement-y" class="subscribe--agreement-label-y">Quero me cadastrar</label>
+    <label for="subscribe--agreement-n" class="subscribe--agreement-label-n">Não quero me cadastrar</label>
+
     <h1 class="subscribe--title">Nuvem</h1>
     <p class="subscribe--intro">Quer divulgar o seu trabalho no banco de artistas do Portal Nuvem?</p>
     <fieldset class="subscribe--fieldset">
