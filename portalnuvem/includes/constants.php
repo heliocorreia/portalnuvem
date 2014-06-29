@@ -10,6 +10,7 @@ define('NUVEM_HOME_NEWS_SLUG', 'home-news');
 define('NUVEM_HOME_NEWS_LIMIT', 3);
 
 define('NUVEM_FACEBOOK_APPID', '1395518464002169');
+define('NUVEM_GOOGLE_API_KEY', 'AIzaSyAX_KE_8Wqovj7552Gmi49aZcvDVWqkS7A');
 
 // nonce keys
 

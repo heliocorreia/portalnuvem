@@ -31,62 +31,55 @@ get_header();
     </div>
 </header>
 
+<?php //* ?><script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&extension=.js"></script><?php //*/ ?>
+<?php /* ?><script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo NUVEM_GOOGLE_API_KEY ?>&sensor=false&extension=.js"></script><?php //*/ ?>
 <?php //* ?>
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3950.125389405781!2d-34.8855107!3d-8.088693200000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1f38b498ced3%3A0x35df148b10c8cea3!2sAvenida+Herculano+Bandeira%2C+513+-+Pina!5e0!3m2!1sen!2s!4v1402531881643" width="100%" height="310" frameborder="0" style="border:0"></iframe>
-
-<?php
-/* // http://googlemapbuilder.mynameisdonald.com/
-?>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAX_KE_8Wqovj7552Gmi49aZcvDVWqkS7A&sensor=false&extension=.js"></script>
-<script type="text/javascript"> google.maps.event.addDomListener(window, 'load', init);
+<script type="text/javascript">
+google.maps.event.addDomListener(window, 'load', init);
 var map;
-
 function init() {
     var mapOptions = {
-        center: new google.maps.LatLng(-8.054518,-34.879053),
-        zoom: 17,
+        center: new google.maps.LatLng(-8.0886932, -34.8855107),
+        disableDoubleClickZoom: true,
+        draggable : true,
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+            style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+        },
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        overviewMapControl: false,
+        panControl: false,
+        rotateControl: false,
+        scaleControl: true,
+        scrollwheel: false,
+        streetViewControl: true,
+        zoom: 16,
         zoomControl: true,
         zoomControlOptions: {
             style: google.maps.ZoomControlStyle.SMALL,
         },
-        disableDoubleClickZoom: true,
-        mapTypeControl: true,
-        mapTypeControlOptions: {
-            style: google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
-        },
-        scaleControl: true,
-        scrollwheel: false,
-        streetViewControl: true,
-        draggable : true,
-        overviewMapControl: false,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-
-
     }
 
     var mapElement = document.getElementById('map');
     var map = new google.maps.Map(mapElement, mapOptions);
     var locations = [
-        ['Rua Capitão Lima', -8.053663, -34.8787208]
+        ['Nuvem', -8.0886932, -34.8855107]
     ];
 
     for (i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
-            icon: '',
             position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-            map: map
+            map: map,
+            title: locations[i][0]
         });
     }
 }
 </script>
-
 <style>
-#map{
-    width:100%;
-    height:1310px;
-}
+.gmnoprint img { max-width: none; }
 </style>
-<?php /**/ ?>
+<div id="map" style="width:100%; height:310px;"></div>
+<?php //*/ ?>
 
 <div class="content-bd">
     <div class="content-bd--container">
