@@ -90,22 +90,6 @@ function my_wp_head() {
 <script type="text/javascript">
     window.jQuery || document.write('<script src="$jquery_url">\\x3C/script>');
 
-    $.fn.serializeObject = function() {
-       var o = {};
-       var a = this.serializeArray();
-       $.each(a, function() {
-           if (o[this.name]) {
-               if (!o[this.name].push) {
-                   o[this.name] = [o[this.name]];
-               }
-               o[this.name].push(this.value || '');
-           } else {
-               o[this.name] = this.value || '';
-           }
-       });
-       return o;
-   };
-
     $.fn.toggleAttr = function(attr, attr1, attr2) {
         return this.each(function() {
             var self = $(this);
