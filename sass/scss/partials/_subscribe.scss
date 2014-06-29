@@ -1,3 +1,12 @@
+@include keyframes(pulse) {
+    0%, 100% {
+        @include opacity(1);
+    }
+    50% {
+        @include opacity(.75);
+    }
+}
+
 .subscribe--form {
     $font-size: 20px;
     @extend %compass-pie-clearfix;
@@ -5,6 +14,13 @@
     @include padding-leader(3);
     @include padding-trailer(2);
     position: relative;
+
+    &.js-loading {
+        .input--submit {
+            @include animation(pulse 1s infinite ease-in);
+            cursor: wait;
+        }
+    }
 
     h1 {
         @include hide-text;

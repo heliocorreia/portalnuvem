@@ -48,19 +48,26 @@
         </p>
     </fieldset>
     <p>Ao clicar em Cadastrar, você concorda com os <a href="<?php bloginfo('url'); ?>/wp-content/uploads/2014/06/TERMOS_DE_USO_CADASTRO_DE_ARTISTAS.pdf">termos de uso</a> da Nuvem Produções.</p>
-    <p><input name="subscribe" class="input--submit" type="submit" value="Cadastrar" /></p>
+    <p><input name="subscribe" class="input--submit" type="submit" data-toggle-value="Enviando..." value="Cadastrar" /></p>
 </form>
 </div>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
     $('.subscribe--form').submit(function(e){
         if (!'FormData' in window) {
-            return;
+            return true;
         }
 
         e.preventDefault();
         var $form = $(this),
-            formData = new FormData($form.get(0));
+            $submit = $form.find('.input--submit'),
+            class_loading = 'js-loading',
+            formData = new FormData($form.get(0)),
+            value_initial = $submit.attr('value'),
+            value_toggle = $submit.data('toggle-value'),
+            toggleSubmitValue = function() {
+                $submit.toggleAttr('value', value_initial, value_toggle);
+            }
 
         jQuery.ajax({
             type: 'post',
@@ -69,6 +76,10 @@ jQuery(document).ready(function($) {
             data: formData,
             processData: false,
             contentType: false,
+            beforeSend: function(jqXHR, settings) {
+                $form.addClass(class_loading);
+                toggleSubmitValue();
+            },
             success: function(data, textStatus, jqXHR) {
                 alert(data.messages.join('\n\n'));
                 if (textStatus == 'success') {
@@ -76,6 +87,10 @@ jQuery(document).ready(function($) {
                         this.reset();
                     });
                 }
+            },
+            complete: function(jqXHR, textStatus) {
+                toggleSubmitValue();
+                $form.removeClass(class_loading);
             }
         });
     });

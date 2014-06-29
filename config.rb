@@ -1,4 +1,5 @@
 # Require any additional compass plugins here.
+require "animation"
 require "susy"
 
 project_type = :stand_alone
@@ -6,12 +7,12 @@ project_path = "."
 
 # source assets
 sass_dir = "sass/scss"
-images_dir = "sass/images"
 sprite_load_path = "sass/sprites"
 
 # generated assets
 css_dir = "portalnuvem/media/compiled/css"
 generated_images_dir = "portalnuvem/media/compiled/images"
+images_dir = "portalnuvem/media/images"
 
 # You can select your preferred output style here (can be overridden via the
 # command line): output_style = :expanded or :nested or :compact or :compressed
