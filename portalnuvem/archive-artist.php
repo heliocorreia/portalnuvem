@@ -3,7 +3,7 @@ get_header();
 
 $query_posts_args = array(
     'posts_per_page' => -1,
-    'post_type' => 'artist',
+    'post_type' => NUMVEM_POST_TYPE_ARTIST,
     'order' => 'ASC',
     'orderby' => 'title',
 );
@@ -47,7 +47,7 @@ if (isset($_GET['filter_by'])) {
 <div class="content-bd">
     <div class="content-bd--container">
         <?php
-        $url_prefix = './?post_type=artist';
+        $url_prefix = './?post_type=' . NUMVEM_POST_TYPE_ARTIST;
         $url_filter = $url_prefix . '&filter_by=';
         ?>
         <nav class="artist--filter-states">

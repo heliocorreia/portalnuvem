@@ -28,7 +28,7 @@ function my_setup() {
     register_nav_menu('footer', 'Footer Menu');
     register_nav_menu('social', 'Social Menu');
 
-    register_post_type('article',
+    register_post_type(NUMVEM_POST_TYPE_ARTICLE,
         array(
             'labels' => array(
                 'name' => __('Articles'),
@@ -45,7 +45,7 @@ function my_setup() {
             ),
         )
     );
-    register_post_type('event',
+    register_post_type(NUMVEM_POST_TYPE_EVENT,
         array(
             'labels' => array(
                 'name' => __('Events'),
@@ -62,7 +62,7 @@ function my_setup() {
             'register_meta_box_cb' => 'my_register_event_metabox',
         )
     );
-    register_post_type('artist',
+    register_post_type(NUMVEM_POST_TYPE_ARTIST,
         array(
             'labels' => array(
                 'name' => __('Artists'),

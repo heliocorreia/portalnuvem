@@ -25,3 +25,9 @@ define('NUVEM_OPTION_STICK_HOME_HIGHLIGHT2', 'nuvem_stick_home_highlight2');
 define('NUVEM_JQUERY_CDN', '//code.jquery.com/jquery-2.1.1.min.js');
 define('NUVEM_JQUERY_FALLBACK', '/media/jquery-2.1.1.min.js');
 define('NUVEM_JQUERY_HANDLER', 'cnd-jquery');
+
+// post types
+
+define('NUMVEM_POST_TYPE_ARTICLE', 'article');
+define('NUMVEM_POST_TYPE_ARTIST', 'artist');
+define('NUMVEM_POST_TYPE_EVENT', 'event');
