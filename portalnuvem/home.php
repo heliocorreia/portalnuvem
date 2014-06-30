@@ -80,7 +80,7 @@ $(document).ready(function(){
         <p class="home-news-subtitle"><a href="<?php the_permalink() ?>" class="home-news-link"><?php echo get_the_excerpt() ?></a></p>
     </section>
     <?php endwhile ?>
-    <p class="home-news-seemore"><a class="home-news-seemore-link" href="<?php echo './?category_name=' . NUVEM_NEWS_CATEGORY_SLUG ?>">Veja todas as últimas</a></p>
+    <p class="home-news-seemore"><a class="home-news-seemore-link" href="<?php echo esc_url(get_category_link(get_category_by_slug(NUVEM_NEWS_CATEGORY_SLUG)->term_id)) ?>">Veja todas as últimas</a></p>
 </section>
 
 <?php
