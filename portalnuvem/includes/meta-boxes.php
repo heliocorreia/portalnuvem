@@ -1,5 +1,7 @@
 <?php
 
+// POST TYPE: POST
+
 function my_register_post_metabox($post) {
     add_meta_box('my_mb_post', 'Informações Adicionais', 'my_metabox_post', 'post', 'normal', 'high');
 }
@@ -12,6 +14,8 @@ function my_metabox_post($post) {
     echo '<p><label for="my_post_locale">Localidade:</label> ';
     echo '<input type="text" id="my_post_locale" name="my_post_locale" value="' . esc_attr($locale) . '" size="25" /></p>';
 }
+
+// POST TYPE: ARTIST
 
 function my_register_artist_metabox($post) {
     add_meta_box('my_mb_artist_xtra', 'Informações Adicionais', 'my_metabox_artist_xtra', 'artist', 'normal', 'high');
@@ -63,6 +67,8 @@ function my_metabox_artist_home($post) {
     echo '<input type="text" id="my_artist_home_quote" name="my_artist_home_quote" value="' . esc_attr($quote) . '" size="50" /></p>';
 }
 
+// POST TYPE: EVENT
+
 function my_register_event_metabox($post) {
     add_meta_box('my_mb_event', 'Informações Adicionais', 'my_metabox_event', 'event', 'normal', 'default');
 }
@@ -82,6 +88,24 @@ function my_metabox_event($post) {
     echo '<p><label for="my_event_site">Endereço/Site:</label> ';
     echo 'http://<input type="text" id="my_event_site" name="my_event_site" value="' . esc_attr($site) . '" size="25" /></p>';
 }
+
+// POST TYPE: VIDEO
+
+function my_register_video_metabox($post) {
+    add_meta_box('my_mb_video_xtra', 'Dados do Vídeo', 'my_metabox_video_xtra', 'video', 'normal', 'default');
+}
+
+function my_metabox_video_xtra($post) {
+    wp_nonce_field('my_metabox_video', 'my_metabox_video_nonce');
+
+    $video_url = get_post_meta($post->ID, '_video_url', true);
+    echo '<p><label for="my_video_url">URL:</label> ';
+    echo '<input type="text" id="my_video_url" name="my_video_url" value="' . esc_attr($video_url) . '" size="25" /> ';
+    echo ' <small><a href="http://en.support.wordpress.com/shortcodes/#video" target="_blank">Ver fontes suportadas</a></small>';
+    echo '</p>';
+}
+
+// SAVE METABOX
 
 function my_metabox_data_precheck() {
     // if this is an autosave, our form has not been submitted, so we don't want to do anything.
@@ -136,6 +160,16 @@ function my_save_metabox_data($post_id) {
             if (isset($_POST['my_event_' . $field])) {
                 $data = sanitize_text_field($_POST['my_event_' . $field]);
                 update_post_meta($post_id, '_event_' . $field, $data);
+            }
+        }
+    }
+
+    // video
+    if (my_metabox_data_nonce($_POST['my_metabox_video_nonce'], 'my_metabox_video')) {
+        foreach(array('url') as $field) {
+            if (isset($_POST['my_video_' . $field])) {
+                $data = sanitize_text_field($_POST['my_video_' . $field]);
+                update_post_meta($post_id, '_video_' . $field, $data);
             }
         }
     }

@@ -27,7 +27,10 @@ function my_setup() {
     register_nav_menu('main', 'Main Menu');
     register_nav_menu('footer', 'Footer Menu');
     register_nav_menu('social', 'Social Menu');
+}
+add_action('after_setup_theme', 'my_setup');
 
+function my_init() {
     register_post_type(NUMVEM_POST_TYPE_ARTICLE,
         array(
             'labels' => array(
@@ -79,8 +82,25 @@ function my_setup() {
             'register_meta_box_cb' => 'my_register_artist_metabox',
         )
     );
+    register_post_type(NUVEM_POST_TYPE_VIDEO,
+        array(
+            'labels' => array(
+                'name' => __('Videos'),
+                'singular_name' => __('Video')
+            ),
+            'public' => true,
+            'taxonomies' => array('category'),
+            'has_archive' => true,
+            'menu_position' => 5,
+            'supports' => array(
+                'title',
+                'excerpt',
+            ),
+            'register_meta_box_cb' => 'my_register_video_metabox',
+        )
+    );
 }
-add_action('after_setup_theme', 'my_setup');
+add_action('init','my_init');
 
 // actions
 
