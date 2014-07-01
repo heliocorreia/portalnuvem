@@ -31,7 +31,7 @@ function my_setup() {
 add_action('after_setup_theme', 'my_setup');
 
 function my_init() {
-    register_post_type(NUMVEM_POST_TYPE_ARTICLE,
+    register_post_type(NUVEM_POST_TYPE_ARTICLE,
         array(
             'labels' => array(
                 'name' => __('Articles'),
@@ -48,7 +48,7 @@ function my_init() {
             ),
         )
     );
-    register_post_type(NUMVEM_POST_TYPE_EVENT,
+    register_post_type(NUVEM_POST_TYPE_EVENT,
         array(
             'labels' => array(
                 'name' => __('Events'),
@@ -65,7 +65,7 @@ function my_init() {
             'register_meta_box_cb' => 'my_register_event_metabox',
         )
     );
-    register_post_type(NUMVEM_POST_TYPE_ARTIST,
+    register_post_type(NUVEM_POST_TYPE_ARTIST,
         array(
             'labels' => array(
                 'name' => __('Artists'),
@@ -221,7 +221,7 @@ function wp_ajax_subscribe_action() {
             'post_content' => $new_release,
             'post_title' => $new_name,
             'post_status' => 'pending',
-            'post_type' => NUMVEM_POST_TYPE_ARTIST,
+            'post_type' => NUVEM_POST_TYPE_ARTIST,
             'post_author' => $new_post_author_id,
         ));
 

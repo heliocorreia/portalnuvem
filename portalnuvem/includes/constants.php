@@ -29,7 +29,7 @@ define('NUVEM_JQUERY_HANDLER', 'cnd-jquery');
 
 // post types
 
-define('NUMVEM_POST_TYPE_ARTICLE', 'article');
-define('NUMVEM_POST_TYPE_ARTIST', 'artist');
-define('NUMVEM_POST_TYPE_EVENT', 'event');
+define('NUVEM_POST_TYPE_ARTICLE', 'article');
+define('NUVEM_POST_TYPE_ARTIST', 'artist');
+define('NUVEM_POST_TYPE_EVENT', 'event');
 define('NUVEM_POST_TYPE_VIDEO', 'video');

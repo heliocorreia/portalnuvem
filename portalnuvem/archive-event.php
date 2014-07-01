@@ -12,7 +12,7 @@
         <?php
         query_posts(array(
             'posts_per_page' => -1,
-            'post_type' => NUMVEM_POST_TYPE_EVENT,
+            'post_type' => NUVEM_POST_TYPE_EVENT,
         ));
         if (have_posts()): ?>
             <?php while (have_posts()): the_post(); ?>

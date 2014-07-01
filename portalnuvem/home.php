@@ -86,7 +86,7 @@ $(document).ready(function(){
 <?php
 $hightlight2 = new WP_Query(array(
     'p'              => get_option(NUVEM_OPTION_STICK_HOME_HIGHLIGHT2),
-    'post_type'      => NUMVEM_POST_TYPE_ARTIST,
+    'post_type'      => NUVEM_POST_TYPE_ARTIST,
 ));
 
 if ($hightlight2->have_posts()):

@@ -26,7 +26,7 @@ get_header(); ?>
                 'author'         => $author->ID,
                 'orderby'        => 'date',
                 'order'          => 'DESC',
-                'post_type'      => NUMVEM_POST_TYPE_ARTICLE,
+                'post_type'      => NUVEM_POST_TYPE_ARTICLE,
                 'posts_per_page' => 1
             )); ?>
             <?php while($author_posts->have_posts()): $author_posts->the_post(); ?>
