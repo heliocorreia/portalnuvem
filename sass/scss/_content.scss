@@ -51,9 +51,6 @@
 }
 
 .content-hd--embed {
-    @extend %compass-clearfix;
-    @include span-columns(12 omega);
-
     // Responsive Video
     // http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
     position: relative;
