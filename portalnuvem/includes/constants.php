@@ -2,6 +2,7 @@
 
 define('NUVEM_NEWS_CATEGORY_SLUG', 'news');
 define('NUVEM_ARTICLES_CATEGORY_SLUG', 'articles');
+define('NUVEM_ARTISTS_CATEGORY_SLUG', 'artists');
 
 define('NUVEM_HOME_HEADLINES_SLUG', 'home-headlines');
 define('NUVEM_HOME_HEADLINES_LIMIT', 5);

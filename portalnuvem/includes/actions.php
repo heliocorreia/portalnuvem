@@ -104,6 +104,24 @@ add_action('init','my_init');
 
 // actions
 
+add_filter('oembed_result', 'my_oembed_result_youtube', 10, 3);
+function my_oembed_result_youtube($html, $url, $args) {
+    if (preg_match('#www\.youtube\.com#', $url)) {
+        return str_replace('?feature=oembed', '?' . http_build_query(array(
+            'feature' => 'oembed',
+            // https://developers.google.com/youtube/player_parameters
+            'controls' => 2,
+            'rel' => 0,
+            'showinfo' => 0,
+            // 'theme' => 'light',
+            'modestbranding' => 1,
+            'iv_load_policy' => 3,
+        ), '&amp;'), $html);
+    }
+
+    return $html;
+}
+
 function my_wp_head() {
     $jquery_url = get_stylesheet_directory_uri() . NUVEM_JQUERY_FALLBACK;
     echo <<<JS
