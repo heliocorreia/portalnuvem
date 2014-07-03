@@ -20,6 +20,7 @@ define('NUVEM_ACTION_SUBSCRIBE', 'subscribe_action');
 
 // options
 
+define('NUVEM_OPTION_STICK_HOME_HIGHLIGHT1', 'nuvem_stick_home_highlight1');
 define('NUVEM_OPTION_STICK_HOME_HIGHLIGHT2', 'nuvem_stick_home_highlight2');
 
 // jquery version

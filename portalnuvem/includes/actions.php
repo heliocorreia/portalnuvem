@@ -46,6 +46,7 @@ function my_init() {
                 'excerpt',
                 'author',
             ),
+            'register_meta_box_cb' => my_register_metabox_callback_name(NUVEM_POST_TYPE_ARTICLE),
         )
     );
     register_post_type(NUVEM_POST_TYPE_EVENT,
@@ -62,7 +63,7 @@ function my_init() {
                 'excerpt',
                 'thumbnail',
             ),
-            'register_meta_box_cb' => 'my_register_event_metabox',
+            'register_meta_box_cb' => my_register_metabox_callback_name(NUVEM_POST_TYPE_EVENT),
         )
     );
     register_post_type(NUVEM_POST_TYPE_ARTIST,
@@ -79,7 +80,7 @@ function my_init() {
                 'editor',
                 'thumbnail',
             ),
-            'register_meta_box_cb' => 'my_register_artist_metabox',
+            'register_meta_box_cb' => my_register_metabox_callback_name(NUVEM_POST_TYPE_ARTIST),
         )
     );
     register_post_type(NUVEM_POST_TYPE_VIDEO,
@@ -96,7 +97,7 @@ function my_init() {
                 'title',
                 'excerpt',
             ),
-            'register_meta_box_cb' => 'my_register_video_metabox',
+            'register_meta_box_cb' => my_register_metabox_callback_name(NUVEM_POST_TYPE_VIDEO),
         )
     );
 }
@@ -143,6 +144,30 @@ JS;
 }
 add_action('wp_head', 'my_wp_head');
 
+function my_admin_head() {
+    echo <<<CSS
+<style type="text/css" media="all">
+    .wp-admin .postbox .inside {
+      *zoom: 1;
+    }
+    .wp-admin .postbox .inside:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .wp-admin .postbox .inside .my-nuvem-hint-img {
+      float: right;
+    }
+    .wp-admin .postbox .inside label {
+      display: block;
+    }
+    .wp-admin .postbox .inside input[type="checkbox"] + label {
+      display: inline;
+    }
+</style>
+CSS;
+}
+add_action('admin_head', 'my_admin_head');
 
 function my_post_thumbnail_html($html, $post_id, $post_thumbnail_id, $size, $attr) {
     global $post_thumbnails_with_captions;

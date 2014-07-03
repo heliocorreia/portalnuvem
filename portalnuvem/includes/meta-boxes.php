@@ -1,9 +1,43 @@
 <?php
 
+// META BOX: HOME PAGE HIGHLIGHT1
+
+function use_my_metabox_home_highlight1($post_type) {
+    add_meta_box('my_mb_home_highlight1', 'Home Page: highlight1', 'my_metabox_home_highlight1', $post_type, 'normal', 'default');
+}
+function my_metabox_home_highlight1($post) {
+    wp_nonce_field('my_metabox_home_highlight1', 'my_metabox_home_highlight1_nonce');
+
+    echo '<p class="my-nuvem-hint-img"><img src="' . get_stylesheet_directory_uri() . '/media/hint-home-highlight1.jpg" /></p>';
+
+    $stick = ($post->ID === get_option(NUVEM_OPTION_STICK_HOME_HIGHLIGHT1, false));
+    echo '<p><input type="checkbox" id="my_stick_home_highlight1" name="my_stick_home_highlight1" size="25" ' .($stick?'checked="checked"':''). ' value="' .$post->ID. '" /> ';
+    echo '<label for="my_stick_home_highlight1">Exibir na home</label></p>';
+
+    $fields = array(
+        'img_background' => 'Imagem de fundo (1px x 1px)',
+        'img_name'       => 'Imagem no nome (1.440px × 532px)',
+        'img_photo'      => 'Imagem da chamada (352px × 443px)',
+        'pretitle'       => 'Pré-titulo',
+        'title'          => 'Título',
+    );
+
+    foreach($fields as $key => $label) {
+        $value = get_post_meta($post->ID, '_home_highlight1_' . $key, true);
+        echo '<p><label for="my_home_highlight1_' . $key . '">' . $label . ':</label> ';
+        echo '<input type="text" id="my_home_highlight1_' . $key . '" name="my_home_highlight1_' . $key . '" value="' . esc_attr($value) . '" size="25" /></p>';
+    }
+}
+
 // POST TYPE: POST
 
 function my_register_post_metabox($post) {
-    add_meta_box('my_mb_post', 'Informações Adicionais', 'my_metabox_post', 'post', 'normal', 'high');
+    if ($post_type != 'post') {
+        return;
+    }
+
+    add_meta_box('my_mb_post', 'Informações Adicionais', 'my_metabox_post', $post->post_type, 'normal', 'high');
+    use_my_metabox_home_highlight1($post->post_type);
 }
 add_action('add_meta_boxes', 'my_register_post_metabox');
 
@@ -15,11 +49,18 @@ function my_metabox_post($post) {
     echo '<input type="text" id="my_post_locale" name="my_post_locale" value="' . esc_attr($locale) . '" size="25" /></p>';
 }
 
+// POST TYPE: ARTICLE
+
+function my_register_article_metabox($post) {
+    use_my_metabox_home_highlight1($post->post_type);
+}
+
 // POST TYPE: ARTIST
 
 function my_register_artist_metabox($post) {
-    add_meta_box('my_mb_artist_xtra', 'Informações Adicionais', 'my_metabox_artist_xtra', 'artist', 'normal', 'high');
-    add_meta_box('my_mb_artist_home', 'Home Page', 'my_metabox_artist_home', 'artist', 'normal', 'high');
+    add_meta_box('my_mb_artist_xtra', 'Informações Adicionais', 'my_metabox_artist_xtra', $post->post_type, 'normal', 'default');
+    use_my_metabox_home_highlight1($post->post_type);
+    add_meta_box('my_mb_artist_home', 'Home Page: highlight2', 'my_metabox_artist_home', $post->post_type, 'normal', 'default');
 }
 
 function my_metabox_artist_xtra($post) {
@@ -50,20 +91,22 @@ function my_metabox_artist_xtra($post) {
 function my_metabox_artist_home($post) {
     wp_nonce_field('my_metabox_artist_home', 'my_metabox_artist_home_nonce');
 
+    echo '<p class="my-nuvem-hint-img"><img src="' . get_stylesheet_directory_uri() . '/media/hint-home-highlight2.jpg" /></p>';
+
     $stick = ($post->ID === get_option(NUVEM_OPTION_STICK_HOME_HIGHLIGHT2, false));
     echo '<p><input type="checkbox" id="my_stick_home_highlight2" name="my_stick_home_highlight2" size="25" ' .($stick?'checked="checked"':''). ' value="' .$post->ID. '" /> ';
-    echo '<label for="my_stick_home_highlight2">Stick</label></p>';
+    echo '<label for="my_stick_home_highlight2">Exibir na home</label></p>';
 
     $photo = get_post_meta($post->ID, '_artist_home_photo', true);
-    echo '<p><label for="my_artist_home_photo">Photo URL:</label> ';
+    echo '<p><label for="my_artist_home_photo">URL foto do autor (155px × 155px):</label> ';
     echo '<input type="text" id="my_artist_home_photo" name="my_artist_home_photo" value="' . esc_attr($photo) . '" size="25" /></p>';
 
     $work = get_post_meta($post->ID, '_artist_home_work', true);
-    echo '<p><label for="my_artist_home_work">Work URL:</label> ';
+    echo '<p><label for="my_artist_home_work">URL foto do trabalho (605px × 695px):</label> ';
     echo '<input type="text" id="my_artist_home_work" name="my_artist_home_work" value="' . esc_attr($work) . '" size="25" /></p>';
 
     $quote = get_post_meta($post->ID, '_artist_home_quote', true);
-    echo '<p><label for="my_artist_home_quote">Quote:</label> ';
+    echo '<p><label for="my_artist_home_quote">Frase/Citação:</label> ';
     echo '<input type="text" id="my_artist_home_quote" name="my_artist_home_quote" value="' . esc_attr($quote) . '" size="50" /></p>';
 }
 
@@ -92,7 +135,8 @@ function my_metabox_event($post) {
 // POST TYPE: VIDEO
 
 function my_register_video_metabox($post) {
-    add_meta_box('my_mb_video_xtra', 'Dados do Vídeo', 'my_metabox_video_xtra', 'video', 'normal', 'default');
+    add_meta_box('my_mb_video_xtra', 'Dados do Vídeo', 'my_metabox_video_xtra', $post->post_type, 'normal', 'default');
+    use_my_metabox_home_highlight1($post->post_type);
 }
 
 function my_metabox_video_xtra($post) {
@@ -144,7 +188,38 @@ function my_save_metabox_data($post_id) {
         return;
     }
 
-    // post
+    // META BOX home page: highlight1
+    foreach(array('article', 'artist', 'post', 'video') as $val) {
+        if (my_metabox_data_nonce($_POST['my_metabox_home_highlight1_nonce'], 'my_metabox_home_highlight1')) {
+            // sticky
+            if (isset($_POST['my_stick_home_highlight1'])
+                && !empty($_POST['my_home_highlight1_img_background'])
+                && !empty($_POST['my_home_highlight1_img_name'])
+                && !empty($_POST['my_home_highlight1_img_photo'])
+                && !empty($_POST['my_home_highlight1_pretitle'])
+                && !empty($_POST['my_home_highlight1_title'])
+            ) {
+                update_option(NUVEM_OPTION_STICK_HOME_HIGHLIGHT1, intval($_POST['my_stick_home_highlight1']));
+            }
+
+            $fields = array(
+                'img_background',
+                'img_name',
+                'img_photo',
+                'pretitle',
+                'title'
+            );
+
+            foreach($fields as $field) {
+                if (isset($_POST['my_home_highlight1_' . $field])) {
+                    $data = sanitize_text_field($_POST['my_home_highlight1_' . $field]);
+                    update_post_meta($post_id, '_home_highlight1_' . $field, $data);
+                }
+            }
+        }
+    }
+
+    // POST TYPE post
     if (my_metabox_data_nonce($_POST['my_metabox_post_nonce'], 'my_metabox_post')) {
         foreach(array('locale') as $field) {
             if (isset($_POST['my_post_' . $field])) {
@@ -154,7 +229,7 @@ function my_save_metabox_data($post_id) {
         }
     }
 
-    // event
+    // POST TYPE event
     if (my_metabox_data_nonce($_POST['my_metabox_event_nonce'], 'my_metabox_event')) {
         foreach(array('locale', 'period', 'site') as $field) {
             if (isset($_POST['my_event_' . $field])) {
@@ -164,7 +239,7 @@ function my_save_metabox_data($post_id) {
         }
     }
 
-    // video
+    // POST TYPE video
     if (my_metabox_data_nonce($_POST['my_metabox_video_nonce'], 'my_metabox_video')) {
         foreach(array('url') as $field) {
             if (isset($_POST['my_video_' . $field])) {
@@ -174,7 +249,7 @@ function my_save_metabox_data($post_id) {
         }
     }
 
-    // artist
+    // POST TYPE artist
     $nonces = array(
         'my_metabox_artist_xtra',
         'my_metabox_artist_home',
