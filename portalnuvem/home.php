@@ -48,6 +48,7 @@ $(document).ready(function(){
 </div>
 
 <div class="home-highlight-1">
+<div class="home-highlight-1-container">
     <figure class="home-highlight-1-figure-1">
         <img class="home-highlight-1-img-1" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-01c1.png" width="1440" height="532" />
     </figure>
@@ -56,6 +57,7 @@ $(document).ready(function(){
     <figure class="home-highlight-1-figure-2">
         <a class="home-highlight-1-figure-2-link" href="<?php bloginfo('url'); ?>/?post_type=artist"><img class="home-highlight-1-img-2" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-01c2.png" width="352" height="443" /></a>
     </figure>
+</div>
 </div>
 
 <section class="home-news">

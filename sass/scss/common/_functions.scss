@@ -8,3 +8,7 @@
 @function emtopx($to-size, $from-size: $base-font-size) {
     @return ($to-size * $from-size) + 0px;
 }
+
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}

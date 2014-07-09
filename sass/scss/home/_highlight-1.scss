@@ -1,15 +1,38 @@
 .home-highlight-1 {
+    position: relative;
+
+    &::before {
+        $area_height: 398px;
+        $area_width: 1440px;
+        $breakpoint: 1175px;
+        @include stretch-x;
+        background: #9ec1cc;
+        content: '';
+        height: 0;
+        padding-top: strip-unit($area_height / $area_width) * 100%;
+        top: 0;
+        z-index: -1;
+
+        @include at-breakpoint(pxtoem($breakpoint)) {
+            height: pxtoem($area_height);
+            padding-top: 0;
+        }
+    }
+}
+
+.home-highlight-1-container {
     @include container;
     padding-bottom: pxtoem(250px);
-
-    a {
-        @extend %compass-inline-block;
-    }
 }
 
 .home-highlight-1-figure-1 {
     margin-left: - $grid-padding;
     margin-right: - $grid-padding;
+}
+
+.home-highlight-1-title-link,
+.home-highlight-1-figure-2-link {
+    @extend %compass-inline-block;
 }
 
 .home-highlight-1-img-1,
@@ -69,5 +92,4 @@
     }
 }
 
-.home-highlight-1-img-2 {
-}
+.home-highlight-1-img-2 {}
