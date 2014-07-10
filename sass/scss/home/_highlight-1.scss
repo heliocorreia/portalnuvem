@@ -6,7 +6,6 @@
         $area_width: 1440px;
         $breakpoint: 1175px;
         @include stretch-x;
-        background: #9ec1cc;
         content: '';
         height: 0;
         padding-top: strip-unit($area_height / $area_width) * 100%;
