@@ -47,18 +47,46 @@ $(document).ready(function(){
     </ul>
 </div>
 
+<?php
+$hightlight1 = new WP_Query(array(
+    'p'              => get_option(NUVEM_OPTION_STICK_HOME_HIGHLIGHT1),
+    'post_type'      => array(
+        'post',
+        NUVEM_POST_TYPE_ARTIST,
+        NUVEM_POST_TYPE_ARTICLE,
+        NUVEM_POST_TYPE_VIDEO,
+    ),
+));
+
+if ($hightlight1->have_posts()):
+    $hightlight1->the_post();
+
+    $img_name = get_post_meta($post->ID, '_home_highlight1_img_name', true);
+    $img_photo = get_post_meta($post->ID, '_home_highlight1_img_photo', true);
+    $bg_color = get_post_meta($post->ID, '_home_highlight1_bg_color', true);
+    $pre_title = get_post_meta($post->ID, '_home_highlight1_pretitle', true);
+    $title = get_post_meta($post->ID, '_home_highlight1_title', true);
+
+    $link = ($post->post_type == NUVEM_POST_TYPE_VIDEO)
+        ? get_bloginfo('url') . '/?post_type=artist'
+        : get_permalink();
+
+    if (!empty($img_name) && !empty($img_photo) && !empty($pre_title) && !empty($title)):
+?>
 <div class="home-highlight-1">
 <div class="home-highlight-1-container">
+    <style type="text/css">.home-highlight-1::before{background-color: <?php echo $bg_color ?>;}</style>
     <figure class="home-highlight-1-figure-1">
-        <img class="home-highlight-1-img-1" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-01c1.png" width="1440" height="532" />
+        <img class="home-highlight-1-img-1" src="<?php echo $img_name ?>" width="1440" height="532" />
     </figure>
-    <p class="home-highlight-1-pretitle"><small>Entrevista!</small></p>
-    <h1 class="home-highlight-1-title"><a class="home-highlight-1-title-link" href="<?php bloginfo('url'); ?>/?post_type=artist">O pernambucano David Munster comenta seu trabalho em um vídeo exclusivo para a Nuvem</a></h1>
+    <p class="home-highlight-1-pretitle"><small><?php echo $pre_title ?></small></p>
+    <h1 class="home-highlight-1-title"><a class="home-highlight-1-title-link" href="<?php echo $link ?>"><?php echo $title ?></a></h1>
     <figure class="home-highlight-1-figure-2">
-        <a class="home-highlight-1-figure-2-link" href="<?php bloginfo('url'); ?>/?post_type=artist"><img class="home-highlight-1-img-2" src="<?php echo get_stylesheet_directory_uri(); ?>/media/test/highlight-01c2.png" width="352" height="443" /></a>
+        <a class="home-highlight-1-figure-2-link" href="<?php echo $link ?>"><img class="home-highlight-1-img-2" src="<?php echo $img_photo ?>" width="352" height="443" /></a>
     </figure>
 </div>
 </div>
+<?php endif; endif; ?>
 
 <section class="home-news">
     <?php
