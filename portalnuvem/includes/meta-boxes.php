@@ -15,9 +15,9 @@ function my_metabox_home_highlight1($post) {
     echo '<label for="my_stick_home_highlight1">Exibir na home</label></p>';
 
     $fields = array(
-        'img_background' => 'Imagem de fundo (1px x 1px)',
         'img_name'       => 'Imagem no nome (1.440px × 532px)',
         'img_photo'      => 'Imagem da chamada (352px × 443px)',
+        'bg_color'       => 'Cor de fundo (#000, rgba(0,0,0,0.5) etc.)',
         'pretitle'       => 'Pré-titulo',
         'title'          => 'Título',
     );
@@ -193,9 +193,9 @@ function my_save_metabox_data($post_id) {
         if (my_metabox_data_nonce($_POST['my_metabox_home_highlight1_nonce'], 'my_metabox_home_highlight1')) {
             // sticky
             if (isset($_POST['my_stick_home_highlight1'])
-                && !empty($_POST['my_home_highlight1_img_background'])
                 && !empty($_POST['my_home_highlight1_img_name'])
                 && !empty($_POST['my_home_highlight1_img_photo'])
+                && !empty($_POST['my_home_highlight1_bg_color'])
                 && !empty($_POST['my_home_highlight1_pretitle'])
                 && !empty($_POST['my_home_highlight1_title'])
             ) {
@@ -203,9 +203,9 @@ function my_save_metabox_data($post_id) {
             }
 
             $fields = array(
-                'img_background',
                 'img_name',
                 'img_photo',
+                'bg_color',
                 'pretitle',
                 'title'
             );
