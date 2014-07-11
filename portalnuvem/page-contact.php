@@ -3,27 +3,7 @@
 Template Name: Contact
 */
 
-if (isset($_POST['submit'])) {
-    $fields = array('fullname', 'mail', 'message');
-    foreach($fields as $field) {
-        $_POST[$field] = stripslashes(trim($_POST[$field]));
-    }
-
-    if (!isset($hasError)) {
-        $emailTo = get_option('admin_email');
-        $subject = "[CONTATO] $_POST[fullname]";
-        $body = join("\n", array(
-            "Nome: $_POST[fullname]",
-            "E-mail: $_POST[city] $_POST[state]",
-            "Mensagem: $_POST[release]"
-        ));
-        $headers = 'From: '.$_POST['fullname'].' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $_POST['mail'];
-        $emailSent = (bool)wp_mail($emailTo, $subject, $body, $headers);
-    }
-}
-
 get_header();
-
 ?><header class="content-hd">
     <div class="content-hd--container">
         <?php get_template_part('partials/breadcrumb'); ?>
@@ -97,7 +77,11 @@ function init() {
                     portalnuvem@gmail.com</p>
             </div>
 
-            <form class="page-contact--form" action="<?php the_permalink(); ?>" method="post">
+            <form class="page-contact--form" action="<?php echo admin_url('admin-ajax.php') ?>" method="post">
+                <input type="hidden" name="nonce" value="<?php echo wp_create_nonce(NUVEM_NONCE_CONTACT) ?>" />
+                <input type="hidden" name="action" value="<?php echo NUVEM_ACTION_CONTACT ?>" />
+                <input type="hidden" name="redirect" value="<?php echo implode('/', array_slice(explode('/', get_the_permalink()), 0, 3)) . $_SERVER['REQUEST_URI'] ?>" />
+
                 <p class="page-contact--intro">Ou use o formulário</p>
                 <fieldset class="page-contact--fieldset">
                     <p>
@@ -114,10 +98,55 @@ function init() {
                     </p>
                 </fieldset>
                 <p>A gente promete te responder o mais rápido possível, tá?</p>
-                <p><input name="submit" class="page-contact--submit" type="submit" value="Enviar" /></p>
+                <p><input name="submit" class="page-contact--submit" data-toggle-value="Enviando..." type="submit" value="Enviar" /></p>
             </form>
         </section>
     </div>
 </div>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    $('.page-contact--form').submit(function(e){
+        if (!'FormData' in window) {
+            return true;
+        }
+
+        e.preventDefault();
+        var $form = $(this),
+            $submit = $form.find('.page-contact--submit'),
+            class_loading = 'js-loading',
+            formData = new FormData($form.get(0)),
+            value_initial = $submit.attr('value'),
+            value_toggle = $submit.data('toggle-value'),
+            toggleSubmitValue = function() {
+                $submit.toggleAttr('value', value_initial, value_toggle);
+            }
+
+        jQuery.ajax({
+            type: 'post',
+            dataType: 'json',
+            url: $form.attr('action'),
+            data: formData,
+            processData: false,
+            contentType: false,
+            beforeSend: function(jqXHR, settings) {
+                $form.addClass(class_loading);
+                toggleSubmitValue();
+            },
+            success: function(data, textStatus, jqXHR) {
+                alert(data.messages.join('\n\n'));
+                if (textStatus == 'success') {
+                    $form.each(function(){
+                        this.reset();
+                    });
+                }
+            },
+            complete: function(jqXHR, textStatus) {
+                toggleSubmitValue();
+                $form.removeClass(class_loading);
+            }
+        });
+    });
+});
+</script>
 
 <?php get_footer(); ?>

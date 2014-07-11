@@ -233,6 +233,57 @@ function my_user_profile_update($user_id) {
 add_action('personal_options_update', 'my_user_profile_update');
 add_action('edit_user_profile_update', 'my_user_profile_update');
 
+// AJAX
+
+function wp_ajax_contact_action() {
+    if (!wp_verify_nonce($_POST['nonce'], NUVEM_NONCE_CONTACT)) {
+        exit;
+    }
+
+    $response = array(
+        'errors' => false,
+        'messages' => array(),
+    );
+
+    $fields = array('fullname', 'mail', 'message');
+    foreach($fields as $field) {
+        $_POST[$field] = stripslashes(trim($_POST[$field]));
+    }
+
+    if (!$response['errors']) {
+        $new_name = $_POST['fullname'];
+
+        // confirmation mail
+        $emailTo = get_option('admin_email');
+        $subject = "[CONTATO] $_POST[fullname]";
+        $body = join("\n", array(
+            "Nome: $_POST[fullname]",
+            "E-mail: $_POST[mail]",
+            "Mensagem: $_POST[message]"
+        ));
+        $headers = 'From: '.$_POST['fullname'].' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $_POST['mail'];
+        $emailSent = (bool)wp_mail($emailTo, $subject, $body, $headers);
+
+        // message
+        $response['messages'][] = 'Mensagem enviada.';
+        $response['messages'][] = 'Obrigado!';
+    }
+
+    if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+        header('Content-Type: application/json');
+        echo json_encode($response);
+    }
+    elseif (isset($_REQUEST['redirect'])) {
+        header('Location: ' . $_REQUEST['redirect']);
+    }
+    elseif (isset($_SERVER['HTTP_REFERER'])) {
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+    }
+
+    exit;
+}
+add_action('wp_ajax_' . NUVEM_ACTION_CONTACT, 'wp_ajax_contact_action');
+add_action('wp_ajax_nopriv_' . NUVEM_ACTION_CONTACT, 'wp_ajax_contact_action');
 
 function wp_ajax_subscribe_action() {
     if (!wp_verify_nonce($_POST['nonce'], NUVEM_NONCE_SUBSCRIBE)) {

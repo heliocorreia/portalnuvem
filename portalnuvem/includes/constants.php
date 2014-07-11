@@ -13,10 +13,12 @@ define('NUVEM_HOME_NEWS_LIMIT', 3);
 define('NUVEM_FACEBOOK_APPID', '1395518464002169');
 define('NUVEM_GOOGLE_API_KEY', 'AIzaSyAX_KE_8Wqovj7552Gmi49aZcvDVWqkS7A');
 
-// nonce keys
+// ajax
 
 define('NUVEM_NONCE_SUBSCRIBE', 'subscribe_nonce');
 define('NUVEM_ACTION_SUBSCRIBE', 'subscribe_action');
+define('NUVEM_NONCE_CONTACT', 'contact_nonce');
+define('NUVEM_ACTION_CONTACT', 'contact_action');
 
 // options
 
