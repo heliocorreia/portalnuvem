@@ -11,9 +11,7 @@ get_header();
     </div>
 </header>
 
-<?php //* ?><script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&extension=.js"></script><?php //*/ ?>
-<?php /* ?><script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<?php echo NUVEM_GOOGLE_API_KEY ?>&sensor=false&extension=.js"></script><?php //*/ ?>
-<?php //* ?>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&extension=.js"></script>
 <script type="text/javascript">
 google.maps.event.addDomListener(window, 'load', init);
 var map;
@@ -59,7 +57,6 @@ function init() {
 .gmnoprint img { max-width: none; }
 </style>
 <div id="map" style="width:100%; height:310px;"></div>
-<?php //*/ ?>
 
 <div class="content-bd">
     <div class="content-bd--container">
