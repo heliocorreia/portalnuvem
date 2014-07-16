@@ -136,11 +136,12 @@
     color: $color-home-news-title;
 }
 
-.content--subtitle {}
-
-.content--subtitle-link {
+.content--subtitle {
     @extend %font-vollkorn-normal;
-    color: $color-home-news-subtitle;
     font-size: pxtoem(20px);
     line-height: 1.45;
+}
+
+.content--subtitle-link {
+    color: $color-home-news-subtitle;
 }

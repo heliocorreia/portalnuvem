@@ -10,5 +10,6 @@ function my_register_metabox_callback_name($post_type) {
 
 require TEMPLATEPATH . '/includes/constants.php';
 require TEMPLATEPATH . '/includes/actions.php';
+require TEMPLATEPATH . '/includes/actions-search.php';
 require TEMPLATEPATH . '/includes/filters.php';
 require TEMPLATEPATH . '/includes/meta-boxes.php';
