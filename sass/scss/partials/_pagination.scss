@@ -1,0 +1,41 @@
+.pagination {}
+
+.pagination-items {
+    @extend %font-montserrat-normal;
+    @include clearfix;
+    text-align: center;
+}
+
+.pagination-item,
+.pagination-link,
+.pagination-current {
+    @extend %compass-inline-block;
+}
+
+.pagination-link,
+.pagination-current {
+    padding: .25em 1em;
+}
+
+.pagination-link {
+    color: $color-link;
+
+    &:hover {
+        color: $color-link-hover;
+    }
+}
+
+.pagination-current {
+    @extend %compass-border-radius;
+    background-color: $color-pagination-bg;
+    border: 1px solid $color-pagination-bg;
+    color: $color-pagination-text-current;
+}
+
+.pagination-first {}
+
+.pagination-prev {}
+
+.pagination-next {}
+
+.pagination-last {}
