@@ -36,6 +36,7 @@
                     'depth' => 1,
                 )); ?>
             </nav>
+            <?php get_template_part('partials/searchform'); ?>
         </div>
     </header>
     <section id="bd">

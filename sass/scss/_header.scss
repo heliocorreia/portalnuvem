@@ -4,6 +4,10 @@
     border-top: 5px solid $color-border-hd;
     padding: pxtoem(30px) 0 pxtoem(10px) 0;
 
+    .container {
+        position: relative;
+    }
+
     .nav-menu {
         @extend %compass-clearfix;
     }
@@ -43,14 +47,18 @@
     }
 }
 
+$nav-main-margin-top: 38px;
+$nav-main-a-padding-top: 40px;
 #hd--nav-main {
-    @include span-columns(11);
+    @extend %compass-border-sizing-border-box;
+    @include span-columns(12);
     border-top: 1px solid #FFF;
-    margin-top: pxtoem(38px);
+    margin-top: pxtoem($nav-main-margin-top);
 
     // override grid
     margin-left: columns(1);
     margin-right: columns(1);
+    padding-right: columns(1);
     width: space(10) + gutter();
 
     .menu-item + .menu-item {
@@ -73,4 +81,13 @@
             color: $color-menu-item-hover;
         }
     }
+}
+
+.nav-search--lb {
+    margin-right: columns(1);
+    margin-top: icons-sprite-height(search-27x27) / -2;
+    padding-right: 17px;
+    position: absolute;
+    right: 0;
+    top: icons-sprite-height(logo-138x26) + $nav-main-margin-top + $nav-main-a-padding-top;
 }

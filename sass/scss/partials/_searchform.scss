@@ -1,0 +1,38 @@
+#nav-search--cb {
+    display: none;
+}
+
+.nav-search--lb {
+    @extend %compass-inline-block;
+
+    &::before {
+        @extend %compass-inline-block;
+        @include icons-sprite(search-27x27);
+        content: '';
+        cursor: pointer;
+    }
+}
+
+.search--form {
+    clear: both;
+    display: none;
+    position: relative;
+
+    #nav-search--cb:checked ~ & {
+        display: block;
+    }
+}
+
+.search--fieldset {
+    @extend %compass-clearfix;
+    @include pre(1);
+    @include post(1);
+    @include padding-trailer(2);
+}
+
+.search--query,
+.search--submit {
+    $font-size: 20px;
+    @include adjust-font-size-to($font-size);
+    padding: rhythm(1, $font-size);
+}

@@ -2,20 +2,6 @@
     .content-hd {
         background: $color-bg-hd;
     }
-
-    .search--query,
-    .search--submit {
-        $font-size: 20px;
-        @include adjust-font-size-to($font-size);
-        padding: rhythm(1, $font-size);
-    }
-}
-
-.search--form {
-    @extend %compass-clearfix;
-    @include pre(1);
-    @include post(1);
-    @include margin-trailer(2);
 }
 
 .search--query,
