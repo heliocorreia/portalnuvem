@@ -9,7 +9,6 @@ function my_search_where($where) {
         $post_types = array(
             NUVEM_POST_TYPE_ARTICLE,
             NUVEM_POST_TYPE_ARTIST,
-            NUVEM_POST_TYPE_EVENT,
             NUVEM_POST_TYPE_VIDEO,
         );
 
