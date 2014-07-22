@@ -25,11 +25,15 @@ define('NUVEM_ACTION_CONTACT', 'contact_action');
 define('NUVEM_OPTION_STICK_HOME_HIGHLIGHT1', 'nuvem_stick_home_highlight1');
 define('NUVEM_OPTION_STICK_HOME_HIGHLIGHT2', 'nuvem_stick_home_highlight2');
 
-// jquery version
+// javascript
 
-define('NUVEM_JQUERY_CDN', '//code.jquery.com/jquery-2.1.1.min.js');
+define('NUVEM_JQUERY_CDN', '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js');
 define('NUVEM_JQUERY_FALLBACK', '/media/jquery-2.1.1.min.js');
 define('NUVEM_JQUERY_HANDLER', 'cnd-jquery');
+
+define('NUVEM_PARSLEY_CDN', '//cdnjs.cloudflare.com/ajax/libs/parsley.js/2.0.2/parsley.min.js');
+define('NUVEM_PARSLEY_FALLBACK', '/media/parsley.min.js');
+define('NUVEM_PARSLEY_HANDLER', 'cdn-parsley');
 
 // post types
 

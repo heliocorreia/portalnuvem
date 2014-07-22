@@ -1,0 +1,34 @@
+
+form {
+    input,
+    select,
+    textarea {
+        @include transition-duration(.5s);
+        @include transition-property(border-color);
+        @include transition-timing-function(ease);
+
+        &.parsley-error {
+            border-color: $color-text-alternate;
+        }
+
+        &.parsley-success {
+        }
+    }
+}
+
+.parsley-errors-list {
+    @include transition-duration(1s);
+    @include transition-property(color);
+    @include transition-timing-function(ease);
+
+    color: white;
+    position: relative;
+
+    &.filled {
+        color: $color-text-alternate;
+    }
+
+    > * {
+        position: absolute;
+    }
+}

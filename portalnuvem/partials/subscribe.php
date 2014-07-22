@@ -1,5 +1,5 @@
 <div class="subscribe">
-<form class="subscribe--form" action="<?php echo admin_url('admin-ajax.php') ?>" method="post" enctype="multipart/form-data">
+<form class="subscribe--form" action="<?php echo admin_url('admin-ajax.php') ?>" method="post" enctype="multipart/form-data" data-parsley-validate>
     <input type="hidden" name="nonce" value="<?php echo wp_create_nonce(NUVEM_NONCE_SUBSCRIBE) ?>" />
     <input type="hidden" name="action" value="<?php echo NUVEM_ACTION_SUBSCRIBE ?>" />
     <input type="hidden" name="redirect" value="<?php echo implode('/', array_slice(explode('/', get_the_permalink()), 0, 3)) . $_SERVER['REQUEST_URI'] ?>" />
@@ -14,19 +14,19 @@
     <fieldset class="subscribe--fieldset">
         <p>
             <label for="subscribe--firstname">Nome</label>
-            <input type="text" class="subscribe--firstname" id="subscribe--firstname" name="firstname" value="" />
+            <input type="text" class="subscribe--firstname" id="subscribe--firstname" name="firstname" value="" required />
         </p>
         <p>
             <label for="subscribe--lastname">Sobrenome</label>
-            <input type="text" class="subscribe--lastname" id="subscribe--lastname" name="lastname" value="" />
+            <input type="text" class="subscribe--lastname" id="subscribe--lastname" name="lastname" value="" required />
         </p>
         <p>
             <label for="subscribe--city">Cidade</label>
-            <input type="text" class="subscribe--city" id="subscribe--city" name="city" value="" />
+            <input type="text" class="subscribe--city" id="subscribe--city" name="city" value="" required />
         </p>
         <p>
             <label for="subscribe--state">Estado</label>
-            <select id="subscribe--state" name="state">
+            <select id="subscribe--state" name="state" required>
                 <option>--</option>
                 <?php foreach(my_nuvem_states() as $val): ?>
                 <option><?php echo $val ?></option>
@@ -35,19 +35,19 @@
         </p>
         <p>
             <label for="subscribe--mail">E-mail de contato</label>
-            <input type="text" class="subscribe--mail" id="subscribe--mail" name="mail" value="" />
+            <input type="email" class="subscribe--mail" id="subscribe--mail" name="mail" value="" required />
         </p>
         <p>
             <label for="subscribe--site">Website</label>
-            <input type="text" class="subscribe--site" id="subscribe--site" name="site" value="" />
+            <input type="url" class="subscribe--site" id="subscribe--site" name="site" value="" />
         </p>
         <p>
             <label for="subscribe--image">Imagem</label>
-            <input type="file" class="subscribe--image" id="subscribe--image" name="image" />
+            <input type="file" class="subscribe--image" id="subscribe--image" name="image" required />
         </p>
         <p>
             <label for="subscribe--release">Release</label>
-            <textarea class="subscribe--release" id="subscribe--release" name="release"></textarea>
+            <textarea class="subscribe--release" id="subscribe--release" name="release" required></textarea>
         </p>
     </fieldset>
     <p>Ao clicar em Cadastrar, você concorda com os <a href="<?php bloginfo('url'); ?>/wp-content/uploads/2014/06/TERMOS_DE_USO_CADASTRO_DE_ARTISTAS.pdf">termos de uso</a> da Nuvem Produções.</p>
@@ -62,8 +62,14 @@ jQuery(document).ready(function($) {
         }
 
         e.preventDefault();
-        var $form = $(this),
-            $submit = $form.find('.input--submit'),
+
+        var $form = $(this);
+
+        if (!$form.parsley().isValid()) {
+            return true;
+        }
+
+        var $submit = $form.find('.input--submit'),
             class_loading = 'js-loading',
             formData = new FormData($form.get(0)),
             value_initial = $submit.attr('value'),

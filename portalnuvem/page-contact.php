@@ -74,7 +74,7 @@ function init() {
                     portalnuvem@gmail.com</p>
             </div>
 
-            <form class="page-contact--form" action="<?php echo admin_url('admin-ajax.php') ?>" method="post">
+            <form class="page-contact--form" action="<?php echo admin_url('admin-ajax.php') ?>" method="post" data-parsley-validate>
                 <input type="hidden" name="nonce" value="<?php echo wp_create_nonce(NUVEM_NONCE_CONTACT) ?>" />
                 <input type="hidden" name="action" value="<?php echo NUVEM_ACTION_CONTACT ?>" />
                 <input type="hidden" name="redirect" value="<?php echo implode('/', array_slice(explode('/', get_the_permalink()), 0, 3)) . $_SERVER['REQUEST_URI'] ?>" />
@@ -83,15 +83,15 @@ function init() {
                 <fieldset class="page-contact--fieldset">
                     <p>
                         <label for="page-contact--fullname">Nome</label>
-                        <input type="text" class="page-contact--fullname" id="page-contact--fullname" name="fullname" value="" />
+                        <input type="text" class="page-contact--fullname" id="page-contact--fullname" name="fullname" value="" required />
                     </p>
                     <p>
                         <label for="page-contact--mail">E-mail de contato</label>
-                        <input type="text" class="page-contact--mail" id="page-contact--mail" name="mail" value="" />
+                        <input type="text" class="page-contact--mail" id="page-contact--mail" name="mail" value="" required />
                     </p>
                     <p>
                         <label for="page-contact--message">Mensagem</label>
-                        <textarea class="page-contact--message" id="page-contact--message" name="message" rows="6"></textarea>
+                        <textarea class="page-contact--message" id="page-contact--message" name="message" rows="6" required></textarea>
                     </p>
                 </fieldset>
                 <p>A gente promete te responder o mais rápido possível, tá?</p>
@@ -108,8 +108,14 @@ jQuery(document).ready(function($) {
         }
 
         e.preventDefault();
-        var $form = $(this),
-            $submit = $form.find('.page-contact--submit'),
+
+        var $form = $(this);
+
+        if (!$form.parsley().isValid()) {
+            return true;
+        }
+
+        var $submit = $form.find('.page-contact--submit'),
             class_loading = 'js-loading',
             formData = new FormData($form.get(0)),
             value_initial = $submit.attr('value'),
