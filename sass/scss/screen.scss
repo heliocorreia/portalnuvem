@@ -58,10 +58,3 @@ img {
 //        @include susy-grid-background;
     }
 }
-
-@include with-grid-settings($total-columns, $column-width, $gutter-width, 0) {
-    .home-headlines,
-    .content-hd--embed {
-        @include container;
-    }
-}
