@@ -1,6 +1,33 @@
-<?php
-get_header();
+<?php get_header(); ?>
 
+<header class="content-hd">
+    <div class="content-hd--container">
+        <?php get_template_part('partials/breadcrumb'); ?>
+        <h1 class="content-hd--title">Artistas</h1>
+    </div>
+    <?php
+    $video = new WP_Query(array(
+        'orderby'        => 'date',
+        'order'          => 'DESC',
+        'category_name'  => NUVEM_ARTISTS_CATEGORY_SLUG,
+        'post_type'      => NUVEM_POST_TYPE_VIDEO,
+        'posts_per_page' => 1,
+    ));
+    if ($video->have_posts()): $video->the_post(); ?>
+    <div class="content-hd--embed">
+    <?php
+        $video_url = get_post_meta($post->ID, '_video_url', true);
+        $oembed = wp_oembed_get($video_url);
+        if ($oembed != $video_url) echo $oembed;
+    ?>
+    </div>
+    <?php endif; ?>
+    <div class="content-hd--container">
+        <?php get_template_part('partials/subscribe'); ?>
+    </div>
+</header>
+
+<?php
 $query_posts_args = array(
     'posts_per_page' => -1,
     'post_type' => NUVEM_POST_TYPE_ARTIST,
@@ -32,34 +59,6 @@ if (isset($_GET['filter_by'])) {
     }
 }
 ?>
-
-<header class="content-hd">
-    <div class="content-hd--container">
-        <?php get_template_part('partials/breadcrumb'); ?>
-        <h1 class="content-hd--title">Artistas</h1>
-    </div>
-    <?php
-    $video = new WP_Query(array(
-        'orderby'        => 'date',
-        'order'          => 'DESC',
-        'category_name'  => NUVEM_ARTISTS_CATEGORY_SLUG,
-        'post_type'      => NUVEM_POST_TYPE_VIDEO,
-        'posts_per_page' => 1,
-    ));
-    if ($video->have_posts()): $video->the_post(); ?>
-    <div class="content-hd--embed">
-    <?php
-        $video_url = get_post_meta($post->ID, '_video_url', true);
-        $oembed = wp_oembed_get($video_url);
-        if ($oembed != $video_url) echo $oembed;
-    ?>
-    </div>
-    <?php endif; ?>
-    <div class="content-hd--container">
-        <?php get_template_part('partials/subscribe'); ?>
-    </div>
-</header>
-
 <div class="content-bd">
     <div class="content-bd--container">
         <?php
