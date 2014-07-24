@@ -74,12 +74,13 @@ if (isset($_GET['filter_by'])) {
         </nav>
         <nav class="artist--filter-letters">
             <ul>
-                <li class="artist--filter-letter"><a class="artist--filter-letter-link" href="<?php echo $url_prefix ?>">Todos</a></li>
+                <?php $alpha_list = str_split('abcdefghijklmnopqrstuvwxyz', 1); ?>
+                <li class="artist--filter-letter<?php if (!in_array($_GET['filter_by'], $alpha_list)): ?> artist--filter-letter-current<?php endif; ?>"><a class="artist--filter-letter-link" href="<?php echo $url_prefix ?>">Todos</a></li>
                 <?php
                 global $wpdb;
-                foreach(str_split('abcdefghijklmnopqrstuvwxyz', 1) as $val):
+                foreach($alpha_list as $val):
                 ?>
-                <li class="artist--filter-letter<?php if ($_GET['filter_by'] === $val): ?> artist--filter-current<?php endif; ?>"><a class="artist--filter-letter-link" href="<?php echo $url_filter . $val; ?>"><?php echo $val; ?></a></li>
+                <li class="artist--filter-letter<?php if ($_GET['filter_by'] === $val): ?> artist--filter-letter-current<?php endif; ?>"><a class="artist--filter-letter-link" href="<?php echo $url_filter . $val; ?>"><?php echo $val; ?></a></li>
                 <?php endforeach; ?>
             </ul>
         </nav>
