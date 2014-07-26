@@ -131,11 +131,11 @@ if ($hightlight2->have_posts()):
 <div class="highlight-2">
     <blockquote class="container">
         <figure class="highlight-2-figure">
-            <img class="highlight-2-img" src="<?php echo $photo ?>" width="605" height="695" />
+            <img class="highlight-2-img" src="<?php echo $work ?>" width="605" height="695" />
         </figure>
         <p class="highlight-2-quote"><a class="highlight-2-quote-link" href="<?php the_permalink() ?>"><?php echo $quote ?></a></p>
         <footer class="highlight-2-author" class="hcard">
-            <img class="highlight-2-author-img" src="<?php echo $work ?>" width="155" height="155" />
+            <img class="highlight-2-author-img" src="<?php echo $photo ?>" width="155" height="155" />
             <a class="highlight-2-author-link fn n" href="<?php the_permalink() ?>"><?php the_title() ?></a>
         </footer>
     </blockquote>
