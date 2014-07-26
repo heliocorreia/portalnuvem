@@ -4,7 +4,7 @@ Template Name: About Us
 */
 
 get_header();
-the_post(); 
+the_post();
 ?>
 
 <header class="content-hd">
@@ -43,10 +43,11 @@ the_post();
         </aside>
         <?php endif ?>
     </div>
-</div>
+</section>
 
 <section class="page-about--subscribe">
     <?php get_template_part('partials/subscribe'); ?>
 </section>
 
-<?php get_footer(); ?>
+<?php
+get_footer();
