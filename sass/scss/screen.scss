@@ -19,16 +19,20 @@
 
 body {
     color: $color-text;
+}
 
+#hd,
+#bd,
+#ft {
     @include at-breakpoint($media-layout-phone) {
         font-size: pxtoem(12px);
     }
 
-    @include at-breakpoint($media-layout-tablet-beyond) {
+    @include at-breakpoint($media-layout-tablet) {
         font-size: pxtoem(12px);
     }
 
-    @include at-breakpoint($media-layout-desktop-small-beyond) {
+    @include at-breakpoint($media-layout-desktop-small) {
         font-size: pxtoem(13px);
     }
 

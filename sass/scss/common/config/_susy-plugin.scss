@@ -10,17 +10,29 @@ $container-style: magic;
 
 // Grid Settings (base pixel size: 16px)
 $total-columns: 12;
-$column-width: 5.250em; //pxtoem(84px);
-$gutter-width: 2.250em; //pxtoem(36px);
-$grid-padding: 1.250em; //pxtoem(20px);
+$column-width: 5.250em; // 84px
+$gutter-width: 2.250em; // 36px
+$grid-padding: 1.250em; // 20px
 
+// media widths
+$media-width-1px: 0.0625em;           // 1px
+$media-width-phone: 20em;             // 320px
+$media-width-tablet: 37.5em;          // 600px
+$media-width-desktop-small: 59.375em; // 950px
+$media-width-desktop-large: 80em;     // 1280px
 
-$media-layout-phone: 0 37.438em;                // 0px ~ 599px
+// layout PHONE
+$media-layout-phone: $media-width-phone;
+$media-layout-phone-tablet: $media-width-phone ($media-width-tablet - $media-width-1px);
+$media-layout-phone-desktop-small: $media-width-phone ($media-width-desktop-small - $media-width-1px);
 
-$media-layout-tablet: 37.500em 59.313em;        // 600px ~ 949px
-$media-layout-tablet-beyond: 37.500em;          // 600px+
+// layout TABLET
+$media-layout-tablet: $media-width-tablet;
+$media-layout-tablet-desktop-small: $media-width-tablet ($media-width-desktop-small - $media-width-1px);
 
-$media-layout-desktop-small: 59.375em 79.938em; // 950px ~ 1279px
-$media-layout-desktop-small-beyond: 59.375em;   // 950px+
+// layout DESKTOP SMALL
+$media-layout-desktop-small: $media-width-desktop-small;
+$media-layout-desktop-small-large: $media-width-desktop-small ($media-width-desktop-large - $media-width-1px);
 
-$media-layout-desktop-large: 80em;              // 1280px+
+// layout TABLET LARGE
+$media-layout-desktop-large: $media-width-desktop-large;

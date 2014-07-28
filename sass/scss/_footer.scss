@@ -18,8 +18,7 @@
 }
 
 #ft--nav-footer {
-    @include pre(1);
-    @include span-columns(7);
+    $font-size: 14px;
 
     .menu-item + .menu-item {
         margin-left: pxtoem(24px);
@@ -27,21 +26,31 @@
 
     a {
         color: $color-menu-item-ft;
-        font-size: pxtoem(14px);
+        font-size: pxtoem($font-size);
 
         &:hover {
             color: $color-menu-item-ft-hover;
         }
     }
+
+    @include at-breakpoint($media-layout-phone-desktop-small) {
+        @include margin-trailer(1);
+        border: #CDD4D6 solid;
+        border-width: 1px 0;
+        padding: pxtoem(20px);
+    }
+
+    @include at-breakpoint($media-layout-desktop-small) {
+        @include pre(1, 12);
+        @include span-columns(7, 12);
+    }
 }
 
 #ft--nav-social {
-    @include span-columns(3 omega);
-    @include post(1);
-    text-align: right;
+    $menu-item-padding: 10px;
 
     .menu-item {
-        padding: 10px;
+        padding: $menu-item-padding;
         position: relative;
 
         &::before {
@@ -61,15 +70,38 @@
             margin-left: pxtoem(20px);
         }
     }
+
+    @include at-breakpoint($media-layout-phone-desktop-small) {
+        @include stretch-x;
+        bottom: (2 * $menu-item-padding + icons-sprite-height(mail-27x24)) / -2;
+        z-index: 1;
+
+        .nav-menu {
+            text-align: center;
+        }
+    }
+
+    @include at-breakpoint($media-layout-desktop-small) {
+        @include span-columns(3 omega, 12);
+        @include post(1, 12);
+
+        .nav-menu {
+            position: static;
+            text-align: right;
+        }
+    }
+}
+
+#ft--copy,
+#ft--made-in {
+    @include at-breakpoint($media-layout-phone-desktop-small) {
+        @include padding-trailer(3);
+        padding-top: pxtoem(icons-sprite-height(logo-black-138x26)) + rhythm();
+    }
 }
 
 #ft--copy {
     $font-size: 14px;
-    @include pre(1);
-    bottom: 0;
-    font-size: pxtoem($font-size);
-    position: absolute;
-    text-transform: none;
 
     &::before {
         @extend %compass-inline-block;
@@ -77,27 +109,52 @@
         content: '';
         margin-right: pxtoem(28px, $font-size);
     }
+
+    @include at-breakpoint($media-layout-phone-desktop-small) {
+        @include span-columns(6, 12);
+        position: relative;
+
+        &::before {
+            display: block;
+            position: absolute;
+            top: 0;
+        }
+    }
+
+    @include at-breakpoint($media-layout-desktop-small) {
+        @include pre(1, 12);
+        bottom: 0;
+        font-size: pxtoem($font-size);
+        position: absolute;
+        text-transform: none;
+    }
 }
 
 #ft--made-in {
-    $font-size: 14px;
-    @include span-columns(10);
-    border-top: 2px solid $color-border-ft;
-    font-size: pxtoem($font-size);
-    margin-top: pxtoem(25px, $font-size);
-    padding-top: pxtoem(30px, $font-size);
-    text-align: right;
+    @include at-breakpoint($media-layout-phone-desktop-small) {
+        @include span-columns(6 omega, 12);
+        text-align: right;
+    }
 
-    // override grid
-    margin-left: columns(1);
-    padding-left: gutter();
-    padding-right: gutter();
-    margin-right: columns(1);
+    @include at-breakpoint($media-layout-desktop-small) {
+        $font-size: 14px;
+        @include span-columns(10, 12);
+        border-top: 2px solid $color-border-ft;
+        font-size: pxtoem($font-size);
+        margin-top: pxtoem(25px, $font-size);
+        padding-top: pxtoem(30px, $font-size);
+        text-align: right;
+
+        // override grid
+        margin-left: columns(1, 12);
+        padding-left: gutter(12);
+        padding-right: gutter(12);
+        margin-right: columns(1, 12);
+    }
 }
 
 #ft--xtra {
     $label-margin-trailer-lines: 1;
-    @include margin-leader(2);
     background: $color-bg-ft;
     color: $color-bg;
 
@@ -123,10 +180,6 @@
 
             & + .entity {
                 margin-left: gutter(10);
-
-                @include at-breakpoint($media-layout-desktop-large) {
-                    margin-left: columns(1, 10) + gutter(10);
-                }
             }
         }
     }
@@ -140,10 +193,26 @@
         @extend %compass-inline-block;
     }
 
-    $items: funcultura fundarpe secretaria-pe nuvem-gm;
-    @each $item in $items {
+    $entity-entry-list: funcultura fundarpe secretaria-pe nuvem-gm;
+    @each $item in $entity-entry-list {
         .#{$item} .entity-entry {
-            @include icons-sprite($item);
+            @include icons-sprite(small-#{$item});
+
+            @include at-breakpoint($media-layout-desktop-large) {
+                @include icons-sprite(normal-#{$item});
+            }
+        }
+    }
+
+    @include at-breakpoint($media-layout-desktop-small) {
+        @include margin-leader(2);
+    }
+
+    @include at-breakpoint($media-layout-desktop-large) {
+        .sponsorship-incentive {
+            .entity + .entity {
+                margin-left: columns(1, 10) + gutter(10);
+            }
         }
     }
 }
