@@ -5,9 +5,7 @@
 }
 
 .home-news-item {
-    @include pre(2);
-    @include span-columns(8);
-    left: - $gutter-width;
+    @include span-columns($total-columns omega);
     margin-bottom: pxtoem(80px);
     position: relative;
 
@@ -15,7 +13,6 @@
     &:last-of-type {
         &::before {
             @extend %compass-inline-block;
-            content: '';
             border: pxtoem(4px) solid $color-home-news-bar;
             width: pxtoem(923px);
             position: absolute;
@@ -40,21 +37,53 @@
             z-index: -1;
         }
     }
+
+    @include at-breakpoint($media-layout-desktop-small) {
+        @include pre(2, 12);
+        @include span-columns(8, 12);
+        left: - $gutter-width;
+
+        &:first-child,
+        &:last-of-type {
+            &::before {
+                content: '';
+            }
+        }
+    }
 }
 
 .home-news-figure {
-    @include span-columns(4, 8);
-    text-align: right;
+    @include at-breakpoint($media-layout-tablet-desktop-small) {
+        @include span-columns(5, 12);
 
-    & ~ .home-news-pretitle,
-    & ~ .home-news-title,
-    & ~ .home-news-subtitle {
-        @include span-columns(4 omega, 8);
+        & ~ .home-news-pretitle,
+        & ~ .home-news-title,
+        & ~ .home-news-subtitle {
+            @include span-columns(7 omega, 12);
+        }
+    }
+
+    @include at-breakpoint($media-layout-desktop-small) {
+        @include span-columns(4, 8);
+        text-align: right;
+
+        & ~ .home-news-pretitle,
+        & ~ .home-news-title,
+        & ~ .home-news-subtitle {
+            @include span-columns(4 omega, 8);
+        }
     }
 }
 
 .home-news-image-link {
-    @extend %compass-inline-block;
+    @include clearfix;
+    display: block;
+
+    img {
+        float: left;
+        height: auto;
+        max-width: 100%;
+    }
 
     &:hover {
         img {
@@ -107,12 +136,16 @@
 }
 
 .home-news-seemore {
-    @include pre(1);
-    @include span-columns(9);
     border-top: 2px solid $color-home-news-separator;
+    clear: both;
     margin-top: pxtoem(20px);
     padding-top: pxtoem(45px);
     text-align: center;
+
+    @include at-breakpoint($media-layout-desktop-small) {
+        @include pre(1, 12);
+        @include span-columns(9, 12);
+    }
 }
 
 .home-news-seemore-link {
