@@ -15,12 +15,18 @@ $highlight-2-bottom-offset: 45px;
 }
 
 .highlight-2-figure {
-    bottom: pxtoem(- $highlight-2-top-offset);
+    @include translateY(-50%);
     left: 50%;
     position: absolute;
     right: 0;
     text-align: center;
-    top: pxtoem(- $highlight-2-bottom-offset);
+    top: 50%;
+
+    @include at-breakpoint($media-layout-desktop-small) {
+        @include translateY(0);
+        bottom: - pxtoem($highlight-2-top-offset);
+        top: - pxtoem($highlight-2-bottom-offset);
+    }
 }
 
 .highlight-2-img {
