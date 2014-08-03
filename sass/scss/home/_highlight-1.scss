@@ -21,7 +21,16 @@
 
 .home-highlight-1-container {
     @include container;
-    padding-bottom: pxtoem(250px);
+    position: relative;
+}
+
+.home-highlight-1-figure-1,
+.home-highlight-1-figure-2-link {
+    @include pie-clearfix;
+
+    & > * {
+        float: left;
+    }
 }
 
 .home-highlight-1-figure-1 {
@@ -46,16 +55,23 @@
 
 .home-highlight-1-pretitle,
 .home-highlight-1-title {
-    @include pre(2);
-    @include span-columns(4);
+    @include span-columns(6);
     text-align: right;
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include pre(2, 12);
+        @include span-columns(4, 12);
+    }
 }
 
+$home-highlight-1-pretitle-font-size: 24px;
+$home-highlight-1-pretitle-margin-bottom: 10px;
 .home-highlight-1-pretitle {
     @extend %font-montserrat-700;
+    @include nowrap;
     color: $color-home-hightlight-1-pretitle;
-    font-size: pxtoem(24px);
-    margin-bottom: pxtoem(10px);
+    font-size: pxtoem($home-highlight-1-pretitle-font-size);
+    margin-bottom: pxtoem(10px, $home-highlight-1-pretitle-font-size);
     text-transform: uppercase;
 }
 
@@ -75,14 +91,14 @@
 
 .home-highlight-1-figure-2 {
     @include span-columns(4);
+    @include translateY(-40%);
     position: relative;
+    top: - pxtoem($home-highlight-1-pretitle-font-size + $home-highlight-1-pretitle-margin-bottom);
 }
 
 .home-highlight-1-figure-2-link {
     background: $color-bg;
-    margin-top: - pxtoem(212px);
-    position: absolute;
-    top: pxtoem(-24px);
+    max-width: 100%;
 
     &:hover {
         .home-highlight-1-img-2 {
