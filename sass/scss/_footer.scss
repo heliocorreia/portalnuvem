@@ -160,11 +160,9 @@
 
     .sponsorship {
         $padding-lines: 3;
-        @include pre(1);
-        @include span-columns(10 omega);
-        @include post(1);
         @include padding-leader($padding-lines);
         @include padding-trailer($padding-lines + $label-margin-trailer-lines);
+        @include span-columns(12 omega);
         position: relative;
     }
 
@@ -176,6 +174,7 @@
         @include span-columns(9);
 
         .entity {
+            @include margin-trailer(1);
             float: left;
 
             & + .entity {
@@ -204,8 +203,24 @@
         }
     }
 
+    @include at-breakpoint($media-layout-tablet) {
+        .sponsorship-incentive {
+            @include span-columns(9, 12);
+        }
+
+        .sponsorship-realization {
+            @include span-columns(3 omega, 12);
+        }
+    }
+
     @include at-breakpoint($media-layout-desktop-small) {
         @include margin-leader(2);
+
+        .sponsorship {
+            @include span-columns(10 omega, 12);
+            @include pre(1, 12);
+            @include post(1, 12);
+        }
     }
 
     @include at-breakpoint($media-layout-desktop-large) {
