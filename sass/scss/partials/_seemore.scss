@@ -4,9 +4,17 @@
     &::before {
         @include stretch;
         background: $color-bg-aside;
-        border-bottom: rhythm(6) $color-bg solid;
+        border-bottom: rhythm(8) $color-bg solid;
         content: "";
         z-index: -1;
+
+        @include at-breakpoint($media-layout-desktop-small) {
+            border-bottom-width: rhythm(7);
+        }
+
+        @include at-breakpoint($media-layout-desktop-large) {
+            border-bottom-width: rhythm(6);
+        }
     }
 }
 
