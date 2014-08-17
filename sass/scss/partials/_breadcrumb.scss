@@ -1,6 +1,6 @@
 .breadcrumb {
     @extend %font-montserrat-normal;
-    @include leader;
+    @include leader(2);
     @include adjust-font-size-to(18px);
     @include trailer;
 
@@ -8,7 +8,13 @@
     margin-left: columns(1);
     width: space(10) + gutter();
 
+    text-align: center;
     text-transform: uppercase;
+
+    @include at-breakpoint($media-layout-desktop-small) {
+        @include leader;
+        text-align: left;
+    }
 
     span,
     .sep {
