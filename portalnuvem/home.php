@@ -3,22 +3,40 @@
 <script src="http://bxslider.com/lib/jquery.bxslider.js"></script>
 <script>
 $(document).ready(function(){
-    var headlines = $('.home-headlines-items').css('visibility', 'hidden');
-    headlines.bxSlider({
-        slideWidth: '99999',
-        minSlides: 5,
-        maxSlides: 5,
-        moveSlides: 1,
-        randomStart: true,
-        slideMargin: 0,
-        pager: false,
-        controls: true,
-        auto: true,
-        responsive: true,
-        onSliderLoad: function() {
-            headlines.css('visibility', 'visible');
-        }
-    });
+    var headlines = $('.home-headlines-items'),
+        sliderConfig = {
+            slideWidth: '99999',
+            moveSlides: 1,
+            randomStart: true,
+            slideMargin: 0,
+            pager: false,
+            controls: true,
+            auto: true,
+            responsive: true
+        },
+        configByMedia = function() {
+            var cfg = { minSlides: 5, maxSlides: 5 };
+
+            if ('matchMedia' in window) {
+                if (window.matchMedia("(min-width: 950px)").matches) {
+                    cfg = { minSlides: 5, maxSlides: 5 };
+                }
+                else if (window.matchMedia("(min-width: 600px)").matches) {
+                    cfg = { minSlides: 3, maxSlides: 3 };
+                } else {
+                    cfg = { minSlides: 1, maxSlides: 1 };
+                }
+            }
+
+            return $.extend({}, sliderConfig, cfg);
+        },
+        headlinesSlider = headlines.bxSlider(configByMedia());
+
+    if ('matchMedia' in window) {
+        $(window).on('orientationchange resize', function() {
+            headlinesSlider.reloadSlider(configByMedia());
+        });
+    }
 });
 </script>
 
