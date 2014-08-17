@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-<script type='text/javascript' src='//code.jquery.com/jquery-1.11.0.js'></script>
-
 <script src="http://bxslider.com/lib/jquery.bxslider.js"></script>
 <script>
 $(document).ready(function(){
