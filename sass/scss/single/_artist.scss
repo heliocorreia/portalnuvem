@@ -215,10 +215,19 @@
 }
 
 .single-artist--attachment {
-    @include span-columns(3);
-    @include nth-omega(4n);
+    @include span-columns(4);
+    @include nth-omega(3n);
     @include margin-trailer;
     text-align: center;
+
+    @include at-breakpoint($media-layout-desktop-small) {
+        @include span-columns(3, 12);
+        @include nth-omega(4n);
+
+        &:nth-child(3n) {
+            @include remove-omega(12);
+        }
+    }
 }
 
 .single-artist--subscribe {
