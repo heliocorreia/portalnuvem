@@ -1,12 +1,17 @@
 .page-authors--entry {
     @include pre(1);
-    @include span-columns(7);
-    @include post(4);
+    @include span-columns(10);
+    @include post(1);
     @include margin-trailer(4);
 
-    &:nth-child(even) {
-        @include pre(4);
-        @include post(1);
+    @include at-breakpoint($media-layout-desktop-small) {
+        @include span-columns(7, 12);
+        @include post(4, 12);
+
+        &:nth-child(even) {
+            @include pre(4, 12);
+            @include post(1, 12);
+        }
     }
 }
 
