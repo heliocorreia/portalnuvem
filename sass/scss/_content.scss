@@ -92,8 +92,12 @@
 
 .content--entry {
     @include pre(1);
-    @include span-columns(7);
+    @include span-columns(9);
     @include margin-trailer(2);
+
+    @include at-breakpoint($media-layout-desktop-small) {
+        @include span-columns(7, 12);
+    }
 }
 
 .content--figure {
