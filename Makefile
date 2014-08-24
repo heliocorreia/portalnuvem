@@ -49,7 +49,7 @@ endef
 define wordpress
 	@echo $(MSG_STARTSTOP)
 	$(if $(filter $1,start),
-		@$(call background,php -S localhost:8000 -t wordpress/,$0.log)
+		@$(call background,php -S localhost:8000 -c php.ini -t wordpress/,$0.log)
 	,
 		@$(call kill_it,php -S localhost:8000)
 	)
