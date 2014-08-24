@@ -18,8 +18,8 @@ setup:
 	@npm install generator-wp-theme --save-dev
 
 start:
-	@$(call wordpress,start)
 	@$(call compass,start)
+	@$(call wordpress,start)
 	@tail -f *.log
 
 stop:
