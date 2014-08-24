@@ -18,13 +18,13 @@ setup:
 	@npm install generator-wp-theme --save-dev
 
 start:
-	@$(call compass,start)
-	@$(call wordpress,start)
+	$(call compass,start)
+	$(call wordpress,start)
 	@tail -f *.log
 
 stop:
-	@$(call compass,stop)
-	@$(call wordpress,stop)
+	$(call compass,stop)
+	$(call wordpress,stop)
 
 test:
 	@scss-lint sass/
@@ -40,17 +40,17 @@ endef
 define compass
 	@echo $(MSG_STARTSTOP)
 	$(if $(filter $1,start),
-		@$(call background,compass watch .,$0.log)
+		$(call background,compass watch .,$0.log)
 	,
-		@$(call kill_it,compass)
+		$(call kill_it,compass)
 	)
 endef
 
 define wordpress
 	@echo $(MSG_STARTSTOP)
 	$(if $(filter $1,start),
-		@$(call background,php -S localhost:8000 -c php.ini -t wordpress/,$0.log)
+		$(call background,php -S localhost:8000 -c php.ini -t wordpress/,$0.log)
 	,
-		@$(call kill_it,php -S localhost:8000)
+		$(call kill_it,php -S localhost:8000)
 	)
 endef
