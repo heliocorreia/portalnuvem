@@ -12,10 +12,6 @@
         @extend %compass-clearfix;
     }
 
-    .menu-item {
-        @extend %compass-inline-block;
-    }
-
     a {
         @extend %compass-inline-block;
         color: $color-menu-item;
@@ -24,6 +20,7 @@
 
 #hd--logo {
     @include span-columns(5);
+    line-height: 0;
 
     // override grid
     margin-left: columns(1);
@@ -31,24 +28,52 @@
     a {
         @extend %compass-hide-text;
         @extend %compass-inline-block;
-        @include icons-sprite(logo-138x26);
+        @include icons-sprite(logo-84x16);
+
+        @include at-breakpoint($media-layout-tablet) {
+            @include icons-sprite(logo-138x26);
+        }
     }
 }
 
 #hd--nav-social {
     @include span-columns(5 omega);
-    text-align: right;
 
     // override grid
     margin-right: columns(1);
 
-    .menu-item + .menu-item {
-        margin-left: pxtoem(50px);
+    .nav-menu {
+        text-align: justify;
+        line-height: 0;
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+        }
+    }
+
+    .menu-item {
+        @extend %compass-inline-block;
+    }
+
+    @include at-breakpoint($media-layout-tablet) {
+        .nav-menu {
+            text-align: right;
+
+            &::after {
+                content: none;
+            }
+        }
+
+        .menu-item + .menu-item {
+            margin-left: pxtoem(50px);
+        }
     }
 }
 
 $nav-main-margin-top: 38px;
-$nav-main-a-padding-top: 40px;
+$nav-main-item-padding-top: 40px;
 #hd--nav-main {
     @extend %compass-border-sizing-border-box;
     @include span-columns(12);
@@ -60,14 +85,6 @@ $nav-main-a-padding-top: 40px;
     margin-right: columns(1);
     padding-right: columns(1);
     width: space(10) + gutter();
-
-    .menu-item + .menu-item {
-        margin-left: pxtoem(40px);
-
-        @include at-breakpoint($media-layout-desktop-small) {
-            margin-left: pxtoem(70px);
-        }
-    }
 
     .current-menu-item a {
         color: $color-menu-current-item;
@@ -81,13 +98,83 @@ $nav-main-a-padding-top: 40px;
             color: $color-menu-item-hover;
         }
     }
+
+    @include at-breakpoint($media-layout-tablet) {
+        .menu-item {
+            @include inline-block;
+        }
+
+        .menu-item + .menu-item {
+            margin-left: pxtoem(40px);
+
+            @include at-breakpoint($media-layout-desktop-small) {
+                margin-left: pxtoem(70px);
+            }
+        }
+    }
+}
+
+#nav-main--cb,
+#nav-search--cb {
+    position: absolute;
+    visibility: hidden;
+}
+
+@include at-breakpoint($media-layout-phone-tablet) {
+    #hd--nav-main > div {
+        padding-top: $nav-main-margin-top + $nav-main-item-padding-top / 2;
+    }
+
+    #hd--nav-main .menu-item {
+        display: none;
+    }
+
+    #nav-main--cb:checked + #hd--nav-main .menu-item {
+        display: block;
+    }
+}
+
+.nav-main--lb {
+    color: white;
+    display: inline-block;
+    font-size: 20px;
+    left: 0;
+    margin-left: columns(1);
+    padding-left: 17px;
+    text-transform: uppercase;
+
+    @include at-breakpoint($media-layout-tablet) {
+        display: none;
+    }
+
+    &::before {
+        $size: 1.5em;
+        @extend %compass-inline-block;
+        @include background-size(cover);
+        background: {
+            image: inline-image('menu.svg');
+            repeat: no-repeat;
+        }
+        content: '';
+        height: $size;
+        width: $size;
+        margin-right: $size / 2;
+    }
 }
 
 .nav-search--lb {
     margin-right: columns(1);
-    margin-top: icons-sprite-height(search-27x27) / -2;
     padding-right: 17px;
-    position: absolute;
     right: 0;
-    top: icons-sprite-height(logo-138x26) + $nav-main-margin-top + $nav-main-a-padding-top;
+    top: icons-sprite-height(logo-138x26) + $nav-main-margin-top + $nav-main-item-padding-top;
+}
+
+.nav-main--lb,
+.nav-search--lb {
+    margin-top: icons-sprite-height(search-27x27) / -2;
+    position: absolute;
+
+    @include at-breakpoint($media-layout-phone-tablet) {
+        top: icons-sprite-height(logo-138x26) + $nav-main-margin-top + $nav-main-item-padding-top / 2;
+    }
 }

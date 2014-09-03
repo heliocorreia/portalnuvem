@@ -29,6 +29,8 @@
                     'depth' => 1,
                 )); ?>
             </nav>
+            <label for="nav-main--cb" class="nav-main--lb">Menu</label>
+            <input id="nav-main--cb" name="nav[]" type="radio" />
             <nav id="hd--nav-main">
                 <?php wp_nav_menu(array(
                     'theme_location' => 'main',

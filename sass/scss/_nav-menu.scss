@@ -9,15 +9,59 @@
         }
     }
 
+    $max-width: max(
+        icons-sprite-width(mail-21x16),
+        icons-sprite-width(twitter-19x16),
+        icons-sprite-width(facebook-8x16)
+    );
+
     .slug-mail a {
-        @include icons-sprite(mail-27x24);
+        @include icons-sprite(mail-21x16);
+        $margin: ($max-width - icons-sprite-width(mail-21x16)) / 2;
+        margin-left: $margin;
+        margin-right: $margin;
     }
 
     .slug-twitter a {
-        @include icons-sprite(twitter-27x24);
+        @include icons-sprite(twitter-19x16);
+        $margin: ($max-width - icons-sprite-width(twitter-19x16)) / 2;
+        margin-left: $margin;
+        margin-right: $margin;
     }
 
     .slug-facebook a {
-        @include icons-sprite(facebook-27x24);
+        @include icons-sprite(facebook-8x16);
+        $margin: ($max-width - icons-sprite-width(facebook-8x16)) / 2;
+        margin-left: $margin;
+        margin-right: $margin;
+    }
+
+    @include at-breakpoint($media-layout-tablet) {
+        $max-width: max(
+            icons-sprite-width(mail-21x16),
+            icons-sprite-width(twitter-19x16),
+            icons-sprite-width(facebook-8x16)
+        );
+
+        .slug-mail a {
+            @include icons-sprite(mail-27x24);
+            $margin: ($max-width - icons-sprite-width(mail-21x16)) / 2;
+            margin-left: $margin;
+            margin-right: $margin;
+        }
+
+        .slug-twitter a {
+            @include icons-sprite(twitter-27x24);
+            $margin: ($max-width - icons-sprite-width(twitter-19x16)) / 2;
+            margin-left: $margin;
+            margin-right: $margin;
+        }
+
+        .slug-facebook a {
+            @include icons-sprite(facebook-27x24);
+            $margin: ($max-width - icons-sprite-width(facebook-8x16)) / 2;
+            margin-left: $margin;
+            margin-right: $margin;
+        }
     }
 }
