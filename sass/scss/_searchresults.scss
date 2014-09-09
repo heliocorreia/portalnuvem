@@ -14,6 +14,10 @@
 
 .search--query {
     @include span-columns(8, 10);
+
+    @include at-breakpoint($media-layout-phone-tablet) {
+        @include span-columns(10, 10);
+    }
 }
 
 .search--submit {
@@ -22,6 +26,11 @@
     color: $color-bg;
     cursor: pointer;
     text-transform: uppercase;
+
+    @include at-breakpoint($media-layout-phone-tablet) {
+        @include remove-omega;
+        @include span-columns(10, 10);
+    }
 }
 
 .searchresult--entry {
