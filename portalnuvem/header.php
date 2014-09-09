@@ -29,8 +29,12 @@
                     'depth' => 1,
                 )); ?>
             </nav>
-            <label for="nav-main--cb" class="nav-main--lb">Menu</label>
+            <input id="nav-default--cb" name="nav[]" type="radio" <?php if (!is_search()): ?>checked="checked"<?php endif ?> />
             <input id="nav-main--cb" name="nav[]" type="radio" />
+            <input id="nav-search--cb" name="nav[]" type="radio" <?php if (is_search()): ?>checked="checked"<?php endif ?> />
+
+            <label for="nav-default--cb" class="nav-main-default--lb"></label>
+            <label for="nav-main--cb" class="nav-main--lb"></label>
             <nav id="hd--nav-main">
                 <?php wp_nav_menu(array(
                     'theme_location' => 'main',

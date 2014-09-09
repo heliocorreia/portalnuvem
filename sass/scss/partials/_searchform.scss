@@ -1,8 +1,5 @@
-#nav-search--cb {
-    display: none;
-}
-
-.nav-search--lb {
+.nav-search--lb,
+.nav-search-default--lb {
     @extend %compass-inline-block;
 
     &::before {
@@ -17,10 +14,6 @@
     clear: both;
     display: none;
     position: relative;
-
-    #nav-search--cb:checked ~ & {
-        display: block;
-    }
 }
 
 .search--fieldset {

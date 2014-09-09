@@ -1,5 +1,5 @@
 <label for="nav-search--cb" class="nav-search--lb"></label>
-<input id="nav-search--cb" name="nav[]" type="radio" <?php if (is_search()): ?>checked="checked"<?php endif ?> />
+<label for="nav-default--cb" class="nav-search-default--lb"></label>
 <form class="search--form" action="<?php bloginfo('url'); ?>">
     <fieldset class="search--fieldset">
         <input class="search--query" type="text" name="s" value="<?php esc_attr_e(stripslashes($_GET['s'])) ?>" />

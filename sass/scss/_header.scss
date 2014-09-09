@@ -91,8 +91,14 @@ $nav-main-item-padding-top: 40px;
     }
 
     a {
+        display: block;
+        padding: pxtoem(20px) 0;
         text-transform: uppercase;
-        padding: pxtoem(40px) 0;
+
+        @include at-breakpoint($media-layout-tablet) {
+            display: inline-block;
+            padding: pxtoem(40px) 0;
+        }
 
         &:hover {
             color: $color-menu-item-hover;
@@ -114,30 +120,59 @@ $nav-main-item-padding-top: 40px;
     }
 }
 
+#nav-default--cb,
 #nav-main--cb,
 #nav-search--cb {
     position: absolute;
     visibility: hidden;
 }
 
-@include at-breakpoint($media-layout-phone-tablet) {
-    #hd--nav-main > div {
-        padding-top: $nav-main-margin-top + $nav-main-item-padding-top / 2;
+#nav-default--cb:checked {
+    & ~ .nav-main-default--lb,
+    & ~ .nav-search-default--lb {
+        display: none;
     }
+}
 
-    #hd--nav-main .menu-item {
+#nav-search--cb:checked {
+    & ~ .nav-main-default--lb,
+    & ~ .nav-search--lb {
         display: none;
     }
 
-    #nav-main--cb:checked + #hd--nav-main .menu-item {
+    & ~ .search--form {
         display: block;
     }
 }
 
-.nav-main--lb {
+@include at-breakpoint($media-layout-phone-tablet) {
+    #hd--nav-main {
+        & > div {
+            padding-top: $nav-main-margin-top + $nav-main-item-padding-top / 2;
+        }
+
+        & .menu-item {
+            display: none;
+        }
+    }
+
+    #nav-main--cb:checked {
+        & ~ .nav-main--lb,
+        & ~ .nav-search-default--lb {
+            display: none;
+        }
+
+        & ~ #hd--nav-main .menu-item {
+            display: block;
+        }
+    }
+}
+
+.nav-main--lb,
+.nav-main-default--lb {
     color: white;
     display: inline-block;
-    font-size: 20px;
+    font-size: pxtoem(18px);
     left: 0;
     margin-left: columns(1);
     padding-left: 17px;
@@ -160,9 +195,14 @@ $nav-main-item-padding-top: 40px;
         width: $size;
         margin-right: $size / 2;
     }
+
+    &::after {
+        content: 'Menu';
+    }
 }
 
-.nav-search--lb {
+.nav-search--lb,
+.nav-search-default--lb {
     margin-right: columns(1);
     padding-right: 17px;
     right: 0;
@@ -170,7 +210,9 @@ $nav-main-item-padding-top: 40px;
 }
 
 .nav-main--lb,
-.nav-search--lb {
+.nav-main-default--lb,
+.nav-search--lb,
+.nav-search-default--lb {
     margin-top: icons-sprite-height(search-27x27) / -2;
     position: absolute;
 
