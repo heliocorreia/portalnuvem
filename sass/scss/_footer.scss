@@ -1,3 +1,5 @@
+$sponsorship-padding-lines: 3;
+
 #ft {
     @extend %font-montserrat-700;
     border-bottom: 5px solid $color-border-hd;
@@ -95,44 +97,73 @@
 #ft--copy,
 #ft--made-in {
     @include at-breakpoint($media-layout-phone-desktop-small) {
-        @include padding-trailer(3);
         padding-top: pxtoem(icons-sprite-height(logo-black-138x26)) + rhythm();
     }
 }
 
 #ft--copy {
+    @include padding-trailer(3);
     $font-size: 14px;
+    text-align: center;
 
     &::before {
-        @extend %compass-inline-block;
         @include icons-sprite(logo-black-138x26);
+        @include margin-trailer(1);
         content: '';
-        margin-right: pxtoem(28px, $font-size);
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    @include at-breakpoint($media-layout-phone-desktop-small) {
+    @include at-breakpoint($media-layout-tablet) {
         @include span-columns(6, 12);
         position: relative;
+        text-align: left;
 
         &::before {
-            display: block;
             position: absolute;
+            margin: 0 pxtoem(28px, $font-size) 0 0;
             top: 0;
         }
     }
 
     @include at-breakpoint($media-layout-desktop-small) {
         @include pre(1, 12);
+        @include span-columns(7, 12);
         bottom: 0;
         font-size: pxtoem($font-size);
         position: absolute;
         text-transform: none;
+
+        &::before {
+            display: inline-block;
+            position: static;
+        }
     }
 }
 
 #ft--made-in {
-    @include at-breakpoint($media-layout-phone-desktop-small) {
+    @include stretch-x;
+    bottom: - rhythm($sponsorship-padding-lines * 1.5);
+    color: $color-bg;
+    font-weight: normal;
+    padding-bottom: 0;
+    text-align: center;
+
+    &::before {
+        content: '❤';
+        margin-right: .5em;
+    }
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include padding-trailer(3);
         @include span-columns(6 omega, 12);
+        bottom: auto;
+        color: $color-text;
+        font-weight: 700;
+        left: auto;
+        position: static;
+        right: auto;
         text-align: right;
     }
 
@@ -159,37 +190,70 @@
     color: $color-bg;
 
     .sponsorship {
-        $padding-lines: 3;
-        @include padding-leader($padding-lines);
-        @include padding-trailer($padding-lines + $label-margin-trailer-lines);
+        @include padding-leader($sponsorship-padding-lines * 2);
+        @include padding-trailer($sponsorship-padding-lines + $label-margin-trailer-lines);
         @include span-columns(12 omega);
         position: relative;
-    }
+        text-align: center;
 
-    .sponsorship-label {
-        @include margin-trailer($label-margin-trailer-lines);
+        @include at-breakpoint($media-layout-tablet) {
+            @include padding-leader($sponsorship-padding-lines);
+            text-align: left;
+        }
+
+        @include at-breakpoint($media-layout-desktop-small) {
+            @include span-columns(10 omega, 12);
+            @include pre(1, 12);
+            @include post(1, 12);
+        }
     }
 
     .sponsorship-incentive {
-        @include span-columns(9);
+        @include margin-trailer(3);
 
-        .entity {
-            @include margin-trailer(1);
-            float: left;
+        @include at-breakpoint($media-layout-tablet) {
+            @include margin-trailer(0);
+            @include span-columns(9, 12);
 
-            & + .entity {
-                margin-left: gutter(10);
+            .entity {
+                @include margin-trailer(1);
+                float: left;
+
+                & + .entity {
+                    margin-left: gutter(10);
+                }
+            }
+        }
+
+        @include at-breakpoint($media-layout-desktop-large) {
+            .sponsorship-incentive {
+                .entity + .entity {
+                    margin-left: columns(1, 10) + gutter(10);
+                }
             }
         }
     }
 
     .sponsorship-realization {
-        @include span-columns(3 omega);
+        @include at-breakpoint($media-layout-tablet) {
+            @include span-columns(3 omega, 12);
+        }
+    }
+
+    .sponsorship-label {
+        @include at-breakpoint($media-layout-tablet) {
+            @include margin-trailer($label-margin-trailer-lines);
+        }
     }
 
     .entity-entry {
         @extend %compass-hide-text;
         @extend %compass-inline-block;
+        @include margin-leader(1);
+
+        @include at-breakpoint($media-layout-tablet) {
+            @include margin-leader(0);
+        }
     }
 
     $entity-entry-list: funcultura fundarpe secretaria-pe nuvem-gm;
@@ -199,34 +263,6 @@
 
             @include at-breakpoint($media-layout-desktop-large) {
                 @include icons-sprite(normal-#{$item});
-            }
-        }
-    }
-
-    @include at-breakpoint($media-layout-tablet) {
-        .sponsorship-incentive {
-            @include span-columns(9, 12);
-        }
-
-        .sponsorship-realization {
-            @include span-columns(3 omega, 12);
-        }
-    }
-
-    @include at-breakpoint($media-layout-desktop-small) {
-        @include margin-leader(2);
-
-        .sponsorship {
-            @include span-columns(10 omega, 12);
-            @include pre(1, 12);
-            @include post(1, 12);
-        }
-    }
-
-    @include at-breakpoint($media-layout-desktop-large) {
-        .sponsorship-incentive {
-            .entity + .entity {
-                margin-left: columns(1, 10) + gutter(10);
             }
         }
     }
