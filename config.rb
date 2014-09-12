@@ -1,5 +1,6 @@
 # Require any additional compass plugins here.
 require "animation"
+require 'sass-getunicode'
 require "susy"
 
 project_type = :stand_alone

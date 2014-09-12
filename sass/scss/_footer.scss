@@ -151,7 +151,7 @@ $sponsorship-padding-lines: 3;
     text-align: center;
 
     &::before {
-        content: '❤';
+        content: getUnicode('❤');
         margin-right: .5em;
     }
 

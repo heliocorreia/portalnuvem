@@ -12,6 +12,8 @@ GEM
       sass (~> 3.2.19)
     fssm (0.2.10)
     sass (3.2.19)
+    sass-getunicode (1.0)
+      sass (>= 3)
     scss-lint (0.7.0)
       colorize
       sass
@@ -26,5 +28,6 @@ DEPENDENCIES
   animation
   compass (~> 0.12.6)
   sass
+  sass-getunicode
   scss-lint
   susy
