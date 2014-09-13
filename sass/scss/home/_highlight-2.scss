@@ -15,12 +15,14 @@ $highlight-2-bottom-offset: 45px;
 }
 
 .highlight-2-figure {
-    @include translateY(-50%);
-    left: 50%;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    top: 50%;
+    @include at-breakpoint($media-layout-tablet) {
+        @include translateY(-50%);
+        left: 50%;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: 50%;
+    }
 
     @include at-breakpoint($media-layout-desktop-small) {
         @include translateY(0);
@@ -30,17 +32,23 @@ $highlight-2-bottom-offset: 45px;
 }
 
 .highlight-2-img {
-    height: 100%;
     margin: 0 auto;
     max-height: 100%;
     width: auto;
+
+    @include at-breakpoint($media-layout-tablet) {
+        height: 100%;
+    }
 }
 
 .highlight-2-quote,
 .highlight-2-author {
-    @include pre(1);
-    @include span-columns(5);
     text-align: center;
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include pre(1, 12);
+        @include span-columns(5, 12);
+    }
 }
 
 .highlight-2-quote {
