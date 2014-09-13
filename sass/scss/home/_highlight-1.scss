@@ -55,12 +55,12 @@
 
 .home-highlight-1-pretitle,
 .home-highlight-1-title {
-    @include span-columns(6);
-    text-align: right;
+    text-align: center;
 
     @include at-breakpoint($media-layout-tablet) {
         @include pre(2, 12);
         @include span-columns(4, 12);
+        text-align: right;
     }
 }
 
@@ -90,10 +90,12 @@ $home-highlight-1-pretitle-margin-bottom: 10px;
 }
 
 .home-highlight-1-figure-2 {
-    @include span-columns(4);
-    @include translateY(-40%);
-    position: relative;
-    top: - pxtoem($home-highlight-1-pretitle-font-size + $home-highlight-1-pretitle-margin-bottom);
+    @include at-breakpoint($media-layout-tablet) {
+        @include span-columns(4, 12);
+        @include translateY(-40%);
+        position: relative;
+        top: - pxtoem($home-highlight-1-pretitle-font-size + $home-highlight-1-pretitle-margin-bottom);
+    }
 }
 
 .home-highlight-1-figure-2-link {
