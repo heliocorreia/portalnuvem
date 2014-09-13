@@ -7,7 +7,13 @@
         .#{$item} {
             @extend %compass-hide-text;
             @extend %compass-inline-block;
-            @include partners-sprite($item);
+            @include partners-sprite(#{$item}-small);
+
+            @include at-breakpoint($media-layout-tablet) {
+                @include partners-sprite($item);
+                background-position-x: center;
+                max-width: 100%;
+            }
         }
     }
 
@@ -28,14 +34,17 @@
 
 .home-partners-items {
     @extend %compass-clearfix;
-    @include pre(1);
-    @include span-columns(10 omega);
-    @include post(1);
     text-align: center;
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include pre(1, 12);
+        @include span-columns(10 omega, 12);
+        @include post(1, 12);
+    }
 }
 
 .home-partners-item {
-    @include span-columns(4);
+    @include span-columns(4, 12);
 
     &:nth-child(3n + 3) {
         @include omega;
