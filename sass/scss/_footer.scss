@@ -25,16 +25,28 @@ $sponsorship-padding-lines: 3;
 #ft--nav-footer {
     $font-size: 14px;
 
-    .menu-item + .menu-item {
-        margin-left: pxtoem(24px);
-    }
-
     a {
         color: $color-menu-item-ft;
         font-size: pxtoem($font-size);
 
         &:hover {
             color: $color-menu-item-ft-hover;
+        }
+    }
+
+    @include at-breakpoint($media-layout-phone-tablet) {
+        .menu-item {
+            @include span-columns(4, 12);
+            text-align: center;
+
+            &:nth-child(3n + 1) {
+                text-align: left;
+            }
+
+            &:nth-child(3n) {
+                @include omega;
+                text-align: right
+            }
         }
     }
 
@@ -45,9 +57,30 @@ $sponsorship-padding-lines: 3;
         padding: pxtoem(20px);
     }
 
+    @include at-breakpoint($media-layout-tablet-desktop-small) {
+        .nav-menu {
+            text-align: justify;
+            line-height: 0;
+
+             &::after {
+                content: '';
+                display: inline-block;
+                width: 100%;
+            }
+        }
+
+        .menu-item {
+            line-height: 1;
+        }
+    }
+
     @include at-breakpoint($media-layout-desktop-small) {
         @include pre(1, 12);
         @include span-columns(7, 12);
+
+        .menu-item + .menu-item {
+             margin-left: pxtoem(24px);
+        }
     }
 }
 
