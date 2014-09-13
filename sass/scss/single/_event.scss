@@ -20,13 +20,15 @@ $event--entry-context: 7;
 }
 
 .event--figure {
-    @include span-columns(3, $event--entry-context);
+    @include at-breakpoint($media-layout-tablet) {
+        @include span-columns(3, $event--entry-context);
 
-    & ~ .event--title,
-    & ~ .event--posttitle,
-    & ~ .event--subtitle,
-    & ~ .event--site {
-        @include span-columns(4 omega, $event--entry-context);
+        & ~ .event--title,
+        & ~ .event--posttitle,
+        & ~ .event--subtitle,
+        & ~ .event--site {
+            @include span-columns(4 omega, $event--entry-context);
+        }
     }
 }
 
