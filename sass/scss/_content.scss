@@ -97,9 +97,12 @@
 }
 
 .content--entry {
-    @include pre(1);
-    @include span-columns(9);
     @include margin-trailer(2);
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include pre(1, 12);
+        @include span-columns(9, 12);
+    }
 
     @include at-breakpoint($media-layout-desktop-small) {
         @include span-columns(7, 12);
@@ -107,7 +110,9 @@
 }
 
 .content--figure {
-    @include span-columns(4, 8);
+    @include at-breakpoint($media-layout-tablet) {
+        @include span-columns(4, 8);
+    }
 }
 
 .content--image-link {
@@ -123,7 +128,9 @@
 .content--title,
 .content--subtitle {
     .content--figure ~ & {
-        @include span-columns(4 omega, 8);
+        @include at-breakpoint($media-layout-tablet) {
+            @include span-columns(4 omega, 8);
+        }
     }
 }
 
