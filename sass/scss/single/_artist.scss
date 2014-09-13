@@ -130,17 +130,28 @@
 }
 
 .artist--entry {
-    @include span-columns(5);
+    @include span-columns(6);
     @include margin-trailer(2);
-
-    &:nth-of-type(2n+1) {
-        @include pre(1);
-        clear: both;
-    }
 
     &:nth-of-type(2n) {
         @include omega;
-        @include post(1);
+    }
+
+    &:nth-of-type(2n+1) {
+        clear: both;
+    }
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include span-columns(5, 12);
+
+        &:nth-of-type(2n+1) {
+            @include pre(1, 12);
+        }
+
+        &:nth-of-type(2n) {
+            @include omega;
+            @include post(1, 12);
+        }
     }
 
     @include at-breakpoint($media-layout-desktop-small) {
