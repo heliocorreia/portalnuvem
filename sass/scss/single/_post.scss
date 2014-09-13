@@ -14,11 +14,15 @@
 
 $single-post-content-font-size: 22px;
 $single-post-content-grid-context: 10;
+
 %single-post--content-grid {
     @include adjust-font-size-to($single-post-content-font-size);
     @include padding-leader(4, $single-post-content-font-size);
-    @include span-columns(5, $single-post-content-grid-context);
-    @include pre(1);
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include span-columns(5, $single-post-content-grid-context);
+        @include pre(1, $single-post-content-grid-context);
+    }
 }
 
 %single-post--content {
@@ -35,8 +39,10 @@ $single-post-content-grid-context: 10;
 .single-post--content {
     @extend %single-post--content;
 
-    & > p {
-        @include post(2, $single-post-content-grid-context);
+    @include at-breakpoint($media-layout-tablet) {
+        & > p {
+            @include post(2, $single-post-content-grid-context);
+        }
     }
 
     blockquote {
@@ -47,7 +53,7 @@ $single-post-content-grid-context: 10;
             @extend %font-vollkorn-normal-italic;
             @include adjust-font-size-to(38px, $from-size:$single-post-content-font-size);
             color: $color-text-alternate;
-            margin-left: gutter();
+            margin-left: gutter($single-post-content-grid-context);
         }
     }
 }
@@ -57,7 +63,10 @@ $single-post--aside-font-size: 26px;
     $font-size: 22px;
     @include adjust-font-size-to($font-size);
     @include padding-leader(4, $font-size);
-    @include span-columns(4 omega, $single-post-content-grid-context);
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include span-columns(4 omega, $single-post-content-grid-context);
+    }
 
     h1 {
         @extend %font-montserrat-700;
@@ -98,7 +107,10 @@ $single-post--aside-font-size: 26px;
 }
 
 .single-post--social {
-    @include pre(1);
-    @include post(1);
     clear: both;
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include pre(1, $single-post-content-grid-context);
+        @include post(1, $single-post-content-grid-context);
+    }
 }

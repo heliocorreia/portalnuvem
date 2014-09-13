@@ -4,12 +4,14 @@
     @include adjust-font-size-to(18px);
     @include trailer;
 
-    // override grid
-    margin-left: columns(1);
-    width: space(10) + gutter();
-
     text-align: center;
     text-transform: uppercase;
+
+    @include at-breakpoint($media-layout-tablet) {
+        // override grid
+        margin-left: columns(1, 12);
+        width: space(10, 12) + gutter(12);
+    }
 
     @include at-breakpoint($media-layout-desktop-small) {
         @include leader;

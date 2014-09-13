@@ -4,29 +4,35 @@
 .content-hd--container {
     @extend %susy-container;
 
-    position: relative;
+    @include at-breakpoint($media-layout-tablet) {
+        position: relative;
 
-    &::before {
-        @extend %compass-inline-block;
-        @include rotate(-25deg);
-        border: pxtoem(4px) solid $color-home-news-bar;
-        top: pxtoem(240px);
-        content: '';
-        position: absolute;
-        right: 0;
-        width: pxtoem(923px);
-    }
+        &::before {
+            @extend %compass-inline-block;
+            @include rotate(-25deg);
+            border: pxtoem(4px) solid $color-home-news-bar;
+            top: pxtoem(240px);
+            content: '';
+            position: absolute;
+            right: 0;
+            width: pxtoem(923px);
+        }
 
-    & ~ &::before {
-        content: none;
+        & ~ &::before {
+            content: none;
+        }
     }
 }
 
 .content-hd--pretitle,
 .content-hd--title,
 .content-hd--content {
-    @include pre(1);
-    @include span-columns(10);
+    @include span-columns(12 omega);
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include pre(1, 12);
+        @include span-columns(10, 12);
+    }
 }
 
 .content-hd--pretitle,

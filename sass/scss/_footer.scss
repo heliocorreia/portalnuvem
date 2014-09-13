@@ -3,8 +3,11 @@ $sponsorship-padding-lines: 3;
 #ft {
     @extend %font-montserrat-700;
     border-bottom: 5px solid $color-border-hd;
-    padding-top: pxtoem(133px);
     text-transform: uppercase;
+
+    @include at-breakpoint($media-layout-tablet) {
+        padding-top: pxtoem(133px);
+    }
 
     .container {
         position: relative;

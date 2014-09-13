@@ -2,11 +2,13 @@
     position: relative;
 
     &::before {
-        @include stretch;
-        background: $color-bg-aside;
-        border-bottom: rhythm(8) $color-bg solid;
-        content: "";
-        z-index: -1;
+        @include at-breakpoint($media-layout-tablet) {
+            @include stretch;
+            background: $color-bg-aside;
+            border-bottom: rhythm(8) $color-bg solid;
+            content: "";
+            z-index: -1;
+        }
 
         @include at-breakpoint($media-layout-desktop-small) {
             border-bottom-width: rhythm(7);
@@ -27,21 +29,24 @@
     $lines: 3;
 
     @extend %font-montserrat-700;
-    @include padding-leader($lines, $font-size);
-    @include padding-trailer($lines, $font-size);
     font-size: pxtoem($font-size);
     text-align: center;
     text-transform: uppercase;
 
-    &::before {
-        background: $color-bg;
-        content: "";
-        height: rhythm($lines + 1 + $lines, $font-size);
-        margin-top: - rhythm($lines, $font-size);
-        left: 0;
-        position: absolute;
-        right: 0;
-        z-index: -1;
+    @include at-breakpoint($media-layout-tablet) {
+        @include padding-leader($lines, $font-size);
+        @include padding-trailer($lines, $font-size);
+
+        &::before {
+            background: $color-bg;
+            content: "";
+            height: rhythm($lines + 1 + $lines, $font-size);
+            margin-top: - rhythm($lines, $font-size);
+            left: 0;
+            position: absolute;
+            right: 0;
+            z-index: -1;
+        }
     }
 }
 
@@ -50,16 +55,25 @@
 }
 
 .single-aside--item {
-    @include span-columns(3);
+    @include pre(1);
+    @include post(1);
+    @include margin-trailer(2);
 
-    &:first-child {
-        @include pre(1);
-        margin-right: (columns(1) / 2) + (gutter() / 2) + gutter();
-    }
+    @include at-breakpoint($media-layout-tablet) {
+        @include span-columns(3, 12);
+        @include margin-trailer(0);
+        @include pre(0);
+        @include post(0);
 
-    &:nth-child(3n) {
-        @include omega;
-        @include post(1);
+        &:first-child {
+            @include pre(1, 12);
+            margin-right: (columns(1, 12) / 2) + (gutter(12) / 2) + gutter(12);
+        }
+
+        &:nth-child(3n) {
+            @include omega;
+            @include post(1, 12);
+        }
     }
 }
 
@@ -67,7 +81,12 @@
 
 .single-aside--pretitle,
 .single-aside--title {
+    text-align: center;
     text-transform: uppercase;
+
+    @include at-breakpoint($media-layout-tablet) {
+        text-align: left;
+    }
 }
 
 .single-aside--pretitle {
