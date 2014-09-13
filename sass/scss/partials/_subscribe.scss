@@ -12,8 +12,12 @@
     @extend %compass-pie-clearfix;
     @extend %font-montserrat-normal;
     @include padding-leader(3);
-    @include padding-trailer(2);
+    @include padding-trailer(5);
     position: relative;
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include padding-trailer(2);
+    }
 
     &.js-loading {
         .input--submit {
@@ -34,7 +38,10 @@
 
     p {
         @include margin-trailer;
-        @include span-columns(6);
+
+        @include at-breakpoint($media-layout-tablet) {
+            @include span-columns(6, 12);
+        }
     }
 
     label,
@@ -98,10 +105,12 @@
     clear: both;
 
     & > p {
-        @include nth-omega(2n);
-
         &:last-of-type {
-            @include span-columns(12);
+            @include span-columns(12 omega);
+        }
+
+        @include at-breakpoint($media-layout-tablet) {
+            @include nth-omega(2n);
         }
     }
 }
@@ -128,13 +137,19 @@
 }
 
 .subscribe--agreement-label-y {
-    @include span-columns(6 omega);
-    bottom: rhythm(2);
+    bottom: rhythm(1);
     display: none;
+    left: 0;
+    margin-bottom: 10px;
     position: absolute;
     right: 0;
     text-align: center;
-    margin-bottom: 10px;
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include span-columns(6 omega, 12);
+        bottom: rhythm(1);
+        left: auto;
+    }
 }
 
 .subscribe--agreement-label-n {
