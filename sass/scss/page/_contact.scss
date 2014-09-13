@@ -1,8 +1,5 @@
-//.content-bd--container {
-//    @include susy-grid-background;
-//}
-
 $page-contact-grid-context: 10;
+
 .page-contact--content {
     @extend %font-montserrat-normal;
     @include pre(1);
@@ -11,9 +8,12 @@ $page-contact-grid-context: 10;
 }
 
 .page-contact--entry {
-    @include span-columns(5, $page-contact-grid-context);
-    @include nth-omega(2n);
     @include margin-trailer(3);
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include span-columns(5, $page-contact-grid-context);
+        @include nth-omega(2n);
+    }
 }
 
 .page-contact--title,
@@ -40,12 +40,16 @@ $page-contact-grid-context: 10;
 
     p {
         @include margin-trailer;
-        @include span-columns(5, $page-contact-grid-context);
+        @include at-breakpoint($media-layout-tablet) {
+            @include span-columns(5, $page-contact-grid-context);
+        }
     }
 
     & > p {
         &:last-of-type {
-            @include span-columns(4 omega, $page-contact-grid-context);
+            @include at-breakpoint($media-layout-tablet) {
+                @include span-columns(4 omega, $page-contact-grid-context);
+            }
         }
     }
 
@@ -82,17 +86,22 @@ $page-contact-grid-context: 10;
     @extend %compass-clearfix;
     clear: both;
 
-    p {
-        @include nth-omega(2n);
-
-        &:last-of-type {
-            @include span-columns($page-contact-grid-context omega, $page-contact-grid-context);
-        }
+    & + p {
+        @include adjust-font-size-to(20px);
     }
 
-    & + p {
-        @include span-columns(4, $page-contact-grid-context);
-        @include adjust-font-size-to(20px);
+    @include at-breakpoint($media-layout-tablet) {
+        p {
+            @include nth-omega(2n);
+
+            &:last-of-type {
+                @include span-columns($page-contact-grid-context omega, $page-contact-grid-context);
+            }
+        }
+
+        & + p {
+            @include span-columns(4, $page-contact-grid-context);
+        }
     }
 }
 
