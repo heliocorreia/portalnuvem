@@ -17,6 +17,10 @@
             padding-top: 0;
         }
     }
+
+    @include at-breakpoint($media-layout-phone-tablet) {
+        @include margin-trailer(4);
+    }
 }
 
 .home-highlight-1-container {
