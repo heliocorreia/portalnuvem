@@ -9,7 +9,11 @@
 
 .artist--filter-states,
 .artist--filter-letters {
-    @include margin-trailer(6);
+    @include margin-trailer(2);
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include margin-trailer(6);
+    }
 
     @include at-breakpoint($media-layout-desktop-small) {
         @include margin-trailer(8);
@@ -24,13 +28,16 @@
     @extend %compass-border-radius;
     @extend %compass-border-sizing-border-box;
     @extend %font-montserrat-normal;
-    @include pre(1);
-    @include span-columns(4);
     background: $color-bg;
     border: 2px solid #BCBCBC;
     padding: $top $right $bottom $left;
     position: relative;
     margin-top: - ($top / 2);
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include pre(1, 12);
+        @include span-columns(4, 12);
+    }
 
     &:hover {
         cursor: pointer;
@@ -69,6 +76,7 @@
     display: none;
     padding: 1em;
     position: absolute;
+    z-index: 1;
 }
 
 .artist--filter-state-item,
@@ -98,9 +106,13 @@
 
 .artist--filter-letters {
     @extend %font-montserrat-normal;
-    @include span-columns(6 omega);
-    @include post(1);
+    @extend %compass-pie-clearfix;
     text-transform: uppercase;
+
+    @include at-breakpoint($media-layout-tablet) {
+        @include span-columns(6 omega, 12);
+        @include post(1, 12);
+    }
 }
 
 .artist--filter-letter {
