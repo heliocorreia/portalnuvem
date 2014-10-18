@@ -15,9 +15,9 @@
 $single-post-content-font-size: 22px;
 $single-post-content-grid-context: 10;
 
+
 %single-post--content-grid {
     @include adjust-font-size-to($single-post-content-font-size);
-    @include padding-leader(4, $single-post-content-font-size);
 
     @include at-breakpoint($media-layout-tablet) {
         @include span-columns(5, $single-post-content-grid-context);
@@ -62,7 +62,6 @@ $single-post--aside-font-size: 26px;
 .single-post--aside {
     $font-size: 22px;
     @include adjust-font-size-to($font-size);
-    @include padding-leader(4, $font-size);
 
     @include at-breakpoint($media-layout-tablet) {
         @include span-columns(4 omega, $single-post-content-grid-context);
@@ -97,8 +96,11 @@ $single-post--aside-font-size: 26px;
 }
 
 .single-post--post-thumbnail {
-    @include margin-leader(-4);
     @include margin-trailer(2);
+
+    @include at-breakpoint($media-layout-desktop-small) {
+        @include margin-leader(-4);
+    }
 
     .wp-caption-text {
         @extend %font-montserrat-normal;

@@ -87,11 +87,15 @@
         height: pxtoem($min-height);
         z-index: -10;
     }
+
+    @include padding-leader(4);
+    &::before {
+        @include margin-leader(-4);
+    }
 }
 
 .content-bd--container {
     @extend %susy-container;
-    @include padding-leader(4);
     position: relative;
     z-index: 10;
 }
