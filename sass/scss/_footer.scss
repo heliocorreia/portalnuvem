@@ -91,7 +91,13 @@ $sponsorship-padding-lines: 3;
         padding: $menu-item-padding;
         position: relative;
 
-        &::before {
+        & + .menu-item {
+            margin-left: pxtoem(20px);
+        }
+    }
+
+    a {
+        &::after {
             @extend %compass-inline-block;
             @extend %compass-border-radius-50;
             @extend %compass-stretch;
@@ -100,12 +106,8 @@ $sponsorship-padding-lines: 3;
             z-index: -1;
         }
 
-        &:hover::before {
+        &:hover::after {
             background: $color-menu-item-ft-hover;
-        }
-
-        & + .menu-item {
-            margin-left: pxtoem(20px);
         }
     }
 
