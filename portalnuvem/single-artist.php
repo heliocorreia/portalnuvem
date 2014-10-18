@@ -18,7 +18,7 @@ $post_thumbnail_id = get_post_thumbnail_id();
     </div>
 </header>
 
-<section class="single-artist">
+<section class="single-artist--bd">
     <div class="single-artist--container">
         <article class="single-artist--content">
             <?php the_content(); ?>

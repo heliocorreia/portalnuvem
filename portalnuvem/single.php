@@ -8,7 +8,7 @@
     </div>
 </header>
 
-<div class="single-post">
+<div class="single-post--bd">
     <div class="single-post--container">
         <article class="single-post--content">
             <?php the_content(); ?>

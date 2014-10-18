@@ -7,7 +7,7 @@
     </div>
 </header>
 
-<section class="single-article">
+<section class="single-article--bd">
     <div class="single-article--container">
         <article class="single-article--content">
             <time class="single-article--datetime"><?php the_time('d M/ Y'); ?></time>
