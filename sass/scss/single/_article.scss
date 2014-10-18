@@ -42,7 +42,9 @@
 }
 
 .single-article--aside-photo284x284 {
-    @include margin-leader(-5);
+    @include at-breakpoint($media-layout-tablet) {
+        @include margin-leader(-5);
+    }
 }
 
 .single-article--aside-description {
