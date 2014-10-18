@@ -4,11 +4,14 @@
 .content-hd--container {
     @extend %susy-container;
 
+    &::before {
+        @extend %compass-inline-block;
+    }
+
     @include at-breakpoint($media-layout-tablet) {
         position: relative;
 
         &::before {
-            @extend %compass-inline-block;
             @include rotate(-25deg);
             border: pxtoem(4px) solid $color-home-news-bar;
             top: pxtoem(240px);
