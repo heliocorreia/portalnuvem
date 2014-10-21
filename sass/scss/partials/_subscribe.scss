@@ -51,7 +51,9 @@
 
     & > p {
         &:last-of-type {
-            @include omega;
+            @include at-breakpoint($media-layout-tablet) {
+                @include omega;
+            }
         }
     }
 
@@ -158,8 +160,13 @@
     @include icons-sprite(close);
     position: absolute;
     right: 0;
+    top: icons-sprite-height(close) / -2;
 
     .subscribe--form & {
         padding: 0;
+    }
+
+    @include at-breakpoint($media-layout-tablet) {
+        top: auto;
     }
 }
